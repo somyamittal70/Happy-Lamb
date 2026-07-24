@@ -1,60 +1,96 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Phone, Mail } from "lucide-react";
+
+const INK = "#000000";
+const GOLD = "#FFC72C";
 
 export default function TeamCTA() {
   return (
     <section
-      className="relative w-full overflow-hidden px-6 py-24 lg:px-[96px] lg:py-32"
-      style={{ backgroundColor: "#ffffff" }}
+      className="relative w-full overflow-hidden py-14 sm:py-20 bg-black px-6 sm:px-10 lg:px-16 border-t border-neutral-100"
+      style={{ fontFamily: "'Inter', sans-serif" }}
     >
-      <p
-        className="font-mono text-[12px] tracking-[0.25em]"
-        style={{ color: "#c98f00" }}
-      >
-        SCENE 04 — JOIN THE PRODUCTION
-      </p>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap');
+        .display-font { font-family: 'Anton', sans-serif; }
+      `}</style>
 
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="mt-5 max-w-2xl font-display uppercase leading-[0.94]"
-        style={{ color: "#111111", fontSize: "clamp(2.1rem, 5vw, 4rem)" }}
-      >
-        Let's disscuse make something cool together
-      </motion.h2>
-
-      <motion.p
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="mt-5 max-w-md font-body text-[15px] leading-relaxed"
-        style={{ color: "#5a5a5a" }}
-      >
-        We're always open to meeting directors, DOPs, editors, and producers who
-        care about the craft as much as we do.
-      </motion.p>
-
-      <motion.a
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        whileHover={{ y: -2 }}
-        whileTap={{ scale: 0.98 }}
-        href="/contact"
-        className="group mt-10 inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-mono text-[12px] tracking-[0.2em]"
-        style={{ backgroundColor: "#111111", color: "#ffffff" }}
-      >
-        <span>GET IN TOUCH</span>
-        <ArrowUpRight
-          size={15}
-          className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          style={{ color: "#ffba00" }}
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://i.pinimg.com/control1/1200x/53/b0/27/53b027de56295e89a773d411cd4256a2.jpg"
+          alt="Production set backdrop"
+          className="w-full h-full object-cover grayscale"
         />
-      </motion.a>
+      </div>
+
+      {/* Centered Ambient Glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255,199,44,0.22) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
+
+        {/* Main Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="display-font mt-6 text-white uppercase tracking-tight leading-[0.94]"
+          style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)" }}
+        >
+          Got a project?
+          <br />
+          Let's shoot it.
+        </motion.h2>
+
+        {/* Action Button & Contact Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-10 flex flex-col items-center gap-8"
+        >
+          <motion.a
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            href="/contact"
+            className="group inline-flex items-center gap-3 rounded-full px-10 py-5 text-sm font-bold tracking-[0.15em] uppercase transition-shadow shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/15"
+            style={{ backgroundColor: GOLD, color: INK }}
+          >
+            Start a project
+            <ArrowUpRight
+              size={18}
+              className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+            />
+          </motion.a>
+
+          {/* Contact Details */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/70 font-medium">
+            <a
+              href="mailto:hello@happylamb.com"
+              className="inline-flex items-center gap-2 hover:text-black transition-colors"
+            >
+              <Mail size={15} style={{ color: "#FFFFFF" }} />
+              hello@happylamb.com
+            </a>
+            <span className="hidden sm:inline text-black/20">•</span>
+            <a
+              href="tel:+919876543210"
+              className="inline-flex items-center gap-2 hover:text-black transition-colors"
+            >
+              <Phone size={15} style={{ color: "#FFFFFF" }} />
+              +91 98765 43210
+            </a>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
