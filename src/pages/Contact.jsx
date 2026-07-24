@@ -1,6 +1,6 @@
 import ContactHero from "../components/contact/ContactHero";
 import ContactForm from "../components/contact/ContactForm";
-import ContactInfo from "../components/contact/ContactInfo";
+// import ContactInfo from "../components/contact/ContactInfo";
 import ContactMap from "../components/contact/ContactMap";
 import FAQ from "../components/contact/FAQ"
 
@@ -12,15 +12,9 @@ import FAQ from "../components/contact/FAQ"
 export default function ContactPage() {
   return (
     <main >
- 
-
       <ContactHero />
-
-      
         <ContactForm />
-        <ContactInfo />
-      
-
+        {/* <ContactInfo /> */}
       <ContactMap />
       <FAQ/>
     </main>
