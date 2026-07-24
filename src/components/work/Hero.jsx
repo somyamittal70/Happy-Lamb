@@ -1,5 +1,13 @@
-import { motion } from "framer-motion";
-import { ArrowUpRight, Play, Sparkles, Film, Eye, Filter } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight, Play, Sparkles, Film, Filter, Clapperboard } from "lucide-react";
+
+/**
+ * Design tokens — grounded in the Happy Lamb Production identity
+ */
+const INK = "#0A0A0A";       // Deep charcoal/black
+const LAMB_GOLD = "#FFC72C"; // Exact studio gold-yellow
+const PAPER = "#F3EFE4";     // Warm cream accent
+// const CLIENTS = ["ICICI BANK", "GODREJ", "JCB INDIA", "BAJAJ V", "UPSTOX"];
 
 // Portfolio Key Metrics
 const WORK_STATS = [
@@ -9,72 +17,106 @@ const WORK_STATS = [
   { label: "Combined Views", value: "15M+" },
 ];
 
+// High-impact cinema camera background
+const BG_IMAGE = "7.png";
+
+// Filmstrip Ticker Component
+const FilmstripTicker = () => {
+  const reduceMotion = useReducedMotion();
+  const row = (
+    <div className="flex shrink-0 items-center gap-10 pr-10">
+      {CLIENTS.map((c, i) => (
+        <span key={i} className="flex items-center gap-3 text-xs font-bold tracking-[0.25em] text-[#17140F] whitespace-nowrap">
+          {c}
+          <span className="h-1.5 w-1.5 rounded-full bg-[#17140F]/50" />
+        </span>
+      ))}
+    </div>
+  );
+
+  return (
+    <div
+      className="relative w-full overflow-hidden border-y-2 border-[#17140F] shadow-lg"
+      style={{
+        background: LAMB_GOLD,
+        backgroundImage:
+          "radial-gradient(circle, rgba(23,20,15,0.6) 1.8px, transparent 1.8px)",
+        backgroundSize: "14px 100%",
+        backgroundPosition: "0 4px, 0 calc(100% - 4px)",
+        backgroundRepeat: "repeat-x",
+      }}
+    >
+      <div className="flex items-center py-3 px-2">
+        <div className={reduceMotion ? "flex" : "flex animate-[hlp-scroll_28s_linear_infinite]"}>
+          {row}
+          {row}
+        </div>
+      </div>
+      <style>{`
+        @keyframes hlp-scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+      `}</style>
+    </div>
+  );
+};
+
 export default function WorkHero() {
   return (
-    <section className="relative w-full bg-[#0f1012] text-white pt-32 pb-20 overflow-hidden border-b border-white/10">
+    <section className="relative w-full text-[#F3EFE4] overflow-hidden bg-black">
       
-      {/* Background Cinematic Glows */}
-      <div className="absolute top-0 left-1/3 h-[500px] w-[500px] rounded-full bg-amber-500/10 blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-0 right-10 h-72 w-72 rounded-full bg-amber-600/5 blur-[140px] pointer-events-none" />
+      {/* Background Image Layer with Vignette Overlays */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={BG_IMAGE}
+          alt="Studio film set background"
+          className="h-full w-full object-cover object-center scale-105"
+        />
+      </div>
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
-        
-        {/* Top Status & Tag Header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-400"
-          >
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>Complete Filmography</span>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300 backdrop-blur-md"
-          >
-            <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
-            <span>Updated 2026 Archive</span>
-          </motion.div>
-        </div>
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 pt-16 pb-24 relative z-10">
 
         {/* Hero Main Grid */}
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
           
-          {/* Left Column: Heading & Description (Spans 7 cols) */}
-          <div className="lg:col-span-7">
+          {/* Left Column — Headline & Narrative */}
+          <div className="lg:col-span-7 space-y-6">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-6xl font-black tracking-tight leading-[1.1]"
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="font-black uppercase leading-[0.98] tracking-tight text-white"
+              style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
             >
-              Selected Works & <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500">Cinematic Stories.</span>
+              Selected works &
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
+                cinematic stories
+              </span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl"
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-base sm:text-lg text-[#F3EFE4]/80 leading-relaxed max-w-2xl font-light"
             >
-              Explore our complete collection of commercial films, high-speed automotive spots, music videos, and travel documentaries filmed across 15+ countries.
+              Explore our complete collection of commercial ad films, high-speed automotive spots, music videos, and travel documentaries filmed across 15+ countries.
             </motion.p>
 
             {/* Quick Action Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 flex flex-wrap items-center gap-4"
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="pt-4 flex flex-wrap items-center gap-4"
             >
               <a
                 href="#featured-grid"
-                className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-black shadow-lg hover:bg-amber-300 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-[#17140F] shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-transform"
+                style={{ background: LAMB_GOLD }}
               >
                 <Filter className="h-4 w-4" />
                 <span>Filter Projects</span>
@@ -82,83 +124,34 @@ export default function WorkHero() {
 
               <a
                 href="#showreel"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/10 transition-colors backdrop-blur-md"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/10 hover:border-amber-400/40 transition-all"
               >
-                <Play className="h-3.5 w-3.5 fill-white" />
+                <Play className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                 <span>Play 2026 Showreel</span>
               </a>
             </motion.div>
           </div>
-
-          {/* Right Column: Showreel Highlight Frame (Spans 5 cols) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="lg:col-span-5 relative group"
-          >
-            <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/10 bg-[#16171b]">
-              <img
-                src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1000&auto=format&fit=crop"
-                alt="Showreel Preview"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f1012] via-transparent to-black/40" />
-
-              {/* Badge Overlay Top */}
-              <div className="absolute top-4 inset-x-4 flex items-center justify-between">
-                <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-black/60 px-3 py-1 text-xs font-medium text-amber-400 backdrop-blur-md">
-                  <Film className="h-3.5 w-3.5" />
-                  <span>2026 Director's Cut</span>
-                </span>
-                <span className="text-xs font-mono font-medium text-white/80 bg-black/70 px-2.5 py-0.5 rounded-md backdrop-blur-md">
-                  02:30
-                </span>
-              </div>
-
-              {/* Central Play Trigger */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.a
-                  whileHover={{ scale: 1.1 }}
-                  href="#showreel"
-                  aria-label="Play Reel"
-                  className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-400 text-black shadow-2xl"
-                >
-                  <Play className="h-7 w-7 fill-black translate-x-0.5" />
-                </motion.a>
-              </div>
-
-              {/* Bottom Details Bar */}
-              <div className="absolute bottom-4 inset-x-4 rounded-2xl border border-white/10 bg-black/70 p-4 backdrop-blur-md flex items-center justify-between text-xs">
-                <div>
-                  <span className="font-bold text-white block">Official Master Reel</span>
-                  <span className="text-slate-400">RED V-Raptor 8K & Anamorphic</span>
-                </div>
-                <ArrowUpRight className="h-4 w-4 text-amber-400" />
-              </div>
-            </div>
-          </motion.div>
-
         </div>
 
-        {/* Bottom Filmography Numbers Bar */}
+        {/* Bottom Metrics Bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6 pt-10 border-t border-white/10"
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 pt-10 border-t border-white/10"
         >
           {WORK_STATS.map((stat, idx) => (
-            <div key={idx} className="flex flex-col">
-              <span className="text-3xl sm:text-5xl font-black font-mono text-amber-400">
+            <div key={idx} className="flex flex-col space-y-1">
+              <span className="font-black text-3xl sm:text-5xl tracking-tight" style={{ color: LAMB_GOLD }}>
                 {stat.value}
               </span>
-              <span className="mt-1 text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider">
+              <span className="text-xs sm:text-sm font-semibold text-white/60 uppercase tracking-wider">
                 {stat.label}
               </span>
             </div>
           ))}
         </motion.div>
+
       </div>
     </section>
   );
