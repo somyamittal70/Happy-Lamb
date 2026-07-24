@@ -29,7 +29,7 @@ export default function ContactHero() {
         /> */}
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 lg:grid-cols-12">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-6 lg:grid-cols-12">
         
         {/* Left Column — Text Manifesto */}
         <div className="lg:col-span-7 space-y-6">
