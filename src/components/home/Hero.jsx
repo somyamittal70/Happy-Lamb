@@ -19,16 +19,16 @@ export default function LuxuryHero() {
   const [isMuted, setIsMuted] = useState(true);
 
   return (
-    <section className="relative min-h-screen w-full text-white overflow-hidden bg-[#0A0B0D]">
+    <section className="relative min-h-screen w-full text-white overflow-hidden">
 
       {/* FULL-SCREEN BACKGROUND IMAGE WITH GRADIENT OVERLAY */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.pexels.com/photos/24702547/pexels-photo-24702547.jpeg"
+          src="6.png"
           alt="Happy Lamb Production - Cinematic Production Background"
-          className="h-full w-full object-cover object-center scale-105 filter brightness-[0.45] contrast-125"
+          className="h-full w-full object-cover object-center scale-105 filter "
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/60" />
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/60" /> */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0D] via-transparent to-black/80" />
       </div>
 
@@ -60,7 +60,7 @@ export default function LuxuryHero() {
               <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                href="#showreel"
+                href="/blogs"
                 className="group inline-flex items-center gap-3 rounded-xl px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-black shadow-xl"
                 style={{ background: BRAND.goldGradient }}
               >
@@ -71,10 +71,10 @@ export default function LuxuryHero() {
               <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                href="#projects"
+                href="/work"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white/10"
               >
-                <span>View Our Projects</span>
+                <span>View Our Work</span>
               </motion.a>
             </div>
           </motion.div>

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote, Sparkles, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Quote, Sparkles, ChevronLeft, ChevronRight, Star, Building2 } from "lucide-react";
 
-// Client Feedback Data
 const REVIEWS = [
   {
     id: 1,
@@ -39,159 +38,107 @@ const REVIEWS = [
   },
 ];
 
-export default function TestimonialsLight() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const slideVariants = {
+  enter: (dir) => ({ x: dir > 0 ? 60 : -60, opacity: 0, scale: 0.98 }),
+  center: { x: 0, opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
+  exit: (dir) => ({ x: dir < 0 ? 60 : -60, opacity: 0, scale: 0.98, transition: { duration: 0.3 } }),
+};
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % REVIEWS.length);
-  };
+export default function GlassTestimonials() {
+  const [[page, direction], setPage] = useState([0, 0]);
+  const currentIndex = Math.abs(page % REVIEWS.length);
 
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
-  };
-
+  const paginate = (newDir) => setPage([page + newDir, newDir]);
   const activeReview = REVIEWS[currentIndex];
 
   return (
-    <section className="relative w-full bg-[#f8f9fa] text-slate-900 py-24 overflow-hidden border-t border-b border-slate-200">
-      
-      {/* Background Lighting Accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-amber-500/10 blur-[180px] pointer-events-none" />
+    <section className="relative w-full bg-gradient-to-b from-slate-50 via-white to-slate-100 py-24 text-slate-900 overflow-hidden">
+      {/* Dynamic Background Glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-amber-200/30 blur-[130px] rounded-full pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         
-        {/* Header Block */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-600"
-          >
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>Client Endorsements</span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900"
-          >
-            Trusted by Directors & <span className="text-amber-500">Brands</span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-slate-600 text-sm sm:text-base max-w-xl"
-          >
-            Here is what global agency heads, commercial clients, and creative leads have to say about working together.
-          </motion.p>
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-50 border border-amber-200/60 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5" /> Client Praise
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-black text-slate-900 mt-3 tracking-tight">
+            Trusted by Industry <span className="text-amber-500">Leaders</span>
+          </h2>
         </div>
 
-        {/* Featured Testimonial Card */}
-        <div className="mt-16 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 shadow-xl"
-          >
-            {/* Top Row: Quote Icon & Rating */}
-            <div className="flex items-center justify-between border-b border-slate-100 pb-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-amber-400">
-                <Quote className="h-6 w-6" />
+        {/* Floating Card */}
+        <div className="mt-14 max-w-3xl mx-auto">
+          <div className="relative rounded-3xl bg-white/80 backdrop-blur-xl border border-slate-200/70 p-8 sm:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.07)]">
+            
+            {/* Top Bar */}
+            <div className="flex items-center justify-between pb-6 border-b border-slate-100">
+              <div className="p-3 rounded-2xl bg-slate-900 text-amber-400 shadow-md">
+                <Quote className="w-6 h-6" />
               </div>
-
-              {/* Star Rating */}
-              <div className="flex items-center gap-1">
+              <div className="flex gap-1 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200/60">
                 {[...Array(activeReview.rating)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
             </div>
 
-            {/* Testimonial Quote Text with Animation */}
-            <div className="mt-8 min-h-[140px] flex items-center">
-              <AnimatePresence mode="wait">
+            {/* Quote Body */}
+            <div className="py-8 min-h-[150px] flex items-center overflow-hidden">
+              <AnimatePresence custom={direction} mode="wait">
                 <motion.p
-                  key={activeReview.id}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-lg sm:text-2xl font-semibold leading-relaxed text-slate-800"
+                  key={page}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="text-xl sm:text-2xl font-medium text-slate-800 leading-relaxed italic"
                 >
                   "{activeReview.quote}"
                 </motion.p>
               </AnimatePresence>
             </div>
 
-            {/* Bottom Row: Author Bio & Project Tag */}
-            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-              
-              {/* Author Profile */}
+            {/* Footer */}
+            <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <img
-                  src={activeReview.avatar}
-                  alt={activeReview.author}
-                  className="h-14 w-14 rounded-full object-cover border-2 border-amber-400"
-                />
+                <img src={activeReview.avatar} alt={activeReview.author} className="w-13 h-13 rounded-full object-cover ring-2 ring-amber-400/80" />
                 <div>
-                  <h3 className="text-base font-bold text-slate-900">{activeReview.author}</h3>
-                  <p className="text-xs text-slate-500 font-medium">
-                    {activeReview.role} • <span className="text-slate-700 font-semibold">{activeReview.company}</span>
-                  </p>
+                  <h4 className="font-bold text-slate-900 text-base">{activeReview.author}</h4>
+                  <p className="text-xs text-slate-500 font-medium">{activeReview.role} • <span className="text-slate-800">{activeReview.company}</span></p>
                 </div>
               </div>
 
-              {/* Project Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-1.5 text-xs font-semibold text-slate-700 self-start sm:self-auto">
-                <span className="h-2 w-2 rounded-full bg-amber-500" />
-                <span>{activeReview.project}</span>
+              <div className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700">
+                {activeReview.project}
               </div>
             </div>
 
-            {/* Slide Navigation Buttons */}
+            {/* Controls */}
             <div className="mt-8 flex items-center justify-between pt-4">
-              
-              {/* Slide Counter Dots */}
-              <div className="flex items-center gap-2">
-                {REVIEWS.map((_, idx) => (
+              <div className="flex gap-2">
+                {REVIEWS.map((_, i) => (
                   <button
-                    key={idx}
-                    onClick={() => setCurrentIndex(idx)}
-                    className={`h-2.5 rounded-full transition-all ${
-                      currentIndex === idx ? "w-8 bg-amber-500" : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                    }`}
+                    key={i}
+                    onClick={() => setPage([i, i > currentIndex ? 1 : -1])}
+                    className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? "w-8 bg-amber-500" : "w-2 bg-slate-200"}`}
                   />
                 ))}
               </div>
 
-              {/* Arrow Controls */}
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={prevTestimonial}
-                  aria-label="Previous Testimonial"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition-all hover:bg-slate-900 hover:text-amber-400 hover:border-slate-900"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={nextTestimonial}
-                  aria-label="Next Testimonial"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition-all hover:bg-slate-900 hover:text-amber-400 hover:border-slate-900"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
+              <div className="flex gap-2">
+                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => paginate(-1)} className="p-3 rounded-full bg-slate-100 hover:bg-slate-900 hover:text-white transition-colors">
+                  <ChevronLeft className="w-5 h-5" />
+                </motion.button>
+                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => paginate(1)} className="p-3 rounded-full bg-slate-100 hover:bg-slate-900 hover:text-white transition-colors">
+                  <ChevronRight className="w-5 h-5" />
+                </motion.button>
               </div>
             </div>
 
-          </motion.div>
+          </div>
         </div>
 
       </div>
