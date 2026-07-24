@@ -24,7 +24,7 @@ const PALETTE = {
 };
 
 const MAP_URL =
-  "https://www.google.com/maps?q=Happy+Lamb+Production+OPC+PVT.+LTD,+505,+5th+Floor,+Bhoomi+Building,+Cama+Estate,+Behind+Future+Studio,+Goregaon+East,+Mumbai+400063";
+  "https://www.google.com/maps?q=Happy+Lamb+Production+OPC+PVT.+LTD,+505,+5th+Floor,+Bhoomi+Building,+Cama+Estate,+Behind+Future+Studio,+Goregaon+East,+Mumbai+400063&output=embed";
 const EMBED_URL = `${MAP_URL}&output=embed`;
 
 export default function ContactMap() {

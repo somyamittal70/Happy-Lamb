@@ -38,19 +38,21 @@ const CONTACT_DETAILS = [
   {
     icon: Mail,
     label: "Email Us",
-    value: "hello@happylamb.com",
-    href: "mailto:hello@happylamb.com",
+    value: "info@happylamb.in",
+    href: "mailto:info@happylamb.in",
   },
   {
     icon: Phone,
     label: "Call Us",
-    value: "+91 98765 43210",
-    href: "tel:+919876543210",
+    value: "+91  9820778491",
+    href: "tel:+919820778491",
   },
   {
     icon: MapPin,
     label: "Studio Hub",
-    value: "Mumbai, Maharashtra",
+    value: `Happy Lamb Production OPC PVT.LTD GSTN : 27AAGCH9980B1ZC
+505, 5th Floor, Bhoomi Building, Sanjay Nagar Co.Op. Society
+Cama Estate, Behind Future Studio, Goregoan (E.), Mumbai :- 400063`,
     href: "#",
   },
 ];
