@@ -264,7 +264,7 @@ export default function HireSection() {
           <motion.button
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
-            className="px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider flex items-center gap-3 shadow-lg shadow-amber-500/20 transition-all duration-300 whitespace-nowrap text-black relative z-10"
+            className="px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center gap-3 shadow-lg shadow-amber-500/20 transition-all duration-300 whitespace-nowrap text-black relative z-10"
             style={{ background: LAMB_GOLD }}
           >
             Start A Project

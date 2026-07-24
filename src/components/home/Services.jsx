@@ -310,7 +310,7 @@ export default function ServicesDark() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="/contact"
-            className="relative z-10 shrink-0 inline-flex items-center gap-3 rounded-full bg-amber-400 px-9 py-4 text-xs font-bold uppercase tracking-widest text-black shadow-[0_0_20px_rgba(251,191,36,0.3)] hover:bg-amber-300 transition-colors"
+            className="relative z-10 shrink-0 inline-flex items-center gap-3 rounded-xl bg-amber-400 px-9 py-4 text-xs font-bold uppercase tracking-widest text-black shadow-[0_0_20px_rgba(251,191,36,0.3)] hover:bg-amber-300 transition-colors"
           >
             <span>Start a Project</span>
             <ArrowUpRight className="h-4 w-4" />

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Film, ArrowUpRight, Sparkles, Award } from "lucide-react";
 
 // Paper-dossier palette
-const PAPER = "#F3EFE4";
+const PAPER = "#FFFFFF";
 const INK = "#17140F";
 const LAMB_GOLD = "#FFC72C";
 const LAMB_GOLD_DEEP = "#B9860A";
@@ -169,7 +169,7 @@ export default function LightShowroomCollaborations() {
 
                   <a
                     href="#projects"
-                    className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-transform hover:-translate-y-0.5 shadow-md"
+                    className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-transform hover:-translate-y-0.5 shadow-md"
                     style={{ background: INK, color: PAPER }}
                   >
                     View Project

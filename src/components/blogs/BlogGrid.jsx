@@ -65,7 +65,7 @@ export default function BlogGrid({ active = "All" }) {
       `}</style>
 
       {posts.length > 0 ? (
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+        <div className="max-w-7xl px-12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
           {posts.map((post) => (
             <a key={post.title} href="#" className="group block">
               <div className="rounded-md overflow-hidden mb-4">

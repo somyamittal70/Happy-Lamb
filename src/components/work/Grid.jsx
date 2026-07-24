@@ -2,6 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Eye, Play, Sparkles, Filter, Search, SlidersHorizontal } from "lucide-react";
 
+const INK = "#17140F";
+const GOLD = "#FFC72C";
+const DEEP_GOLD = "#B9860A"; // text-safe variant of GOLD for use on light backgrounds
+
 // Platform SVGs
 const SVGIcons = {
   youtube: (
@@ -123,16 +127,16 @@ export default function WorkGridLight() {
   });
 
   return (
-    <section id="featured-grid" className="relative w-full bg-[#f8f9fa] text-slate-900 py-24 overflow-hidden border-t border-b border-slate-200">
-      
+    <section id="featured-grid" className="relative w-full bg-neutral-50 text-[#17140F] py-24 overflow-hidden border-t border-b border-neutral-200">
+
       {/* Background Accent */}
-      <div className="absolute top-1/4 right-0 h-96 w-96 rounded-full bg-amber-500/10 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 h-96 w-96 rounded-xl bg-[#FFC72C]/10 blur-[160px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
-        
+
         {/* Controls Bar: Filter Pills + Search Input */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-slate-200 pb-8">
-          
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-neutral-200 pb-8">
+
           {/* Category Pills */}
           <div className="flex flex-wrap items-center gap-2">
             {CATEGORIES.map((cat) => {
@@ -141,11 +145,12 @@ export default function WorkGridLight() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
+                  className={`rounded-xl px-5 py-2.5 text-xs font-bold transition-all ${
                     isActive
-                      ? "bg-slate-900 text-amber-400 shadow-md"
-                      : "bg-white text-slate-600 hover:bg-slate-200 hover:text-slate-900 border border-slate-200"
+                      ? "shadow-md"
+                      : "bg-white text-neutral-600 hover:bg-neutral-100 hover:text-[#17140F] border border-neutral-200"
                   }`}
+                  style={isActive ? { backgroundColor: INK, color: GOLD } : undefined}
                 >
                   {cat}
                 </button>
@@ -155,13 +160,16 @@ export default function WorkGridLight() {
 
           {/* Search Box */}
           <div className="relative w-full lg:w-72">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
             <input
               type="text"
               placeholder="Search by title, client, or tag..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-full border border-slate-200 bg-white pl-10 pr-4 py-2.5 text-xs font-medium text-slate-800 placeholder-slate-400 focus:border-amber-500 focus:outline-none shadow-xs"
+              className="w-full rounded-xl border border-neutral-200 bg-white pl-10 pr-4 py-2.5 text-xs font-medium text-[#17140F] placeholder-neutral-400 focus:outline-none shadow-xs"
+              style={{ borderColor: undefined }}
+              onFocus={(e) => (e.target.style.borderColor = GOLD)}
+              onBlur={(e) => (e.target.style.borderColor = "")}
             />
           </div>
         </div>
@@ -177,40 +185,61 @@ export default function WorkGridLight() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="group relative rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-400/50 transition-all flex flex-col justify-between"
+                className="group relative rounded-xl border border-neutral-200 bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
+                style={{ "--hover-border": `${GOLD}80` }}
+                onMouseEnter={(e) => (e.currentTarget.style.borderColor = `${GOLD}80`)}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "")}
               >
                 {/* Media Header */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+                <div className="relative aspect-[16/10] w-full overflow-hidden" style={{ backgroundColor: INK }}>
                   <img
                     src={project.thumbnail}
                     alt={project.title}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-black/30" />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `linear-gradient(to top, rgba(23,20,15,0.8) 0%, transparent 55%, rgba(23,20,15,0.3) 100%)`,
+                    }}
+                  />
 
                   {/* Top Badges */}
                   <div className="absolute top-4 inset-x-4 flex items-center justify-between">
-                    <span className="rounded-full bg-slate-900/80 px-3 py-1 text-[11px] font-semibold text-slate-200 backdrop-blur-md">
+                    <span
+                      className="rounded-xl px-3 py-1 text-[11px] font-semibold text-neutral-200 backdrop-blur-md"
+                      style={{ backgroundColor: `${INK}CC` }}
+                    >
                       {project.client}
                     </span>
-                    <span className="flex items-center gap-1 rounded-full bg-slate-900/80 px-2.5 py-1 text-[11px] font-semibold text-amber-400 backdrop-blur-md">
+                    <span
+                      className="flex items-center gap-1 rounded-xl px-2.5 py-1 text-[11px] font-semibold backdrop-blur-md"
+                      style={{ backgroundColor: `${INK}CC`, color: GOLD }}
+                    >
                       {SVGIcons[project.platform]}
                       <span className="capitalize">{project.platform}</span>
                     </span>
                   </div>
 
                   {/* Play Hover Trigger */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/40 backdrop-blur-xs">
+                  <div
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-xs"
+                    style={{ backgroundColor: `${INK}66` }}
+                  >
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-400 text-black shadow-lg"
+                      className="flex h-12 w-12 items-center justify-center rounded-xl shadow-lg"
+                      style={{ backgroundColor: GOLD }}
                     >
-                      <Play className="h-5 w-5 fill-black translate-x-0.5" />
+                      <Play className="h-5 w-5 translate-x-0.5" style={{ fill: INK, color: INK }} />
                     </motion.div>
                   </div>
 
                   {/* Duration Badge */}
-                  <div className="absolute bottom-3 right-3 text-[11px] font-mono font-semibold text-white/90 bg-slate-900/80 px-2 py-0.5 rounded-md backdrop-blur-md">
+                  <div
+                    className="absolute bottom-3 right-3 text-[11px] font-mono font-semibold text-white/90 px-2 py-0.5 rounded-xl backdrop-blur-md"
+                    style={{ backgroundColor: `${INK}CC` }}
+                  >
                     {project.duration}
                   </div>
                 </div>
@@ -218,12 +247,19 @@ export default function WorkGridLight() {
                 {/* Content Body */}
                 <div className="p-6 flex flex-col justify-between flex-1">
                   <div>
-                    <div className="flex items-center justify-between text-[11px] font-bold text-amber-600 uppercase tracking-wider">
+                    <div
+                      className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider"
+                      style={{ color: DEEP_GOLD }}
+                    >
                       <span>{project.category}</span>
-                      <span className="text-slate-400 font-mono">{project.year}</span>
+                      <span className="text-neutral-400 font-mono">{project.year}</span>
                     </div>
 
-                    <h3 className="mt-2 text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+                    <h3
+                      className="mt-2 text-lg font-bold text-[#17140F] transition-colors"
+                      onMouseEnter={(e) => (e.currentTarget.style.color = DEEP_GOLD)}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = INK)}
+                    >
                       {project.title}
                     </h3>
 
@@ -232,7 +268,7 @@ export default function WorkGridLight() {
                       {project.tags.map((tag, tIdx) => (
                         <span
                           key={tIdx}
-                          className="rounded-md bg-slate-100 px-2.5 py-1 text-[10px] font-semibold text-slate-600"
+                          className="rounded-xl bg-neutral-100 px-2.5 py-1 text-[10px] font-semibold text-neutral-600"
                         >
                           #{tag}
                         </span>
@@ -241,13 +277,18 @@ export default function WorkGridLight() {
                   </div>
 
                   {/* Footer Row */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                  <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-semibold text-neutral-500">
                     <span className="flex items-center gap-1.5">
-                      <Eye className="h-3.5 w-3.5 text-slate-400" />
+                      <Eye className="h-3.5 w-3.5 text-neutral-400" />
                       {project.views}
                     </span>
 
-                    <span className="inline-flex items-center gap-1 text-slate-900 group-hover:text-amber-600 transition-colors">
+                    <span
+                      className="inline-flex items-center gap-1 transition-colors"
+                      style={{ color: INK }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = DEEP_GOLD)}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = INK)}
+                    >
                       Watch Reel <ArrowUpRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
@@ -260,15 +301,16 @@ export default function WorkGridLight() {
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
-          <div className="mt-16 text-center py-12 rounded-3xl border border-slate-200 bg-white">
-            <p className="text-base font-bold text-slate-800">No projects found matching your search.</p>
-            <p className="mt-1 text-xs text-slate-500">Try clearing your filters or search keywords.</p>
+          <div className="mt-16 text-center py-12 rounded-xl border border-neutral-200 bg-white">
+            <p className="text-base font-bold text-[#17140F]">No projects found matching your search.</p>
+            <p className="mt-1 text-xs text-neutral-500">Try clearing your filters or search keywords.</p>
             <button
               onClick={() => {
                 setActiveCategory("All Projects");
                 setSearchQuery("");
               }}
-              className="mt-4 rounded-full bg-amber-400 px-6 py-2 text-xs font-bold text-black"
+              className="mt-4 rounded-xl px-6 py-2 text-xs font-bold"
+              style={{ backgroundColor: GOLD, color: INK }}
             >
               Reset Filters
             </button>

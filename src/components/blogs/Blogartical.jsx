@@ -18,7 +18,7 @@ export default function BlogArticle() {
       `}</style>
 
       {/* ===== Reading section — white/cream ===== */}
-      <div className="bg-[#faf7f0] text-[#1a1815] px-6 sm:px-8 md:px-12 pt-8 md:pt-14 pb-16">
+      <div className="bg-[#faf7f0] max-w-7xl text-[#1a1815] px-12  pt-8 md:pt-14 pb-16">
 
         {/* back link */}
         <div className="max-w-3xl mx-auto mb-8">

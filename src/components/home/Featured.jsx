@@ -239,7 +239,7 @@ export default function FeaturedWork() {
         >
           <a
             href="/work"
-            className="group relative inline-flex items-center gap-3 rounded-full border border-amber-400/30 bg-white/[0.04] px-9 py-4 text-xs font-bold uppercase tracking-widest text-[#F3EFE4] backdrop-blur-md transition-all duration-300 hover:bg-amber-400 hover:text-black hover:border-amber-400 shadow-xl"
+            className="group relative inline-flex items-center gap-3 rounded-xl border border-amber-400/30 bg-white/[0.04] px-9 py-4 text-xs font-bold uppercase tracking-widest text-[#F3EFE4] backdrop-blur-md transition-all duration-300 hover:bg-amber-400 hover:text-black hover:border-amber-400 shadow-xl"
           >
             <span>Explore All Work</span>
             <ArrowUpRight className="h-4 w-4 text-amber-400 group-hover:text-black transition-colors" />

@@ -175,7 +175,7 @@ export default function AboutLuxury() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-xs font-bold uppercase tracking-widest text-neutral-950 shadow-md hover:shadow-lg transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 text-xs font-bold uppercase tracking-widest text-neutral-950 shadow-md hover:shadow-lg transition-all"
                 style={{ background: LAMB_GOLD_BG }}
               >
                 <span>Explore more</span>

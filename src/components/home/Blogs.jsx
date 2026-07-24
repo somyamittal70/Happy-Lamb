@@ -104,7 +104,7 @@ export default function BlogSection() {
           >
             <a
               href="/blog"
-              className="group inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-[#FFC72C] hover:border-[#FFC72C] hover:shadow-md transition-all duration-300"
+              className="group inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-[#FFC72C] hover:border-[#FFC72C] hover:shadow-md transition-all duration-300"
             >
               <span>View All Articles</span>
               <ArrowUpRight className="h-4 w-4 text-slate-500 group-hover:text-amber-600 transition-colors" />
@@ -242,11 +242,11 @@ export default function BlogSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full rounded-full border border-slate-200 bg-white px-4 py-2 text-xs text-slate-800 placeholder-slate-400 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 shadow-inner"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs text-slate-800 placeholder-slate-400 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 shadow-inner"
                 />
                 <button
                   type="submit"
-                  className="shrink-0 rounded-full bg-slate-900 px-4 py-2 text-xs font-bold text-white hover:bg-amber-600 transition-colors flex items-center gap-1.5 shadow-sm"
+                  className="shrink-0 rounded-xl bg-slate-900 px-4 py-2 text-xs font-bold text-white hover:bg-amber-600 transition-colors flex items-center gap-1.5 shadow-sm"
                 >
                   <span>Join</span>
                   <Send className="h-3 w-3" />
