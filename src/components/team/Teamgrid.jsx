@@ -7,52 +7,66 @@ const TEAM = [
     role: "Editor",
     tag: "",
     img: "/Deepak-Gupta.webp",
-    desc:"",
+    desc: "",
   },
   {
     name: "Dilip Gupta",
     role: "Founder",
     tag: null,
     img: "/dilip.webp",
-    desc:"",
+    desc: "",
   },
   {
     name: "Kapil Rawat",
     role: "Delhi Executive Director",
     tag: "Founding",
     img: "/Kapil_Rawat.webp",
-    desc:"",
+    desc: "",
   },
   {
     name: "Prince Mishra",
     role: "Creative Director",
     tag: null,
     img: "/Prince_Mishra.webp",
-    desc:"",
+    desc: `   Objective: Excel and establish value in the film &amp; TV industry.
+                                <br><br>
+                                Traits: Team coordination,communication, self-motivation, organization,
+                                problem-solving, creativity, adaptability, composure under pressure. <br><br>
+                                Experience: 5 years in media as a Creative. Proficient in artist handling, channel
+                                interactions, script breakdown, set creation, look tests, synopsis prep, and approvals. <br><br>
+                                Skills: Analyzing scene properties for scene requirements and artist looks. `,
   },
   {
     name: "Ratnesh Yadav",
     role: "Colorist & Editor",
     tag: null,
     img: "/Ratnesh-Yadav.webp",
-    desc:"",
+    desc: "",
   },
   {
     name: "Sarvashreshth ray",
     role: "Film Directive",
     tag: null,
     img: "/sarvesh.webp",
-    desc:"",
+    desc: `  Sarvashreshth ray carrier begin in 2014-15 he started a carrier with TV SHOWS ek haseena thi from Star
+                                Plus as an intership then I joined qubool hain as a assistant director..i assist mr
+                                amandeep Singh..i done  lots of tv shows the biggest show is POURS for Sony TV there i learned lots of things   like vfx cg how to
+                                handle animal this was Indian biggest shows …i got a big break and big opportunity from
+                                mr.vaibhav
+                                Singh who gave me name on tv screen as director the show name is apna time bhi aayega..this is big
+                                opportunity from me .. after this I growing up as a director.`,
   },
   {
     name: "Memon Shadap Razzak",
     role: "Head Editor",
     tag: null,
     img: "/Memon_Shadap_Razzak.webp",
-    desc:"",
+    desc: ` 6 years exp. Video Editor: Films, Tata Sky, Times of India, Web series.
+                                Asst. Video Editor: Nachle with Saroj Khan, Coffee with Karan, etc.
+                                Film Assistant: Maximum,The Maya Tape, Rave Party, GUBBARE.
+                                Current: Video Editor at PIXELLD STUDIO since Oct 2019.
+                                <br><br> Skills: FCP, Adobe Premiere Pro, DaVinci Resolve.`,
   },
- 
-
 ];
 
 export default function TeamCards() {
