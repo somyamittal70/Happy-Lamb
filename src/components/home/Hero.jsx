@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, ArrowUpRight, Sparkles, Volume2, VolumeX, ShieldCheck, Film, Info } from "lucide-react";
+import {
+  Play,
+  ArrowUpRight,
+  Sparkles,
+  Volume2,
+  VolumeX,
+  ShieldCheck,
+  Film,
+  Info,
+} from "lucide-react";
 
 // Brand Tokens
 const BRAND = {
   gold: "#FFC72C",
-  goldGradient: "linear-gradient(135deg, #FFF099 0%, #F1A80A 50%, #996500 100%)",
+  goldGradient:
+    "linear-gradient(135deg, #FFF099 0%, #F1A80A 50%, #996500 100%)",
 };
 
 // Stats sourced from the Happy Lamb Production company dossier
@@ -20,7 +30,6 @@ export default function LuxuryHero() {
 
   return (
     <section className="relative min-h-screen w-full text-white overflow-hidden">
-
       {/* FULL-SCREEN BACKGROUND IMAGE WITH GRADIENT OVERLAY */}
       <div className="absolute inset-0 z-0">
         <img
@@ -33,10 +42,8 @@ export default function LuxuryHero() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 pt-8 pb-16 min-h-screen flex flex-col justify-between">
-
         {/* HERO CONTENT GRID */}
         <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8">
-
           {/* LEFT COLUMN: MAIN HEADLINE & COPY */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -44,15 +51,16 @@ export default function LuxuryHero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
-            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.05] uppercase">
+            <h1 className="font-heading text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.05] uppercase">
               VISUAL STORIES <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
                 WITHOUT BOUNDARIES
               </span>
             </h1>
 
-            <p className="mt-6 text-base sm:text-lg text-zinc-300 font-light max-w-xl leading-relaxed">
-              Mumbai-based creative studio delivering films, design, photography, animation, advertising, and digital storytelling.
+            <p className="font-body mt-6 text-base sm:text-lg text-zinc-300 font-light max-w-xl leading-relaxed">
+              Mumbai-based creative studio delivering films, design,
+              photography, animation, advertising, and digital storytelling.
             </p>
 
             {/* ACTION BUTTONS */}
@@ -93,7 +101,9 @@ export default function LuxuryHero() {
                 key={idx}
                 className="flex flex-col items-center border-b sm:border-b-0 sm:border-r border-white/10 last:border-0 pb-4 sm:pb-0"
               >
-                <span className="text-3xl font-extrabold text-amber-400">{stat.value}</span>
+                <span className="text-3xl font-extrabold text-amber-400">
+                  {stat.value}
+                </span>
                 <span className="text-xs uppercase tracking-wider text-zinc-400 font-medium mt-1">
                   {stat.label}
                 </span>
@@ -101,7 +111,6 @@ export default function LuxuryHero() {
             ))}
           </div>
         </motion.div>
-
       </div>
     </section>
   );
