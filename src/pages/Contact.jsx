@@ -16,13 +16,10 @@ export default function ContactPage() {
 
       <ContactHero />
 
-      <section
-        className="relative flex flex-col gap-16 px-6 py-24 lg:flex-row lg:gap-24 lg:px-[96px] lg:py-32"
-       
-      >
+      
         <ContactForm />
         <ContactInfo />
-      </section>
+      
 
       <ContactMap />
       <FAQ/>
