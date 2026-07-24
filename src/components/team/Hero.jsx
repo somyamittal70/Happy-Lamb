@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, Users, Award, Camera, ArrowUpRight, Film } from "lucide-react";
 
-const INK = "#17140F";
+const INK = "#0a0a0a";
 const LAMB_GOLD = "#FFC72C";
 
 // Cinema crew / studio background image
@@ -39,19 +39,6 @@ export default function TeamHero() {
         
         {/* Left Column — Manifesto */}
         <div className="lg:col-span-7 space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.25em] border backdrop-blur-md"
-            style={{
-              color: LAMB_GOLD,
-              borderColor: "rgba(255,199,44,0.3)",
-              background: "rgba(255,199,44,0.08)",
-            }}
-          >
-            <Sparkles className="w-3.5 h-3.5" /> The People Behind The Lens
-          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
