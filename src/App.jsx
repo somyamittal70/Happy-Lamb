@@ -2,16 +2,19 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
-import './App.css'
+import './App.css';
+import "./index.css";
 import Header from './components/layouts/Header'
 import Footer from './components/layouts/Footer'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/Home'
 import AboutPage from './pages/About'
 import WorkPage from './pages/OurWork'
+import ContactPage from "./pages/Contact";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
@@ -21,8 +24,8 @@ function App() {
         <Route path='/about' element={<AboutPage />} />
         <Route path='/work' element={<WorkPage />} />
         {/* <Route path='/team' element={<TeamPage />} />
-        <Route path='/blogs' element={<BlogsPage />} />
-        <Route path='/contact' element={<ContactPage />} /> */}
+        <Route path='/blogs' element={<BlogsPage />} /> */}
+        <Route path='/contact' element={<ContactPage />} />
     </Routes>
     <Footer />
     </>
@@ -30,3 +33,6 @@ function App() {
 }
 
 export default App
+
+
+
