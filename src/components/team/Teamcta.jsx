@@ -22,7 +22,7 @@ export default function TeamCTA() {
         className="mt-5 max-w-2xl font-display uppercase leading-[0.94]"
         style={{ color: "#111111", fontSize: "clamp(2.1rem, 5vw, 4rem)" }}
       >
-        Want to be on set with us?
+        Let's disscuse make something cool together
       </motion.h2>
 
       <motion.p
