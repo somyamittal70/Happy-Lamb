@@ -11,6 +11,7 @@ import HomePage from './pages/Home'
 import AboutPage from './pages/About'
 import WorkPage from './pages/OurWork'
 import ContactPage from "./pages/Contact";
+import TeamPage from './pages/OurTeam';
 
 
 function App() {
@@ -23,8 +24,8 @@ function App() {
       <Route path="/" element={<HomePage/>} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/work' element={<WorkPage />} />
-        {/* <Route path='/team' element={<TeamPage />} />
-        <Route path='/blogs' element={<BlogsPage />} /> */}
+        <Route path='/team' element={<TeamPage />} />
+        {/* <Route path='/blogs' element={<BlogsPage />} /> */}
         <Route path='/contact' element={<ContactPage />} />
     </Routes>
     <Footer />

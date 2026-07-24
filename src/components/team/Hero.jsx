@@ -1,27 +1,33 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, Phone, MapPin, Sparkles, Clapperboard } from "lucide-react";
+import { Sparkles, Users, Award, Camera, ArrowUpRight, Film } from "lucide-react";
 
 const INK = "#17140F";
 const LAMB_GOLD = "#FFC72C";
 
-// Cinema studio background image from Unsplash
-const BG_IMAGE = "5.png";
+// Cinema crew / studio background image
+const BG_IMAGE = "4.png";
 
-export default function ContactHero() {
+const STATS = [
+  { label: "Creative Minds", value: "50+" },
+  { label: "National Campaigns", value: "120+" },
+  { label: "Industry Awards", value: "18" },
+];
+
+export default function TeamHero() {
   return (
     <section className="relative flex min-h-[92vh] w-full items-center overflow-hidden px-6 lg:px-[96px] py-20 bg-black text-white">
       
-      {/* Background Image Layer */}
+      {/* Background Image Layer with Layered Vignette */}
       <div className="absolute inset-0 z-0">
         <img
           src={BG_IMAGE}
-          alt="Film set camera background"
+          alt="Production crew on set background"
           className="h-full w-full object-cover object-center scale-105"
         />
-        {/* Layered Vignette and Gradient Overlays for High Contrast */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/70" /> */}
-        {/* <div
+        {/* Gradients for high text contrast */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/70" />
+        <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background: "radial-gradient(ellipse at 30% 50%, rgba(255,199,44,0.12) 0%, rgba(0,0,0,0.85) 75%)",
@@ -31,7 +37,7 @@ export default function ContactHero() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 lg:grid-cols-12">
         
-        {/* Left Column — Text Manifesto */}
+        {/* Left Column — Manifesto */}
         <div className="lg:col-span-7 space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -44,7 +50,7 @@ export default function ContactHero() {
               background: "rgba(255,199,44,0.08)",
             }}
           >
-            <Sparkles className="w-3.5 h-3.5" /> Happy Lamb Production
+            <Sparkles className="w-3.5 h-3.5" /> The People Behind The Lens
           </motion.div>
 
           <motion.h1
@@ -54,13 +60,13 @@ export default function ContactHero() {
             className="font-black uppercase leading-[0.98] tracking-tight text-white"
             style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.75rem)" }}
           >
-            Let&apos;s shoot
+            Meet the minds
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
-              something worth
+              crafting iconic
             </span>
             <br />
-            watching
+            stories
           </motion.h1>
 
           <motion.p
@@ -69,36 +75,22 @@ export default function ContactHero() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="max-w-lg text-[15px] leading-relaxed text-[#F3EFE4]/80 font-light"
           >
-            Tell us about the film, campaign, or story you&apos;re building. Our
-            production team will get back to you shortly with a tailored pitch and execution plan.
+            From visionary directors and scriptwriters to Bollywood campaign producers and technical crew — we are a collective of creators obsessed with making brands unforgettable.
           </motion.p>
 
-          {/* Quick Contact Micro-Cards */}
+          {/* Quick Stats Badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg"
+            className="pt-6 grid grid-cols-3 gap-4 max-w-lg border-t border-white/10"
           >
-            <div className="p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-amber-400/10 text-amber-400">
-                <Mail className="w-4 h-4" />
+            {STATS.map((stat, index) => (
+              <div key={index} className="space-y-1">
+                <p className="text-2xl sm:text-3xl font-black text-white">{stat.value}</p>
+                <p className="text-[11px] uppercase font-bold tracking-wider text-white/50">{stat.label}</p>
               </div>
-              <div>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-white/40">Email Us</p>
-                <p className="text-xs font-semibold text-white">hello@happylamb.com</p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-amber-400/10 text-amber-400">
-                <MapPin className="w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-white/40">Studio Hub</p>
-                <p className="text-xs font-semibold text-white">Mumbai, Maharashtra</p>
-              </div>
-            </div>
+            ))}
           </motion.div>
         </div>
 

@@ -1,144 +1,252 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote, Sparkles, ChevronLeft, ChevronRight, Star, Building2 } from "lucide-react";
+import { Film, ArrowUpRight, Sparkles, Award } from "lucide-react";
 
-const REVIEWS = [
+// Paper-dossier palette
+const PAPER = "#F3EFE4";
+const INK = "#17140F";
+const LAMB_GOLD = "#FFC72C";
+const LAMB_GOLD_DEEP = "#B9860A";
+
+const COLLABORATIONS = [
   {
     id: 1,
+    client: "ICICI Bank",
+    project: "Mr. India Revival & Campus Power",
+    category: "Banking & Culture",
+    tagline: "Reviving nostalgic icons for modern banking.",
     quote:
-      "Shivam delivered an outstanding brand commercial for our European launch. His mastery over cinema lighting, camera pacing, and color grading turned a tight 3-day shoot into an award-winning campaign.",
-    author: "Elena Rostova",
-    role: "Creative Director",
-    company: "Porsche Global Media",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
-    project: "GT3 RS Launch Film",
-    rating: 5,
+      "We bring iconic storytelling to life — from Anil Kapoor reviving his legendary Mr. India persona to make banking feel nostalgic yet smart, to Konkona Sen Sharma inspiring women with the #FundYourOwnWorth spirit.",
+    tag: "Celebrity-Led",
+    thumbnail: "https://images.pexels.com/photos/4622108/pexels-photo-4622108.jpeg",
   },
   {
     id: 2,
+    client: "Godrej",
+    project: "Home Lockers Campaign",
+    category: "Security & Legacy",
+    tagline: "Exhibiting a legacy of trust and innovation.",
     quote:
-      "Working with Shivam on our tech launch was effortless. He took complete ownership from pre-production storyboarding to the final DaVinci color master. The video gained 2.4 million organic views across social channels.",
-    author: "Marcus Vance",
-    role: "Head of Marketing",
-    company: "Sony Alpha Films",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
-    project: "Cinema Line Campaign",
-    rating: 5,
+      "We exhibited Godrej's legacy of trust and innovation — from Madhuri Dixit championing Home Lockers to Matrix Home Lockers with dual-lock precision, built on protection, strength, and adaptability.",
+    tag: "Brand Film",
+    thumbnail: "https://images.pexels.com/photos/39624/pexels-photo-39624.jpeg",
   },
   {
     id: 3,
+    client: "Bajaj V",
+    project: "Invincible Indian Stories",
+    category: "Documentary Series",
+    tagline: "Honoring everyday heroes across the nation.",
     quote:
-      "His FPV drone perspectives and dynamic editing gave our travel documentary an edge we couldn't find anywhere else. Absolute professional on set, tight turnaround times, and world-class deliverable quality.",
-    author: "Aria Chen",
-    role: "Executive Producer",
-    company: "National Geographic Digital",
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop",
-    project: "Nordic Expedition Series",
-    rating: 5,
+      "Bajaj V presents Invincible Indians — stories of ordinary people whose selfless service to society evokes pride every day, from a medicine collector in NCR to a 40-year veteran of the Kolkata Fire Department.",
+    tag: "Real Stories",
+    thumbnail: "https://images.pexels.com/photos/19597973/pexels-photo-19597973.jpeg",
+  },
+  {
+    id: 4,
+    client: "JCB India",
+    project: "Customer Success Stories",
+    category: "Industrial & Growth",
+    tagline: "Unbreakable trust powering regional progress.",
+    quote:
+      "We tell stories of transformation — from reshaping landscapes in Charholi Village to fueling the dreams of Tamil entrepreneurs, where JCB machines stand for progress powered by unbreakable trust.",
+    tag: "Docu-Style",
+    thumbnail: "https://images.pexels.com/photos/13098128/pexels-photo-13098128.jpeg",
+  },
+  {
+    id: 5,
+    client: "Upstox",
+    project: "Diwali & Budget Campaigns",
+    category: "Fintech & Festivities",
+    tagline: "Merging festive tradition with financial foresight.",
+    quote:
+      "We brought festive tradition and financial foresight together for Upstox — from 'Iss Diwali, Kuch Naya!' spotlighting Muhurat Trading to sharp, expert takes on the Union Budget.",
+    tag: "Seasonal Campaign",
+    thumbnail: "https://images.pexels.com/photos/29611783/pexels-photo-29611783.jpeg",
   },
 ];
 
-const slideVariants = {
-  enter: (dir) => ({ x: dir > 0 ? 60 : -60, opacity: 0, scale: 0.98 }),
-  center: { x: 0, opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
-  exit: (dir) => ({ x: dir < 0 ? 60 : -60, opacity: 0, scale: 0.98, transition: { duration: 0.3 } }),
-};
-
-export default function GlassTestimonials() {
-  const [[page, direction], setPage] = useState([0, 0]);
-  const currentIndex = Math.abs(page % REVIEWS.length);
-
-  const paginate = (newDir) => setPage([page + newDir, newDir]);
-  const activeReview = REVIEWS[currentIndex];
+export default function LightShowroomCollaborations() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const active = COLLABORATIONS[activeIndex];
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-slate-50 via-white to-slate-100 py-24 text-slate-900 overflow-hidden">
-      {/* Dynamic Background Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-amber-200/30 blur-[130px] rounded-full pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+    <section
+      className="relative w-full py-28 px-6 overflow-hidden"
+      style={{ background: PAPER, color: INK }}
+    >
+      <div className="max-w-7xl mx-auto w-full relative z-10 space-y-12">
         
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-50 border border-amber-200/60 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" /> Client Praise
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-900 mt-3 tracking-tight">
-            Trusted by Industry <span className="text-amber-500">Leaders</span>
-          </h2>
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#17140F]/15 pb-8">
+          <div>
+            <div
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border mb-3"
+              style={{
+                color: LAMB_GOLD_DEEP,
+                borderColor: "rgba(185, 134, 10, 0.25)",
+                background: "rgba(255, 199, 44, 0.15)",
+              }}
+            >
+              <Sparkles className="w-3.5 h-3.5" /> Selected Collaborations
+            </div>
+            <h2 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-[#17140F]">
+              Company Dossier
+            </h2>
+          </div>
+          
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#17140F]/50">
+              Interactive Case Index
+            </span>
+            <div className="h-2 w-2 rounded-full bg-amber-600 animate-pulse" />
+          </div>
         </div>
 
-        {/* Floating Card */}
-        <div className="mt-14 max-w-3xl mx-auto">
-          <div className="relative rounded-3xl bg-white/80 backdrop-blur-xl border border-slate-200/70 p-8 sm:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.07)]">
-            
-            {/* Top Bar */}
-            <div className="flex items-center justify-between pb-6 border-b border-slate-100">
-              <div className="p-3 rounded-2xl bg-slate-900 text-amber-400 shadow-md">
-                <Quote className="w-6 h-6" />
-              </div>
-              <div className="flex gap-1 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200/60">
-                {[...Array(activeReview.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-            </div>
+        {/* Featured Case Stage (Hero Bento) */}
+        <div className="rounded-3xl border border-[#17140F]/15 bg-white/70 p-6 sm:p-10 shadow-xl backdrop-blur-md relative overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active.id}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            >
+              {/* Image Preview Plate */}
+              <div className="lg:col-span-6 relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-[#17140F]/10 group">
+                <img
+                  src={active.thumbnail}
+                  alt={`${active.client} — ${active.project}`}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#17140F]/80 via-transparent to-transparent" />
 
-            {/* Quote Body */}
-            <div className="py-8 min-h-[150px] flex items-center overflow-hidden">
-              <AnimatePresence custom={direction} mode="wait">
-                <motion.p
-                  key={page}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  className="text-xl sm:text-2xl font-medium text-slate-800 leading-relaxed italic"
-                >
-                  "{activeReview.quote}"
-                </motion.p>
-              </AnimatePresence>
-            </div>
+                <div className="absolute top-4 left-4">
+                  <span
+                    className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md"
+                    style={{ background: LAMB_GOLD, color: INK }}
+                  >
+                    <Film className="w-3 h-3" />
+                    {active.tag}
+                  </span>
+                </div>
 
-            {/* Footer */}
-            <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <img src={activeReview.avatar} alt={activeReview.author} className="w-13 h-13 rounded-full object-cover ring-2 ring-amber-400/80" />
-                <div>
-                  <h4 className="font-bold text-slate-900 text-base">{activeReview.author}</h4>
-                  <p className="text-xs text-slate-500 font-medium">{activeReview.role} • <span className="text-slate-800">{activeReview.company}</span></p>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="text-xs font-mono text-white/70 uppercase tracking-widest">
+                    {active.category}
+                  </p>
+                  <h3 className="text-2xl font-black uppercase tracking-tight">
+                    {active.client}
+                  </h3>
                 </div>
               </div>
 
-              <div className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700">
-                {activeReview.project}
+              {/* Dossier Copy */}
+              <div className="lg:col-span-6 space-y-6">
+                <div>
+                  <span
+                    className="text-xs font-bold uppercase tracking-widest"
+                    style={{ color: LAMB_GOLD_DEEP }}
+                  >
+                    {active.project}
+                  </span>
+                  <h3 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#17140F] leading-snug">
+                    "{active.tagline}"
+                  </h3>
+                </div>
+
+                <p className="text-base sm:text-lg text-[#17140F]/80 font-normal leading-relaxed">
+                  {active.quote}
+                </p>
+
+                <div className="pt-4 flex items-center justify-between border-t border-[#17140F]/10">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#17140F]/60">
+                    <Award className="w-4 h-4 text-amber-600" />
+                    Happy Lamb Dossier File
+                  </div>
+
+                  <a
+                    href="#projects"
+                    className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-transform hover:-translate-y-0.5 shadow-md"
+                    style={{ background: INK, color: PAPER }}
+                  >
+                    View Project
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
               </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Bento Selector Rail (Interactive Cards Below) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {COLLABORATIONS.map((item, idx) => {
+            const isSelected = idx === activeIndex;
+            return (
+              <button
+                key={item.id}
+                onClick={() => setActiveIndex(idx)}
+                className={`group text-left p-4 rounded-2xl transition-all duration-300 border flex flex-col justify-between relative overflow-hidden ${
+                  isSelected
+                    ? "bg-white border-amber-600 shadow-lg scale-[1.02]"
+                    : "bg-white/40 border-[#17140F]/10 hover:bg-white/80 hover:border-[#17140F]/20"
+                }`}
+              >
+                {/* Active Indicator Bar */}
+                <div
+                  className={`absolute top-0 left-0 right-0 h-1 transition-all duration-300 ${
+                    isSelected ? "bg-amber-500" : "bg-transparent"
+                  }`}
+                />
+
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`text-xs font-mono font-bold ${
+                        isSelected ? "text-amber-700" : "text-[#17140F]/30"
+                      }`}
+                    >
+                      0{item.id}
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#17140F]/40">
+                      {item.tag}
+                    </span>
+                  </div>
+
+                  <h4
+                    className={`font-bold text-sm line-clamp-1 transition-colors ${
+                      isSelected ? "text-[#17140F]" : "text-[#17140F]/70 group-hover:text-[#17140F]"
+                    }`}
+                  >
+                    {item.client}
+                  </h4>
+                </div>
+
+                <p className="text-[11px] text-[#17140F]/50 font-medium line-clamp-1 mt-3">
+                  {item.project}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Footer Branding Stamp */}
+        <div className="pt-6 border-t border-[#17140F]/15 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div
+              className="w-8 h-8 rounded-full flex items-center justify-center font-black text-xs shadow-sm"
+              style={{ background: LAMB_GOLD, color: INK }}
+            >
+              HLP
             </div>
-
-            {/* Controls */}
-            <div className="mt-8 flex items-center justify-between pt-4">
-              <div className="flex gap-2">
-                {REVIEWS.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setPage([i, i > currentIndex ? 1 : -1])}
-                    className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? "w-8 bg-amber-500" : "w-2 bg-slate-200"}`}
-                  />
-                ))}
-              </div>
-
-              <div className="flex gap-2">
-                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => paginate(-1)} className="p-3 rounded-full bg-slate-100 hover:bg-slate-900 hover:text-white transition-colors">
-                  <ChevronLeft className="w-5 h-5" />
-                </motion.button>
-                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => paginate(1)} className="p-3 rounded-full bg-slate-100 hover:bg-slate-900 hover:text-white transition-colors">
-                  <ChevronRight className="w-5 h-5" />
-                </motion.button>
-              </div>
-            </div>
-
+            <p className="text-xs font-bold uppercase tracking-wider text-[#17140F]/70">
+              Happy Lamb Production — Dossier Archive
+            </p>
           </div>
+          <span className="text-xs font-mono text-[#17140F]/40">Est. 2023</span>
         </div>
 
       </div>
