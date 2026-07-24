@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 
 // Brand Tokens
 const BRAND = {
@@ -19,16 +19,41 @@ const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
+// Figure out which nav link matches the current URL, so the active
+// state is correct on first load / after a real page navigation —
+// not just while clicking around client-side.
+function getActiveFromPath() {
+  if (typeof window === "undefined") return "Home";
+  const path = window.location.pathname;
+  const match = NAV_LINKS.find((l) => l.href === path);
+  return match ? match.label : "Home";
+}
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState(getActiveFromPath);
   const [scrolled, setScrolled] = useState(false);
+
+  // Smoothed scroll-progress value, 0 -> 1 across the whole document
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 260,
+    damping: 32,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Re-check on browser back/forward navigation
+  useEffect(() => {
+    const onPopState = () => setActive(getActiveFromPath());
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
   // Prevent background scrolling when mobile nav is open
@@ -41,13 +66,11 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
-      {/* Top accent line with continuous shimmer effect */}
-      <div className="relative h-[3px] w-full overflow-hidden bg-amber-400">
+      {/* Scroll progress bar — fills left to right as the page scrolls */}
+      <div className="relative h-[3px] w-full bg-[#eee5c9]">
         <motion.div
-          initial={{ x: "-100%" }}
-          animate={{ x: "100%" }}
-          transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent"
+          className="absolute inset-y-0 left-0 w-full origin-left"
+          style={{ scaleX, backgroundColor: BRAND.gold }}
         />
       </div>
 
@@ -55,17 +78,13 @@ export default function Header() {
       <div
         className={`w-full transition-all duration-300 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md shadow-md py-2.5"
+            ? "bg-white/90 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06),0_8px_24px_-12px_rgba(0,0,0,0.15)] py-2.5"
             : "bg-white py-4"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-8">
           {/* Logo */}
-          <a
-            href="/"
-            onClick={() => setActive("Home")}
-            className="group relative flex items-center shrink-0"
-          >
+          <a href="/" className="group relative flex items-center shrink-0">
             <motion.img
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
@@ -83,7 +102,6 @@ export default function Header() {
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={() => setActive(link.label)}
                   className="relative px-4 py-2 text-[14px] font-medium tracking-wide transition-colors duration-200"
                   style={{ color: isActive ? BRAND.ink : BRAND.slate }}
                 >
@@ -96,7 +114,11 @@ export default function Header() {
                     <motion.div
                       layoutId="activeIndicator"
                       className="absolute inset-0 rounded-full bg-slate-100/80 -z-0"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
                     />
                   )}
 
@@ -106,7 +128,11 @@ export default function Header() {
                       layoutId="activeDot"
                       className="absolute bottom-1 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full"
                       style={{ backgroundColor: BRAND.gold }}
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
                     />
                   )}
                 </a>
@@ -116,7 +142,6 @@ export default function Header() {
             {/* Call to Action Button */}
             <motion.a
               href="/contact"
-              onClick={() => setActive("Contact")}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               className="group ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-[14px] font-semibold text-white transition-colors duration-300 shadow-sm hover:shadow-md"
@@ -140,65 +165,91 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Menu — slides in from the right, with a dimmed backdrop */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden overflow-hidden bg-white border-b border-slate-100 shadow-xl"
-          >
-            <nav className="flex flex-col px-6 pt-2 pb-6 gap-1">
-              {NAV_LINKS.map((link, idx) => {
-                const isActive = active === link.label;
-                return (
-                  <motion.a
-                    key={link.label}
-                    href={link.href}
-                    initial={{ opacity: 0, x: -16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.04 + 0.05, duration: 0.2 }}
-                    onClick={() => {
-                      setActive(link.label);
-                      setIsOpen(false);
-                    }}
-                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-[16px] font-medium transition-all ${
-                      isActive
-                        ? "bg-slate-100/80 font-semibold"
-                        : "hover:bg-slate-50 text-slate-600"
-                    }`}
-                    style={{ color: isActive ? BRAND.ink : undefined }}
-                  >
-                    <span>{link.label}</span>
-                    {isActive && (
-                      <span
-                        className="h-2 w-2 rounded-full"
-                        style={{ backgroundColor: BRAND.gold }}
-                      />
-                    )}
-                  </motion.a>
-                );
-              })}
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setIsOpen(false)}
+              className="md:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px]"
+            />
 
-              <motion.a
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: NAV_LINKS.length * 0.04 + 0.05 }}
-                href="/contact"
-                onClick={() => {
-                  setActive("Contact");
-                  setIsOpen(false);
-                }}
-                className="mt-3 flex items-center justify-center gap-2 rounded-xl py-3.5 text-center text-[15px] font-semibold text-white shadow-md active:scale-[0.98] transition-transform"
-                style={{ backgroundColor: BRAND.ink }}
-              >
-                <span>Let's Talk</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </motion.a>
-            </nav>
-          </motion.div>
+            <motion.div
+              key="drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="md:hidden fixed inset-y-0 right-0 z-50 flex h-full w-[82%] max-w-sm flex-col bg-white shadow-2xl"
+            >
+              <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100">
+                <span
+                  className="font-semibold text-[15px]"
+                  style={{ color: BRAND.ink }}
+                >
+                  Menu
+                </span>
+                <motion.button
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setIsOpen(false)}
+                  aria-label="Close menu"
+                  className="rounded-full p-2 text-slate-800 hover:bg-slate-100 transition-colors"
+                >
+                  <X size={22} />
+                </motion.button>
+              </div>
+
+              <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 py-4">
+                {NAV_LINKS.map((link, idx) => {
+                  const isActive = active === link.label;
+                  return (
+                    <motion.a
+                      key={link.label}
+                      href={link.href}
+                      initial={{ opacity: 0, x: 24 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.05 + 0.1, duration: 0.25 }}
+                      onClick={() => setIsOpen(false)}
+                      className={`flex items-center justify-between rounded-xl px-4 py-3 text-[16px] font-medium transition-all ${
+                        isActive
+                          ? "bg-slate-100/80 font-semibold"
+                          : "hover:bg-slate-50 text-slate-600"
+                      }`}
+                      style={{ color: isActive ? BRAND.ink : undefined }}
+                    >
+                      <span>{link.label}</span>
+                      {isActive && (
+                        <span
+                          className="h-2 w-2 rounded-full"
+                          style={{ backgroundColor: BRAND.gold }}
+                        />
+                      )}
+                    </motion.a>
+                  );
+                })}
+              </nav>
+
+              <div className="px-6 pb-6 pt-2 border-t border-slate-100">
+                <motion.a
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: NAV_LINKS.length * 0.05 + 0.1 }}
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-2 rounded-xl py-3.5 text-center text-[15px] font-semibold text-white shadow-md active:scale-[0.98] transition-transform"
+                  style={{ backgroundColor: BRAND.ink }}
+                >
+                  <span>Let's Talk</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </motion.a>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
