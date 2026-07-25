@@ -162,7 +162,7 @@ export default function Header() {
               href="/contact"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              className="group ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-[14px] font-semibold text-white shadow-sm hover:shadow-md"
+              className="group ml-4 inline-flex items-center gap-1.5 rounded-md px-5 py-2 text-[14px] font-semibold text-white shadow-sm hover:shadow-md"
               style={{ backgroundColor: BRAND.ink }}
               transition={{ type: "spring", stiffness: 400, damping: 22 }}
             >
