@@ -406,7 +406,7 @@ export default function ServicesDark() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-widest"
+              className="inline-flex items-center gap-2 rounded-md px-3.5 py-1 text-xs font-semibold uppercase tracking-widest"
               style={{
                 border: `1px solid rgba(255,199,44,0.3)`,
                 background: "rgba(255,199,44,0.08)",
@@ -422,8 +422,7 @@ export default function ServicesDark() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-4 text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight"
-              style={{ fontFamily: FONT_DISPLAY, fontWeight: 600 }}
+              className="mt-4 text-3xl sm:text-5xl lg:text-6xl font-heading uppercase tracking-tight"
             >
               Production <span style={{ color: GOLD }}>Services</span>
             </motion.h2>

@@ -79,7 +79,7 @@ export default function BlogSection() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 rounded-full border border-[#FFC72C]/60 bg-amber-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#FFC72C]"
+              className="inline-flex items-center gap-2 rounded-md border border-[#FFC72C]/60 bg-amber-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#FFC72C]"
             >
               <Sparkles className="h-3.5 w-3.5 text-[#FFC72C]" />
               <span>Insights & Tutorials</span>
@@ -90,7 +90,7 @@ export default function BlogSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900"
+              className="mt-4 text-3xl sm:text-5xl font-semibold font-heading uppercase tracking-tight text-slate-900"
             >
               Latest from the <span className="text-[#FFC72C]">Journal</span>
             </motion.h2>
@@ -131,7 +131,7 @@ export default function BlogSection() {
 
               {/* Category Badge */}
               <div className="absolute top-4 left-4 flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/40 bg-white/80 px-3.5 py-1 text-xs font-bold text-slate-800 backdrop-blur-md shadow-sm">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/40 bg-white/80 px-3.5 py-1 text-xs font-bold text-slate-800 backdrop-blur-md shadow-sm">
                   <Tag className="h-3 w-3 text-[#FFC72C]" />
                   {featuredPost.category}
                 </span>
@@ -149,7 +149,7 @@ export default function BlogSection() {
                   </span>
                 </div>
 
-                <h3 className="mt-3 text-2xl sm:text-3xl font-bold text-slate-900 group-hover:text-[#FFC72C] transition-colors leading-snug">
+                <h3 className="mt-3 text-2xl sm:text-3xl font-body font-bold text-slate-900 group-hover:text-[#FFC72C] transition-colors leading-snug">
                   <a href={`/blog/${featuredPost.slug}`}>
                     {featuredPost.title}
                   </a>
