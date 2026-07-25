@@ -242,7 +242,7 @@ export default function FeaturedWork() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+              className="inline-flex items-center gap-2 rounded-md px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
               style={{ border: `1px solid rgba(255,199,44,0.3)`, background: "rgba(255,199,44,0.08)", color: GOLD }}
             >
               <Sparkles className="h-3.5 w-3.5" />
@@ -254,8 +254,8 @@ export default function FeaturedWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-6 uppercase text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none"
-              style={{ fontFamily: FONT_DISPLAY, fontWeight: 600 }}
+              className="mt-6 uppercase font-heading  text-4xl sm:text-5xl lg:text-5xl tracking-tight leading-none"
+             
             >
               Crafted for <span style={{ color: GOLD }}>Iconic Brands.</span>
             </motion.h2>
@@ -275,7 +275,7 @@ export default function FeaturedWork() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className="relative rounded-xl px-4 py-2.5 text-xs font-semibold tracking-wide transition-all duration-300 focus:outline-none"
+                  className="relative rounded-md px-4 py-2.5 text-xs font-heading font-semibold tracking-wide transition-all duration-300 focus:outline-none"
                 >
                   {isActive && (
                     <motion.div

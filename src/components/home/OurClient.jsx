@@ -7,7 +7,7 @@ const MUTED = "#948C7E";
 const BASE = "#0a0a0a";
 const HAIR = "rgb(10, 10, 10)";
 
-const FONT_DISPLAY = "'Oswald', sans-serif";
+const FONT_DISPLAY = "'Syne', sans-serif";
 const FONT_BODY = "'Inter', sans-serif";
 const FONT_MONO = "'JetBrains Mono', monospace";
 
@@ -49,7 +49,7 @@ export default function OurClients() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 rounded-xl px-3.5 py-1 text-xs font-semibold uppercase tracking-widest"
+            className="inline-flex items-center gap-2 rounded-md px-3.5 py-1 text-xs font-semibold uppercase tracking-widest"
             style={{ border: `1px solid rgba(255,199,44,0.3)`, background: "rgba(255,199,44,0.08)", color: GOLD }}
           >
             <Sparkles className="h-3.5 w-3.5" />
@@ -61,8 +61,8 @@ export default function OurClients() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="mt-4 text-3xl sm:text-5xl uppercase tracking-tight"
-            style={{ fontFamily: FONT_DISPLAY, fontWeight: 600 }}
+            className="mt-4 text-3xl sm:text-5xl font-heading font-semibold uppercase tracking-tight"
+            
           >
             Some Great Companies <span style={{ color: GOLD }}>Use Our Services</span>
           </motion.h2>
