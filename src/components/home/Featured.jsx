@@ -1,18 +1,25 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Play, Sparkles, Film } from "lucide-react";
+import { useState, useRef } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useMotionTemplate,
+} from "framer-motion";
+import { ArrowUpRight, Play, Sparkles } from "lucide-react";
 
-const INK = "#17140F";
-const LAMB_GOLD = "#FFC72C";
+/* ---------- Design tokens ---------- */
+const GOLD = "#FFC72C";
+const INK = "#F5EFE4";
+const MUTED = "#948C7E";
+const BASE = "#0D0C0B";
+const PANEL = "#17140F";
+const HAIR = "rgba(245,239,228,0.08)";
 
-const SVGIcons = {
-  youtube: (
-    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2.5" y="6" width="19" height="12" rx="3.5" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M10.3 9.5L14.8 12L10.3 14.5V9.5Z" fill="currentColor" />
-    </svg>
-  ),
-};
+const FONT_DISPLAY = "'Oswald', sans-serif";
+const FONT_BODY = "'Inter', sans-serif";
+const FONT_MONO = "'JetBrains Mono', monospace";
 
 const CATEGORIES = ["All Projects", "Brand Films", "Real-Life Stories", "Short Films"];
 
@@ -22,7 +29,6 @@ const PROJECTS = [
     title: "Mr. India Revival — #FundYourOwnWorth",
     category: "Brand Films",
     client: "ICICI Bank",
-    platform: "youtube",
     thumbnail: "https://images.pexels.com/photos/4622108/pexels-photo-4622108.jpeg",
     featured: true,
   },
@@ -31,7 +37,6 @@ const PROJECTS = [
     title: "Home Lockers ft. Madhuri Dixit",
     category: "Brand Films",
     client: "Godrej",
-    platform: "youtube",
     thumbnail: "https://images.pexels.com/photos/39624/pexels-photo-39624.jpeg",
     featured: false,
   },
@@ -40,7 +45,6 @@ const PROJECTS = [
     title: "Invincible Indians — Medicine Baba",
     category: "Real-Life Stories",
     client: "Bajaj V",
-    platform: "youtube",
     thumbnail: "https://images.pexels.com/photos/19597973/pexels-photo-19597973.jpeg",
     featured: false,
   },
@@ -49,7 +53,6 @@ const PROJECTS = [
     title: "The Excavator Village Story — Unbreakable Trust",
     category: "Brand Films",
     client: "JCB India",
-    platform: "youtube",
     thumbnail: "https://images.pexels.com/photos/13098128/pexels-photo-13098128.jpeg",
     featured: false,
   },
@@ -58,11 +61,153 @@ const PROJECTS = [
     title: "Iss Diwali, Kuch Naya!",
     category: "Brand Films",
     client: "Upstox",
-    platform: "youtube",
     thumbnail: "https://images.pexels.com/photos/29611783/pexels-photo-29611783.jpeg",
     featured: false,
   },
 ];
+
+/* ---------- Magnetic tilt card ---------- */
+function TiltCard({ project, isHero }) {
+  const ref = useRef(null);
+
+  const rotX = useMotionValue(0);
+  const rotY = useMotionValue(0);
+  const spotX = useMotionValue(50);
+  const spotY = useMotionValue(50);
+
+  const springCfg = { stiffness: 180, damping: 18, mass: 0.6 };
+  const rotXs = useSpring(rotX, springCfg);
+  const rotYs = useSpring(rotY, springCfg);
+
+  const imgX = useTransform(rotYs, [-10, 10], [12, -12]);
+  const imgY = useTransform(rotXs, [-10, 10], [-12, 12]);
+  const badgeX = useTransform(rotYs, [-10, 10], [-6, 6]);
+
+  const spotlight = useMotionTemplate`radial-gradient(420px circle at ${spotX}% ${spotY}%, rgba(255,199,44,0.16), transparent 65%)`;
+
+  function handleMove(e) {
+    const rect = ref.current.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    rotY.set((px - 0.5) * 16);
+    rotX.set((0.5 - py) * 16);
+    spotX.set(px * 100);
+    spotY.set(py * 100);
+  }
+
+  function handleLeave() {
+    rotX.set(0);
+    rotY.set(0);
+    spotX.set(50);
+    spotY.set(50);
+  }
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.45 }}
+      className={isHero ? "md:col-span-2" : ""}
+      style={{ perspective: 1000 }}
+    >
+      <motion.div
+        ref={ref}
+        onMouseMove={handleMove}
+        onMouseLeave={handleLeave}
+        style={{ rotateX: rotXs, rotateY: rotYs, transformStyle: "preserve-3d" }}
+        className="group relative rounded-2xl overflow-hidden"
+      >
+        {/* gradient border shell */}
+        <div
+          className="absolute inset-0 rounded-2xl p-[1px] pointer-events-none"
+          style={{
+            background: `linear-gradient(135deg, rgba(255,199,44,0.35), transparent 40%, transparent 70%, rgba(255,199,44,0.15))`,
+          }}
+        />
+        <div
+          className="relative rounded-2xl overflow-hidden"
+          style={{ background: PANEL, border: `1px solid ${HAIR}`, margin: "1px" }}
+        >
+          {/* cursor spotlight */}
+          <motion.div
+            className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            style={{ background: spotlight }}
+          />
+
+          {/* media */}
+          <div
+            className="relative w-full overflow-hidden"
+            style={{ aspectRatio: isHero ? "16/9" : "16/11" }}
+          >
+            <motion.img
+              src={project.thumbnail}
+              alt={project.title}
+              style={{ x: imgX, y: imgY, scale: 1.12 }}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-black/20" />
+
+            {/* client chip — floats with slight counter-parallax */}
+            <motion.div
+              style={{ x: badgeX }}
+              className="absolute top-4 left-4 z-20 rounded-full px-3.5 py-1.5 backdrop-blur-md"
+            >
+              <span
+                className="text-xs font-medium"
+                style={{ fontFamily: FONT_MONO, color: INK, background: "rgba(13,12,11,0.55)", padding: "6px 10px", borderRadius: "999px", border: `1px solid ${HAIR}` }}
+              >
+                {project.client}
+              </span>
+            </motion.div>
+
+            {/* play button, pops in with spring */}
+            <div className="absolute inset-0 flex items-center justify-center z-20">
+              <motion.div
+                whileHover={{ scale: 1.08 }}
+                className="opacity-0 group-hover:opacity-100 group-hover:scale-100 scale-75 transition-all duration-300 flex h-16 w-16 items-center justify-center rounded-full shadow-2xl"
+                style={{ background: GOLD, boxShadow: `0 0 40px ${GOLD}55` }}
+              >
+                <Play className="h-6 w-6 fill-black text-black translate-x-0.5" />
+              </motion.div>
+            </div>
+          </div>
+
+          {/* content */}
+          <div className="relative p-6 sm:p-7 z-20" style={{ transform: "translateZ(30px)" }}>
+            <div
+              className="text-xs uppercase tracking-[0.2em] mb-2"
+              style={{ fontFamily: FONT_MONO, color: GOLD }}
+            >
+              {project.category}
+            </div>
+            <h3
+              className={`leading-tight ${isHero ? "text-2xl sm:text-3xl" : "text-xl"}`}
+              style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, color: INK }}
+            >
+              {project.title}
+            </h3>
+
+            <div
+              className="mt-6 pt-4 flex items-center justify-between text-sm"
+              style={{ borderTop: `1px solid ${HAIR}`, color: MUTED }}
+            >
+              <span>Watch the story</span>
+              <motion.span
+                className="inline-flex items-center gap-1.5 font-semibold"
+                style={{ color: GOLD }}
+                whileHover={{ x: 4 }}
+              >
+                View Reel <ArrowUpRight className="h-4 w-4" />
+              </motion.span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function FeaturedWork() {
   const [activeCategory, setActiveCategory] = useState("All Projects");
@@ -73,21 +218,25 @@ export default function FeaturedWork() {
       : PROJECTS.filter((item) => item.category === activeCategory);
 
   return (
-    <section className="relative w-full text-[#F3EFE4] py-28 overflow-hidden" style={{ background: INK }}>
-      {/* Dynamic Background Glows */}
-      <div className="absolute top-1/4 -right-32 h-[500px] w-[500px] rounded-full bg-amber-500/10 blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-10 -left-32 h-[450px] w-[450px] rounded-full bg-amber-400/5 blur-[160px] pointer-events-none" />
+    <section
+      className="relative w-full py-28 overflow-hidden"
+      style={{ background: BASE, color: INK, fontFamily: FONT_BODY }}
+    >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+      `}</style>
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-12 border-b border-white/10">
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[600px] w-[900px] bg-gradient-to-b from-amber-500/10 via-transparent to-transparent blur-[150px]" />
+
+      <div className="mx-auto max-w-7xl px-6 sm:px-10 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-10 border-b" style={{ borderColor: HAIR }}>
           <div>
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-amber-300"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+              style={{ border: `1px solid rgba(255,199,44,0.3)`, background: "rgba(255,199,44,0.08)", color: GOLD }}
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span>Selected Portfolio</span>
@@ -98,22 +247,20 @@ export default function FeaturedWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-4 font-black uppercase text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-none"
+              className="mt-6 uppercase text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none"
+              style={{ fontFamily: FONT_DISPLAY, fontWeight: 600 }}
             >
-              Crafted for{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500">
-                Iconic Brands.
-              </span>
+              Crafted for <span style={{ color: GOLD }}>Iconic Brands.</span>
             </motion.h2>
           </div>
 
-          {/* Filter Bar */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-1.5 backdrop-blur-md"
+            className="flex flex-wrap items-center gap-1.5 rounded-2xl p-1.5"
+            style={{ border: `1px solid ${HAIR}`, background: "rgba(23,20,15,0.8)" }}
           >
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat;
@@ -121,21 +268,17 @@ export default function FeaturedWork() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className="relative rounded-xl px-4 py-2 text-xs font-semibold tracking-wide transition-all duration-300"
+                  className="relative rounded-xl px-4 py-2.5 text-xs font-semibold tracking-wide transition-all duration-300 focus:outline-none"
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeFilter"
-                      className="absolute inset-0 rounded-xl shadow-lg"
-                      style={{ background: LAMB_GOLD }}
+                      className="absolute inset-0 rounded-xl"
+                      style={{ background: GOLD }}
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
-                  <span
-                    className={`relative z-10 transition-colors ${
-                      isActive ? "text-black font-bold" : "text-[#F3EFE4]/60 hover:text-[#F3EFE4]"
-                    }`}
-                  >
+                  <span className="relative z-10" style={{ color: isActive ? "#0D0C0B" : MUTED, fontWeight: isActive ? 700 : 500 }}>
                     {cat}
                   </span>
                 </button>
@@ -144,92 +287,18 @@ export default function FeaturedWork() {
           </motion.div>
         </div>
 
-        {/* Projects Grid Container */}
         <motion.div layout className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => {
-              const isHero = activeCategory === "All Projects" && project.featured;
-
-              return (
-                <motion.div
-                  layout
-                  key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className={`group relative rounded-3xl border border-white/10 bg-[#1F1C16] overflow-hidden flex flex-col justify-between hover:border-amber-400/40 transition-colors duration-500 shadow-2xl ${
-                    isHero ? "md:col-span-2 lg:col-span-2 aspect-auto" : ""
-                  }`}
-                >
-                  {/* Media Wrapper */}
-                  <div className={`relative w-full overflow-hidden bg-black/40 ${isHero ? "aspect-[16/9]" : "aspect-[16/10]"}`}>
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1F1C16] via-black/20 to-black/50" />
-
-                    {/* Top Badges */}
-                    <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
-                      <span className="rounded-full border border-white/20 bg-black/50 px-3.5 py-1 text-xs font-medium text-[#F3EFE4] backdrop-blur-md shadow-md">
-                        {project.client}
-                      </span>
-                      
-                      <span
-                        className="flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-1 text-xs font-semibold backdrop-blur-md"
-                        style={{ color: LAMB_GOLD }}
-                      >
-                        {SVGIcons[project.platform]}
-                        <span className="capitalize">{project.platform}</span>
-                      </span>
-                    </div>
-
-                    {/* Interactive Play Button */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-[2px]">
-                      <motion.div
-                        whileHover={{ scale: 1.15 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="flex h-16 w-16 items-center justify-center rounded-full text-black shadow-2xl"
-                        style={{ background: LAMB_GOLD }}
-                      >
-                        <Play className="h-7 w-7 fill-black translate-x-0.5" />
-                      </motion.div>
-                    </div>
-                  </div>
-
-                  {/* Card Content Footer */}
-                  <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Film className="h-3.5 w-3.5 text-amber-400" />
-                        <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                          {project.category}
-                        </span>
-                      </div>
-                      <h3 className={`font-bold text-[#F3EFE4] group-hover:text-amber-300 transition-colors ${isHero ? "text-2xl sm:text-3xl" : "text-xl"}`}>
-                        {project.title}
-                      </h3>
-                    </div>
-
-                    {/* CTA Bar */}
-                    <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#F3EFE4]/50 font-medium">
-                      <span>Client: <strong className="text-[#F3EFE4] font-semibold">{project.client}</strong></span>
-                      <span className="inline-flex items-center gap-1.5 text-amber-400 font-bold group-hover:translate-x-1 transition-transform duration-300">
-                        Watch Film <ArrowUpRight className="h-4 w-4" />
-                      </span>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {filteredProjects.map((project) => (
+              <TiltCard
+                key={project.id}
+                project={project}
+                isHero={activeCategory === "All Projects" && project.featured}
+              />
+            ))}
           </AnimatePresence>
         </motion.div>
 
-        {/* View All CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -237,13 +306,16 @@ export default function FeaturedWork() {
           transition={{ delay: 0.3 }}
           className="mt-20 flex justify-center"
         >
-          <a
+          <motion.a
             href="/work"
-            className="group relative inline-flex items-center gap-3 rounded-xl border border-amber-400/30 bg-white/[0.04] px-9 py-4 text-xs font-bold uppercase tracking-widest text-[#F3EFE4] backdrop-blur-md transition-all duration-300 hover:bg-amber-400 hover:text-black hover:border-amber-400 shadow-xl"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="group relative inline-flex items-center gap-3 rounded-2xl px-10 py-4.5 text-xs font-bold uppercase tracking-widest transition-colors duration-300"
+            style={{ border: `1px solid rgba(255,199,44,0.3)`, color: INK, background: PANEL }}
           >
             <span>Explore All Work</span>
-            <ArrowUpRight className="h-4 w-4 text-amber-400 group-hover:text-black transition-colors" />
-          </a>
+            <ArrowUpRight className="h-4 w-4" style={{ color: GOLD }} />
+          </motion.a>
         </motion.div>
       </div>
     </section>
