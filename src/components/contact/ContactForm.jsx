@@ -51,8 +51,8 @@ const CONTACT_DETAILS = [
     icon: MapPin,
     label: "Studio Hub",
     value: `Happy Lamb Production OPC PVT.LTD GSTN : 27AAGCH9980B1ZC
-505, 5th Floor, Bhoomi Building, Sanjay Nagar Co.Op. Society
-Cama Estate, Behind Future Studio, Goregoan (E.), Mumbai :- 400063`,
+      505, 5th Floor, Bhoomi Building, Sanjay Nagar Co.Op. Society
+      Cama Estate, Behind Future Studio, Goregoan (E.), Mumbai :- 400063`,
     href: "#",
   },
 ];
@@ -121,14 +121,14 @@ export default function ContactSection() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
-                className="font-black uppercase tracking-tight text-3xl sm:text-4xl lg:text-5xl leading-[0.95]"
+                className="font-heading font-semibold uppercase tracking-tight text-3xl sm:text-4xl lg:text-5xl leading-[0.95]"
                 style={{ color: PALETTE.INK }}
               >
                 Pitch the project
               </motion.h2>
 
               <p
-                className="mt-3 text-sm sm:text-base max-w-md leading-relaxed"
+                className="mt-3 font-body text-sm sm:text-base max-w-md leading-relaxed"
                 style={{ color: PALETTE.INK_MUTED }}
               >
                 Have a concept ready to bring to light? Fill out the brief below and our production leads will reach out.
@@ -429,12 +429,12 @@ export default function ContactSection() {
               </div>
 
               <h3
-                className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white"
+                className="text-2xl sm:text-3xl font-heading uppercase tracking-tight text-white"
               >
                 Reach Us Directly
               </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-white/60">
+              <p className="mt-3 text-sm font-body leading-relaxed text-white/60">
                 Prefer a quick chat before pitching? Reach out directly to our production desk or stop by our studio space.
               </p>
 

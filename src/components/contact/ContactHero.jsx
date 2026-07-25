@@ -38,7 +38,7 @@ export default function ContactHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-black uppercase leading-[0.98] tracking-tight text-white"
+            className="font-heading font-bold uppercase leading-[0.98] tracking-tight text-white"
             style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.75rem)" }}
           >
             Let&apos;s shoot
@@ -54,7 +54,7 @@ export default function ContactHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="max-w-lg text-[15px] leading-relaxed text-[#F3EFE4]/80 font-light"
+            className="max-w-lg text-[15px] font-body leading-relaxed text-[#F3EFE4]/80 font-light"
           >
             Tell us about the film, campaign, or story you&apos;re building. Our
             production team will get back to you shortly with a tailored pitch and execution plan.
@@ -72,8 +72,8 @@ export default function ContactHero() {
                 <Mail className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-white/40">Email Us</p>
-                <p className="text-xs font-semibold text-white">hello@happylamb.com</p>
+                <p className="text-[10px] font-heading uppercase font-bold tracking-widest text-white/40">Email Us</p>
+                <p className="text-xs font-heading font-semibold text-white">hello@happylamb.com</p>
               </div>
             </div>
 
@@ -82,8 +82,8 @@ export default function ContactHero() {
                 <MapPin className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-white/40">Studio Hub</p>
-                <p className="text-xs font-semibold text-white">Mumbai, Maharashtra</p>
+                <p className="text-[10px] font-heading uppercase font-bold tracking-widest text-white/40">Studio Hub</p>
+                <p className="text-xs font-heading font-semibold text-white">Mumbai, Maharashtra</p>
               </div>
             </div>
           </motion.div>

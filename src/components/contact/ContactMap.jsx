@@ -64,7 +64,7 @@ export default function ContactMap() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-2 text-2xl sm:text-5xl font-extrabold uppercase tracking-tight"
+              className="mt-2 text-2xl sm:text-5xl font-heading font-bold uppercase tracking-tight"
               style={{ color: PALETTE.INK }}
             >
               Find Us On{" "}

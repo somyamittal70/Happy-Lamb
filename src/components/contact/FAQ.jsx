@@ -74,7 +74,7 @@ function FAQItem({ item, index, isOpen, onToggle }) {
             Q{String(index + 1).padStart(2, "0")}
           </span>
           <span
-            className="font-extrabold text-base sm:text-lg tracking-tight uppercase"
+            className=" font-body text-base sm:text-lg tracking-tight "
             style={{ color: DARK_PALETTE.TEXT_PRIMARY }}
           >
             {item.q}
@@ -160,7 +160,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-[0.95]"
+            className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-heading font-bold uppercase tracking-tight leading-[0.95]"
             style={{ color: DARK_PALETTE.TEXT_PRIMARY }}
           >
             Frequently{" "}

@@ -53,7 +53,7 @@ export default function BlogHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-black uppercase leading-[0.98] tracking-tight text-white"
+            className="font-heading font-bold uppercase leading-[0.98] tracking-tight text-white"
             style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.75rem)" }}
           >
             Behind the
