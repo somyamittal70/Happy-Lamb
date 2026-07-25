@@ -26,7 +26,7 @@ export default function TeamCTA() {
 
       {/* Centered Ambient Glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-md pointer-events-none z-0"
         style={{
           background:
             "radial-gradient(circle, rgba(255,199,44,0.22) 0%, transparent 70%)",
@@ -41,8 +41,8 @@ export default function TeamCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="display-font mt-6 text-white uppercase tracking-tight leading-[0.94]"
-          style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)" }}
+          className=" mt-6 text-white uppercase font-bold font-heading tracking-tight leading-[0.94]"
+          style={{ fontSize: "clamp(2.8rem, 7vw, 4rem)" }}
         >
           Got a project?
           <br />
@@ -61,7 +61,7 @@ export default function TeamCTA() {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             href="/contact"
-            className="group inline-flex items-center gap-3 rounded-full px-10 py-5 text-sm font-bold tracking-[0.15em] uppercase transition-shadow shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/15"
+            className="group inline-flex items-center gap-3 rounded-md px-10 py-5 text-sm font-bold font-heading tracking-[0.15em] uppercase transition-shadow shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/15"
             style={{ backgroundColor: GOLD, color: INK }}
           >
             Start a project
@@ -74,19 +74,19 @@ export default function TeamCTA() {
           {/* Contact Details */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/70 font-medium">
             <a
-              href="mailto:hello@happylamb.com"
+              href="mailto:info@happylamb.in"
               className="inline-flex items-center gap-2 hover:text-black transition-colors"
             >
               <Mail size={15} style={{ color: "#FFFFFF" }} />
-              hello@happylamb.com
+              info@happylamb.in
             </a>
             <span className="hidden sm:inline text-black/20">•</span>
             <a
-              href="tel:+919876543210"
+              href="tel:+919820778491"
               className="inline-flex items-center gap-2 hover:text-black transition-colors"
             >
               <Phone size={15} style={{ color: "#FFFFFF" }} />
-              +91 98765 43210
+              +91 9820778491
             </a>
           </div>
         </motion.div>

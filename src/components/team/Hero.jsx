@@ -75,7 +75,7 @@ export default function TeamHero() {
             {STATS.map((stat, index) => (
               <div key={index} className="space-y-1">
                 <p className="text-2xl sm:text-3xl font-black text-white">{stat.value}</p>
-                <p className="text-[11px] uppercase font-bold tracking-wider text-white/50">{stat.label}</p>
+                <p className="text-[11px] uppercase font-bold font-heading tracking-wider text-white/50">{stat.label}</p>
               </div>
             ))}
           </motion.div>

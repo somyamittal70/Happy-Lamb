@@ -171,7 +171,8 @@ const SERVICES = [
     id: "03",
     title: "Color Grading & Post-Production",
     icon: SVGIcons.editTimeline,
-    image: "https://i.pinimg.com/1200x/d5/db/d5/d5dbd52a32b16e7d7fcb01210080c740.jpg",
+    image:
+      "https://i.pinimg.com/1200x/d5/db/d5/d5dbd52a32b16e7d7fcb01210080c740.jpg",
     desc: "Transforming flat LOG profiles into vibrant, mood-evoking cinematic looks with precise DaVinci Resolve color pipelines.",
     deliverables: [
       "DaVinci Resolve Look",
@@ -207,7 +208,8 @@ const SERVICES = [
     id: "06",
     title: "Social Media Content",
     icon: SVGIcons.reels,
-    image: "https://i.pinimg.com/736x/65/d4/f4/65d4f4f0f8ddd6e1f12b80e86e85390e.jpg",
+    image:
+      "https://i.pinimg.com/736x/65/d4/f4/65d4f4f0f8ddd6e1f12b80e86e85390e.jpg",
     desc: "Fast-turnaround reels, shorts, and campaign snippets engineered for retention and platform-native storytelling.",
     deliverables: [
       "Vertical Reels Pack",
@@ -245,17 +247,27 @@ const WORKFLOW = [
   },
 ];
 
-/* ---------- Flip card ---------- */
+/* ---------- Flip card ----------
+   Desktop: flips on hover (via the `group` class).
+   Mobile/touch: no hover event exists, so a tap toggles a `flipped`
+   state that forces the same rotateY via inline style. Inline style
+   only kicks in once tapped, so desktop hover behavior is untouched. */
 function ServiceFlipCard({ service, index }) {
+  const [flipped, setFlipped] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group h-[400px] [perspective:1600px]"
+      onClick={() => setFlipped((v) => !v)}
+      className="group h-[400px] [perspective:1600px] cursor-pointer select-none"
     >
-      <div className="relative h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.4,0.2,0.2,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+      <div
+        className="relative h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.4,0.2,0.2,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+        style={flipped ? { transform: "rotateY(180deg)" } : undefined}
+      >
         {/* ---- FRONT: image face ---- */}
         <div
           className="absolute inset-0 rounded-3xl overflow-hidden [backface-visibility:hidden]"
@@ -306,7 +318,7 @@ function ServiceFlipCard({ service, index }) {
               className="mt-3 inline-flex items-center gap-1.5 text-xs"
               style={{ color: MUTED }}
             >
-              Hover to see details
+              Tap or hover to see details
             </span>
           </div>
         </div>

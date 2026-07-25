@@ -57,8 +57,8 @@ export default function WorkGearDark() {
     <section className="relative w-full bg-[#0f1012] text-white py-24 overflow-hidden border-t border-white/10">
       
       {/* Background Glows */}
-      <div className="absolute top-1/3 left-10 h-96 w-96 rounded-full bg-amber-500/10 blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 h-80 w-80 rounded-full bg-amber-600/5 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 left-10 h-96 w-96 rounded-md bg-amber-500/10 blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 h-80 w-80 rounded-md bg-amber-600/5 blur-[160px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
         
@@ -69,7 +69,7 @@ export default function WorkGearDark() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-400"
+              className="flex items-center gap-2 text-xs font-heading font-semibold uppercase tracking-widest text-amber-400"
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span>Technical Infrastructure</span>
@@ -80,7 +80,7 @@ export default function WorkGearDark() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight"
+              className="mt-3 text-3xl sm:text-5xl font-bold font-body tracking-tight"
             >
               In-House <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">Cinema Rig</span>
             </motion.h2>
@@ -91,7 +91,7 @@ export default function WorkGearDark() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-slate-400 max-w-md text-xs sm:text-sm leading-relaxed"
+            className="text-slate-400 font-body max-w-md text-xs sm:text-sm leading-relaxed"
           >
             We own and maintain top-tier RED and Sony cinema setups, anamorphic glass, and heavy-lift FPV rigs for maximum operational agility on location.
           </motion.p>
@@ -107,7 +107,7 @@ export default function WorkGearDark() {
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
+                className={`flex items-center gap-2 rounded-md px-5 py-2.5 text-xs font-bold transition-all ${
                   isActive
                     ? "bg-amber-400 text-black shadow-lg shadow-amber-400/20"
                     : "border border-white/10 bg-[#16171b] text-slate-300 hover:border-amber-400/50 hover:text-white"
@@ -134,14 +134,14 @@ export default function WorkGearDark() {
               {currentCategory?.items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="rounded-3xl border border-white/10 bg-[#16171b] p-6 sm:p-8 flex flex-col justify-between hover:border-amber-400/40 transition-colors group"
+                  className="rounded-md border border-white/10 bg-[#16171b] p-6 sm:p-8 flex flex-col justify-between hover:border-amber-400/40 transition-colors group"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-4">
                       <h3 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">
                         {item.name}
                       </h3>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/10 px-3 py-1 text-[10px] font-semibold text-amber-400 border border-amber-400/20 shrink-0">
+                      <span className="inline-flex items-center gap-1.5 rounded-md bg-amber-400/10 px-3 py-1 text-[10px] font-semibold text-amber-400 border border-amber-400/20 shrink-0">
                         <ShieldCheck className="h-3 w-3" />
                         {item.status}
                       </span>
@@ -167,9 +167,9 @@ export default function WorkGearDark() {
         </div>
 
         {/* Equipment Guarantee Banner */}
-        <div className="mt-12 rounded-3xl border border-amber-400/20 bg-gradient-to-r from-amber-500/10 via-[#16171b] to-[#16171b] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div className="mt-12 rounded-md border border-amber-400/20 bg-gradient-to-r from-amber-500/10 via-[#16171b] to-[#16171b] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
-            <h4 className="text-base font-bold text-white">Need Custom Rigs or Specialty Lenses?</h4>
+            <h4 className="text-base font-body font-bold text-white">Need Custom Rigs or Specialty Lenses?</h4>
             <p className="mt-1 text-xs text-slate-400 max-w-xl">
               We hold preferred rental vendor accounts across Tokyo, London, and Los Angeles for immediate equipment scaling (Arri Alexa 35, Vantage Hawk Anamorphics, Bolt High-Speed Motion Control).
             </p>
@@ -177,7 +177,7 @@ export default function WorkGearDark() {
 
           <a
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-black hover:bg-amber-400 transition-colors shrink-0"
+            className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-black hover:bg-amber-400 transition-colors shrink-0"
           >
             <span>Request Tech Deck</span>
             <ArrowRight className="h-4 w-4" />

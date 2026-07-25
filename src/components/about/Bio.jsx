@@ -33,7 +33,7 @@ export default function AboutBioLight() {
     <section className="relative w-full bg-[#f8f9fa] text-slate-900 py-24 overflow-hidden border-t border-b border-slate-200">
       
       {/* Subtle Background Glow */}
-      <div className="absolute top-1/3 left-0 h-96 w-96 rounded-full bg-amber-500/10 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 left-0 h-96 w-96 rounded-md bg-amber-500/10 blur-[160px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
         
@@ -51,7 +51,7 @@ export default function AboutBioLight() {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Main Image */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md border border-slate-200 bg-white shadow-xl">
                 <img
                   src="/dilip.webp"
                   alt="Director behind the scenes"
@@ -60,9 +60,9 @@ export default function AboutBioLight() {
               </div>
 
               {/* Floating Badge Overlay */}
-              <div className="absolute -bottom-6 -right-4 sm:-right-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl max-w-xs">
+              <div className="absolute -bottom-6 -right-4 sm:-right-6 rounded-md border border-slate-200 bg-white p-5 shadow-2xl max-w-xs">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-amber-400">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-slate-900 text-amber-400">
                     <Camera className="h-5 w-5" />
                   </div>
                   <div>
@@ -96,7 +96,7 @@ export default function AboutBioLight() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900"
+              className="mt-3 text-3xl sm:text-5xl font-bold font-body tracking-tight text-slate-900"
             >
               Bridging Commercial Rigor with <span className="text-amber-500">Artistic Vision.</span>
             </motion.h2>
@@ -138,10 +138,10 @@ export default function AboutBioLight() {
         {/* SECTION 2: CREATIVE PHILOSOPHY CARDS */}
         <div className="mt-28">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
+            <span className="text-xs font-bold font-heading uppercase tracking-widest text-amber-600">
               Directing Pillars
             </span>
-            <h3 className="mt-2 text-2xl sm:text-4xl font-extrabold text-slate-900">
+            <h3 className="mt-2 text-2xl sm:text-4xl font-bold font-heading text-slate-900">
               The Creative Philosophy
             </h3>
           </div>
@@ -154,12 +154,12 @@ export default function AboutBioLight() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-md border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/10 mb-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-amber-500/10 mb-6">
                   {item.icon}
                 </div>
-                <h4 className="text-lg font-bold text-slate-900">{item.title}</h4>
+                <h4 className="text-lg  font-body font-bold text-slate-900">{item.title}</h4>
                 <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {item.desc}
                 </p>
@@ -175,7 +175,7 @@ export default function AboutBioLight() {
               <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
                 Career Progression
               </span>
-              <h3 className="mt-2 text-2xl sm:text-4xl font-extrabold text-slate-900">
+              <h3 className="mt-2 text-2xl sm:text-4xl font-bold font-heading text-slate-900">
                 Key Milestones
               </h3>
             </div>
@@ -192,7 +192,7 @@ export default function AboutBioLight() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="relative rounded-md border border-slate-200 bg-white p-6 shadow-sm"
               >
                 <span className="text-2xl font-black font-mono text-amber-500">{m.year}</span>
                 <h4 className="mt-3 text-base font-bold text-slate-900">{m.title}</h4>

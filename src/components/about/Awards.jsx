@@ -62,7 +62,7 @@ export default function AboutAwardsLight() {
     <section className="relative w-full bg-[#f8f9fa] text-slate-900 py-24 overflow-hidden border-t border-b border-slate-200">
       
       {/* Background Accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-amber-500/10 blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-md bg-amber-500/10 blur-[180px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
         
@@ -73,7 +73,7 @@ export default function AboutAwardsLight() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-600"
+              className="flex items-center gap-2 text-xs font-bold font-heading uppercase tracking-widest text-amber-600"
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span>Industry Recognition</span>
@@ -84,9 +84,9 @@ export default function AboutAwardsLight() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900"
+              className="mt-3 text-3xl sm:text-5xl font-bold font-heading  uppercase tracking-tight text-slate-900"
             >
-              Awards & <span className="text-amber-500">Accolades</span>
+              Awards <span>&</span> <span className="text-amber-500">Accolades</span>
             </motion.h2>
           </div>
 
@@ -95,7 +95,7 @@ export default function AboutAwardsLight() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-slate-600 max-w-md text-xs sm:text-sm leading-relaxed"
+            className="text-slate-600 max-w-md font-body text-xs sm:text-sm leading-relaxed"
           >
             Recognized by international film festivals, agency panels, and commercial media boards for cinematography, directing, and post-production color pipelines.
           </motion.p>
@@ -110,7 +110,7 @@ export default function AboutAwardsLight() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group relative rounded-3xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-xl hover:border-amber-400/50 transition-all"
+              className="group relative rounded-md border border-slate-200 bg-white p-8 shadow-sm hover:shadow-xl hover:border-amber-400/50 transition-all"
             >
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ export default function AboutAwardsLight() {
                   </span>
                   <SVGLaurelRight />
                 </div>
-                <span className="text-xs font-mono font-bold text-amber-600 bg-amber-500/10 px-3 py-1 rounded-full">
+                <span className="text-xs font-mono font-bold text-amber-600 bg-amber-500/10 px-3 py-1 rounded-md">
                   {award.year}
                 </span>
               </div>
@@ -143,10 +143,10 @@ export default function AboutAwardsLight() {
         {/* SECTION 2: CLIENT BRANDS BANNER */}
         <div className="mt-28 pt-16 border-t border-slate-200">
           <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
+            <span className="text-xs font-bold uppercase  font-heading tracking-widest text-amber-600">
               Trusted Network
             </span>
-            <h3 className="mt-2 text-2xl font-extrabold text-slate-900">
+            <h3 className="mt-2 text-2xl font-bold font-body text-slate-900">
               Brands & Media Houses
             </h3>
           </div>
@@ -159,7 +159,7 @@ export default function AboutAwardsLight() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="flex items-center justify-center rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:border-amber-400 transition-colors"
+                className="flex items-center justify-center rounded-md border border-slate-200 bg-white p-6 shadow-xs hover:border-amber-400 transition-colors"
               >
                 <span className="text-sm font-black font-mono tracking-widest text-slate-400 hover:text-slate-900 transition-colors">
                   {brand.logo}

@@ -130,7 +130,7 @@ export default function WorkGridLight() {
     <section id="featured-grid" className="relative w-full bg-neutral-50 text-[#17140F] py-24 overflow-hidden border-t border-b border-neutral-200">
 
       {/* Background Accent */}
-      <div className="absolute top-1/4 right-0 h-96 w-96 rounded-xl bg-[#FFC72C]/10 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 h-96 w-96 rounded-md bg-[#FFC72C]/10 blur-[160px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
 
@@ -145,7 +145,7 @@ export default function WorkGridLight() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`rounded-xl px-5 py-2.5 text-xs font-bold transition-all ${
+                  className={`rounded-md px-5 py-2.5 text-xs font-bold transition-all ${
                     isActive
                       ? "shadow-md"
                       : "bg-white text-neutral-600 hover:bg-neutral-100 hover:text-[#17140F] border border-neutral-200"
@@ -166,7 +166,7 @@ export default function WorkGridLight() {
               placeholder="Search by title, client, or tag..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-neutral-200 bg-white pl-10 pr-4 py-2.5 text-xs font-medium text-[#17140F] placeholder-neutral-400 focus:outline-none shadow-xs"
+              className="w-full rounded-md border border-neutral-200 bg-white pl-10 pr-4 py-2.5 text-xs font-medium text-[#17140F] placeholder-neutral-400 focus:outline-none shadow-xs"
               style={{ borderColor: undefined }}
               onFocus={(e) => (e.target.style.borderColor = GOLD)}
               onBlur={(e) => (e.target.style.borderColor = "")}
@@ -185,7 +185,7 @@ export default function WorkGridLight() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="group relative rounded-xl border border-neutral-200 bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
+                className="group relative rounded-md border border-neutral-200 bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
                 style={{ "--hover-border": `${GOLD}80` }}
                 onMouseEnter={(e) => (e.currentTarget.style.borderColor = `${GOLD}80`)}
                 onMouseLeave={(e) => (e.currentTarget.style.borderColor = "")}
@@ -207,13 +207,13 @@ export default function WorkGridLight() {
                   {/* Top Badges */}
                   <div className="absolute top-4 inset-x-4 flex items-center justify-between">
                     <span
-                      className="rounded-xl px-3 py-1 text-[11px] font-semibold text-neutral-200 backdrop-blur-md"
+                      className="rounded-md px-3 py-1 text-[11px] font-semibold text-neutral-200 backdrop-blur-md"
                       style={{ backgroundColor: `${INK}CC` }}
                     >
                       {project.client}
                     </span>
                     <span
-                      className="flex items-center gap-1 rounded-xl px-2.5 py-1 text-[11px] font-semibold backdrop-blur-md"
+                      className="flex items-center gap-1 rounded-md px-2.5 py-1 text-[11px] font-semibold backdrop-blur-md"
                       style={{ backgroundColor: `${INK}CC`, color: GOLD }}
                     >
                       {SVGIcons[project.platform]}
@@ -228,7 +228,7 @@ export default function WorkGridLight() {
                   >
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      className="flex h-12 w-12 items-center justify-center rounded-xl shadow-lg"
+                      className="flex h-12 w-12 items-center justify-center rounded-md shadow-lg"
                       style={{ backgroundColor: GOLD }}
                     >
                       <Play className="h-5 w-5 translate-x-0.5" style={{ fill: INK, color: INK }} />
@@ -237,7 +237,7 @@ export default function WorkGridLight() {
 
                   {/* Duration Badge */}
                   <div
-                    className="absolute bottom-3 right-3 text-[11px] font-mono font-semibold text-white/90 px-2 py-0.5 rounded-xl backdrop-blur-md"
+                    className="absolute bottom-3 right-3 text-[11px] font-mono font-semibold text-white/90 px-2 py-0.5 rounded-md  backdrop-blur-md"
                     style={{ backgroundColor: `${INK}CC` }}
                   >
                     {project.duration}
@@ -248,7 +248,7 @@ export default function WorkGridLight() {
                 <div className="p-6 flex flex-col justify-between flex-1">
                   <div>
                     <div
-                      className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider"
+                      className="flex items-center justify-between text-[11px] font-bold font-heading uppercase tracking-wider"
                       style={{ color: DEEP_GOLD }}
                     >
                       <span>{project.category}</span>
@@ -268,7 +268,7 @@ export default function WorkGridLight() {
                       {project.tags.map((tag, tIdx) => (
                         <span
                           key={tIdx}
-                          className="rounded-xl bg-neutral-100 px-2.5 py-1 text-[10px] font-semibold text-neutral-600"
+                          className="rounded-md bg-neutral-100 px-2.5 py-1 text-[10px] font-semibold text-neutral-600"
                         >
                           #{tag}
                         </span>
@@ -301,7 +301,7 @@ export default function WorkGridLight() {
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
-          <div className="mt-16 text-center py-12 rounded-xl border border-neutral-200 bg-white">
+          <div className="mt-16 text-center py-12 rounded-md border border-neutral-200 bg-white">
             <p className="text-base font-bold text-[#17140F]">No projects found matching your search.</p>
             <p className="mt-1 text-xs text-neutral-500">Try clearing your filters or search keywords.</p>
             <button
@@ -309,7 +309,7 @@ export default function WorkGridLight() {
                 setActiveCategory("All Projects");
                 setSearchQuery("");
               }}
-              className="mt-4 rounded-xl px-6 py-2 text-xs font-bold"
+              className="mt-4 rounded-md px-6 py-2 text-xs font-bold"
               style={{ backgroundColor: GOLD, color: INK }}
             >
               Reset Filters

@@ -55,8 +55,8 @@ export default function AboutGearDark() {
     <section className="relative w-full bg-[#0f1012] text-white py-24 overflow-hidden border-t border-white/10">
       
       {/* Background Lighting Accents */}
-      <div className="absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-amber-500/10 blur-[170px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 h-80 w-80 rounded-full bg-amber-600/5 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/3 -right-32 h-96 w-96 rounded-md bg-amber-500/10 blur-[170px] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 h-80 w-80 rounded-md bg-amber-600/5 blur-[150px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
         
@@ -67,7 +67,7 @@ export default function AboutGearDark() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-400"
+              className="flex items-center gap-2 text-xs font-semibold font-heading uppercase tracking-widest text-amber-400"
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span>Technical Arsenal</span>
@@ -78,7 +78,7 @@ export default function AboutGearDark() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight"
+              className="mt-3 text-3xl sm:text-5xl font-bold font-heading tracking-tight"
             >
               Camera Gear & <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">Post Stack</span>
             </motion.h2>
@@ -103,7 +103,7 @@ export default function AboutGearDark() {
               <button
                 key={category.id}
                 onClick={() => setActiveTab(category.id)}
-                className={`flex items-center gap-2.5 rounded-full px-6 py-3 text-xs font-bold transition-all ${
+                className={`flex items-center gap-2.5 rounded-md px-6 py-3 text-xs font-bold transition-all ${
                   isActive
                     ? "bg-amber-400 text-black shadow-lg shadow-amber-400/20"
                     : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/5"
@@ -130,12 +130,12 @@ export default function AboutGearDark() {
               {currentCategory?.items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="group relative rounded-3xl border border-white/10 bg-[#16171b] p-8 flex flex-col justify-between hover:border-amber-400/50 transition-colors"
+                  className="group relative rounded-md border border-white/10 bg-[#16171b] p-8 flex flex-col justify-between hover:border-amber-400/50 transition-colors"
                 >
                   <div>
                     {/* Badge */}
                     <div className="flex items-center justify-between mb-6">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/10 px-3 py-1 text-[11px] font-bold text-amber-400 border border-amber-400/20">
+                      <span className="inline-flex items-center gap-1.5 rounded-md bg-amber-400/10 px-3 py-1 text-[11px] font-bold text-amber-400 border border-amber-400/20">
                         <CheckCircle2 className="h-3 w-3" />
                         {item.status}
                       </span>
@@ -166,10 +166,10 @@ export default function AboutGearDark() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-16 rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-md"
+          className="mt-16 rounded-md border border-white/10 bg-white/5 p-8 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-md"
         >
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-400 text-black">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-amber-400 text-black">
               <Cpu className="h-6 w-6" />
             </div>
             <div>
@@ -182,7 +182,7 @@ export default function AboutGearDark() {
 
           <a
             href="/contact"
-            className="shrink-0 rounded-full border border-amber-400/40 bg-amber-400/10 px-6 py-3 text-xs font-bold uppercase tracking-wider text-amber-400 hover:bg-amber-400 hover:text-black transition-all"
+            className="shrink-0 rounded-md border border-amber-400/40 bg-amber-400/10 px-6 py-3 text-xs font-bold uppercase tracking-wider text-amber-400 hover:bg-amber-400 hover:text-black transition-all"
           >
             Request Full Tech Spec Sheet
           </a>

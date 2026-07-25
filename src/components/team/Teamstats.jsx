@@ -55,7 +55,7 @@ function StatCard({ stat, index }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       whileHover={{ y: -4 }}
-      className="group relative rounded-2xl border p-6 sm:p-8 transition-all duration-300 shadow-sm hover:shadow-xl overflow-hidden"
+      className="group relative rounded-md border p-6 sm:p-8 transition-all duration-300 shadow-sm hover:shadow-xl overflow-hidden"
       style={{
         backgroundColor: COLORS.CARD_BG,
         borderColor: COLORS.BORDER,
@@ -71,7 +71,7 @@ function StatCard({ stat, index }) {
 
       <div className="flex items-center justify-between gap-2">
         <div 
-          className="flex h-10 w-10 items-center justify-center rounded-xl border transition-colors group-hover:border-amber-400/40"
+          className="flex h-10 w-10 items-center justify-center rounded-md border transition-colors group-hover:border-amber-400/40"
           style={{ 
             backgroundColor: "rgba(255, 199, 44, 0.12)",
             borderColor: "rgba(185, 134, 10, 0.2)",
@@ -102,8 +102,8 @@ function StatCard({ stat, index }) {
 
 export default function TeamStats() {
   return (
-    <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 font-sans overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full bg-white py-10 sm:py-24 px-4 sm:px-6 lg:px-8 font-sans overflow-hidden">
+      <div className="max-w-7xl mx-auto ">
         
         {/* Header Section */}
         <div className="max-w-2xl">
@@ -112,7 +112,7 @@ export default function TeamStats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-[0.98]"
+            className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-heading font-bold uppercase tracking-tight leading-[0.98]"
             style={{ color: COLORS.INK }}
           >
             A track record, not just a{" "}
@@ -122,7 +122,7 @@ export default function TeamStats() {
           </motion.h2>
 
           <p 
-            className="mt-3 text-sm sm:text-base leading-relaxed"
+            className="mt-3 text-sm sm:text-base font-body leading-relaxed"
             style={{ color: COLORS.INK_MUTED }}
           >
             Quantifiable results behind every frame. From feature productions to high-impact commercial campaigns.

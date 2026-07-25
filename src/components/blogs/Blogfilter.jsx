@@ -27,7 +27,7 @@ export default function BlogFilterBar({ active, onChange, count }) {
               <button
                 key={cat}
                 onClick={() => onChange(cat)}
-                className={`shrink-0 font-mono text-[11px] tracking-[0.08em] uppercase rounded-full px-4 py-2 border transition-colors duration-200 ${
+                className={`shrink-0 font-heading text-[11px] tracking-[0.08em] uppercase rounded-md px-4 py-2 border transition-colors duration-200 ${
                   isActive
                     ? "bg-[#f2b705] text-[#0e0d0c] border-[#f2b705]"
                     : "bg-transparent text-[#c9c2b3] border-[#f3eee4]/15 hover:border-[#f2b705]/50 hover:text-[#f3eee4]"
@@ -39,7 +39,7 @@ export default function BlogFilterBar({ active, onChange, count }) {
           })}
         </div>
 
-        <span className="hidden sm:block font-mono text-[11px] tracking-[0.08em] uppercase text-[#6b6459] whitespace-nowrap">
+        <span className="hidden sm:block  font-heading text-[11px] tracking-[0.08em] uppercase text-[#6b6459] whitespace-nowrap">
           {count} posts
         </span>
       </div>

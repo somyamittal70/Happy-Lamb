@@ -29,14 +29,14 @@ export default function BlogArticle() {
 
         {/* header */}
         <header className="max-w-3xl mx-auto mb-8 md:mb-10">
-          <span className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-[#0e0d0c] bg-[#f2b705] rounded-full px-3 py-1 mb-5">
+          <span className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-[#0e0d0c] bg-[#f2b705] rounded-md px-3 py-1 mb-5">
             Client Work
           </span>
           <h1 className="font-display font-medium text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tight mb-6">
             Reviving Mr. India: Building Nostalgia Into a Modern Banking Story
           </h1>
           <div className="flex items-center gap-3 text-sm text-[#5c5648]">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2c1810] to-[#5a3520] flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#2c1810] to-[#5a3520] flex items-center justify-center shrink-0">
               <span className="font-display text-xs text-[#f3eee4]">DG</span>
             </div>
             <span className="font-medium text-[#1a1815]">Dilip Gupta</span>
@@ -96,13 +96,13 @@ export default function BlogArticle() {
               alt="Lighting setup on the home set"
               className="w-full h-[200px] sm:h-[320px] object-cover rounded-md"
             />
-            <figcaption className="font-mono text-[11px] uppercase tracking-wide text-[#8a8074] mt-3">
+            <figcaption className="font-mono text-[11px] font-heading uppercase tracking-wide text-[#8a8074] mt-3">
               Lighting setup for the living-room sequence
             </figcaption>
           </figure>
 
           <h2 className="text-2xl sm:text-3xl">What made it work</h2>
-          <p>
+          <p className="font-body">
             Nostalgia is easy to get wrong — either too reverent to say anything new, or too
             winking to feel sincere. The version that worked treated the character as a real
             person who'd simply grown up alongside the audience, which is what let the banking
@@ -114,19 +114,19 @@ export default function BlogArticle() {
         <div className="max-w-2xl mx-auto flex flex-wrap items-center justify-between gap-4 mt-12 pt-6 border-t border-[#e6e0d2]">
           <div className="flex flex-wrap gap-2">
             {["ICICI Bank", "Film", "Client Work"].map((tag) => (
-              <span key={tag} className="font-mono text-[11px] uppercase tracking-wide text-[#5c5648] bg-[#f0ebe0] rounded-full px-3 py-1.5">
+              <span key={tag} className="font-mono text-[11px] uppercase tracking-wide text-[#5c5648] bg-[#f0ebe0] rounded-md px-3 py-1.5">
                 {tag}
               </span>
             ))}
           </div>
           <div className="flex items-center gap-2.5">
-            {/* <button aria-label="Share on Twitter" className="w-9 h-9 rounded-full border border-[#e6e0d2] flex items-center justify-center hover:border-[#1a1815] transition-colors">
+            {/* <button aria-label="Share on Twitter" className="w-9 h-9 rounded-md border border-[#e6e0d2] flex items-center justify-center hover:border-[#1a1815] transition-colors">
               <Twitter size={14} />
             </button> */}
-            {/* <button aria-label="Share on LinkedIn" className="w-9 h-9 rounded-full border border-[#e6e0d2] flex items-center justify-center hover:border-[#1a1815] transition-colors">
+            {/* <button aria-label="Share on LinkedIn" className="w-9 h-9 rounded-md border border-[#e6e0d2] flex items-center justify-center hover:border-[#1a1815] transition-colors">
               <Linkedin size={14} />
             </button> */}
-            <button aria-label="Copy link" className="w-9 h-9 rounded-full border border-[#e6e0d2] flex items-center justify-center hover:border-[#1a1815] transition-colors">
+            <button aria-label="Copy link" className="w-9 h-9 rounded-md border border-[#e6e0d2] flex items-center justify-center hover:border-[#1a1815] transition-colors">
               <Link2 size={14} />
             </button>
           </div>
@@ -134,7 +134,7 @@ export default function BlogArticle() {
 
         {/* author card */}
         <div className="max-w-2xl mx-auto mt-10 bg-[#f0ebe0] rounded-md p-5 sm:p-6 flex items-center gap-4">
-          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#2c1810] to-[#5a3520] flex items-center justify-center shrink-0">
+          <div className="w-14 h-14 rounded-md bg-gradient-to-br from-[#2c1810] to-[#5a3520] flex items-center justify-center shrink-0">
             <span className="font-display text-lg text-[#f3eee4]">DG</span>
           </div>
           <div>

@@ -64,7 +64,7 @@ export default function WorkImpactLight() {
     <section className="relative w-full bg-[#f8f9fa] text-slate-900 py-24 overflow-hidden border-t border-b border-slate-200">
       
       {/* Background Accent Glow */}
-      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 h-96 w-96 rounded-full bg-amber-500/10 blur-[170px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 h-96 w-96 rounded-md bg-amber-500/10 blur-[170px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
         
@@ -75,7 +75,7 @@ export default function WorkImpactLight() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-600"
+              className="flex items-center gap-2 text-xs font-bold font-heading uppercase tracking-widest text-amber-600"
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span>Client Validation & Impact</span>
@@ -86,7 +86,7 @@ export default function WorkImpactLight() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900"
+              className="mt-3 text-3xl sm:text-5xl font-bold font-heading uppercase tracking-tight text-slate-900"
             >
               What Agencies Say About <span className="text-amber-500">Our Work</span>
             </motion.h2>
@@ -107,7 +107,7 @@ export default function WorkImpactLight() {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Left Column: Interactive Testimonial Slider (Spans 7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-sm relative">
+          <div className="lg:col-span-7 flex flex-col justify-between rounded-md border border-slate-200 bg-white p-8 sm:p-10 shadow-sm relative">
             <div>
               {/* Top Quote Icon & Rating */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-6">
@@ -117,7 +117,7 @@ export default function WorkImpactLight() {
                   ))}
                 </div>
 
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 border border-emerald-200">
+                <span className="inline-flex items-center gap-1.5 rounded-md bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 border border-emerald-200">
                   <TrendingUp className="h-3.5 w-3.5" />
                   {current.stats}
                 </span>
@@ -135,7 +135,7 @@ export default function WorkImpactLight() {
                 <img
                   src={current.avatar}
                   alt={current.author}
-                  className="h-12 w-12 rounded-full object-cover border-2 border-amber-400"
+                  className="h-12 w-12 rounded-md object-cover border-2 border-amber-400"
                 />
                 <div>
                   <h4 className="text-base font-bold text-slate-900">{current.author}</h4>
@@ -150,14 +150,14 @@ export default function WorkImpactLight() {
                 <button
                   onClick={prevTestimonial}
                   aria-label="Previous Testimonial"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-900 hover:text-white transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-900 hover:text-white transition-colors"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={nextTestimonial}
                   aria-label="Next Testimonial"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-900 hover:text-white transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-900 hover:text-white transition-colors"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
@@ -166,9 +166,9 @@ export default function WorkImpactLight() {
           </div>
 
           {/* Right Column: Standard Delivery Standards (Spans 5 cols) */}
-          <div className="lg:col-span-5 rounded-3xl border border-slate-200 bg-slate-900 text-white p-8 sm:p-10 flex flex-col justify-between shadow-xl">
+          <div className="lg:col-span-5 rounded-md border border-slate-200 bg-slate-900 text-white p-8 sm:p-10 flex flex-col justify-between shadow-xl">
             <div>
-              <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest block">
+              <span className="text-xs font-mono font-bold font-heading text-amber-400 uppercase tracking-widest block">
                 Standard Deliverables
               </span>
               <h3 className="mt-2 text-2xl font-bold text-white">
@@ -195,7 +195,7 @@ export default function WorkImpactLight() {
             <div className="mt-8 pt-6 border-t border-white/10">
               <a
                 href="/contact"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-amber-400 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-black hover:bg-amber-300 transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-amber-400 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-black hover:bg-amber-300 transition-colors"
               >
                 <span>Start Your Campaign Project</span>
                 <ArrowUpRight className="h-4 w-4" />

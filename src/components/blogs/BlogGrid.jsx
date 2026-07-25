@@ -76,7 +76,7 @@ export default function BlogGrid({ active = "All" }) {
                 />
               </div>
 
-              <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-[#f2b705]">
+              <span className="font-heading text-[10px] tracking-[0.1em] uppercase text-[#f2b705]">
                 {post.category}
               </span>
 

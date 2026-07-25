@@ -53,8 +53,8 @@ export default function WorkBTSDark() {
     <section className="relative w-full bg-[#0f1012] text-white py-24 overflow-hidden border-t border-white/10">
       
       {/* Background Lighting Accents */}
-      <div className="absolute top-1/2 left-0 h-96 w-96 rounded-full bg-amber-500/10 blur-[170px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 h-80 w-80 rounded-full bg-amber-600/5 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 h-96 w-96 rounded-md bg-amber-500/10 blur-[170px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 h-80 w-80 rounded-md bg-amber-600/5 blur-[150px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
         
@@ -65,7 +65,7 @@ export default function WorkBTSDark() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-400"
+              className="flex items-center gap-2 text-xs font-semibold font-heading uppercase tracking-widest text-amber-400"
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span>Production Reality</span>
@@ -76,7 +76,7 @@ export default function WorkBTSDark() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight"
+              className="mt-3 text-3xl sm:text-5xl font-bold font-heading tracking-tight"
             >
               Behind The <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">Scenes</span>
             </motion.h2>
@@ -87,7 +87,7 @@ export default function WorkBTSDark() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-slate-400 max-w-md text-xs sm:text-sm leading-relaxed"
+            className="text-slate-400 max-w-md  font-body text-xs sm:text-sm leading-relaxed"
           >
             A look into the technical execution on set—rigging setups, camera builds, extreme locations, and director workflow behind our final frames.
           </motion.p>
@@ -102,7 +102,7 @@ export default function WorkBTSDark() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group relative rounded-3xl border border-white/10 bg-[#16171b] overflow-hidden flex flex-col justify-between hover:border-amber-400/50 transition-all cursor-pointer"
+              className="group relative rounded-md border border-white/10 bg-[#16171b] overflow-hidden flex flex-col justify-between hover:border-amber-400/50 transition-all cursor-pointer"
               onClick={() => setSelectedImg(item)}
             >
               {/* Image Container */}
@@ -116,12 +116,13 @@ export default function WorkBTSDark() {
 
                 {/* Top Badge */}
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                  <span className="rounded-full border border-white/10 bg-black/60 px-2.5 py-1 text-[10px] font-bold text-amber-400 backdrop-blur-md">
+                  <span className="rounded-md border border-white/10 bg-black/60 px-2.5 py-1 text-[10px] font-bold text-amber-400 backdrop-blur-md">
                     {item.category}
                   </span>
                   <button
                     aria-label="Expand Image"
-                    className="flex h-7 w-7 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="flex h-7 w-7 items-center justify-center rounded-md
+                     bg-black/60 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity"
                   >
                     <Maximize2 className="h-3.5 w-3.5" />
                   </button>
@@ -137,10 +138,10 @@ export default function WorkBTSDark() {
               {/* Card Meta Content */}
               <div className="p-5 flex flex-col justify-between flex-1">
                 <div>
-                  <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors">
+                  <h3 className="text-base font-body font-bold text-white group-hover:text-amber-400 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                  <p className="mt-2 text-xs font-body text-slate-400 line-clamp-2 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -175,19 +176,19 @@ export default function WorkBTSDark() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                className="relative max-w-4xl w-full rounded-3xl border border-white/10 bg-[#16171b] overflow-hidden p-6 sm:p-8 text-white shadow-2xl"
+                className="relative max-w-4xl w-full rounded-md border border-white/10 bg-[#16171b] overflow-hidden p-6 sm:p-8 text-white shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedImg(null)}
-                  className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                  className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-md bg-white/10 text-white hover:bg-white/20 transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                  <div className="relative aspect-[4/5] sm:aspect-square w-full overflow-hidden rounded-2xl bg-slate-900">
+                  <div className="relative aspect-[4/5] sm:aspect-square w-full overflow-hidden rounded-md bg-slate-900">
                     <img
                       src={selectedImg.img}
                       alt={selectedImg.title}
@@ -197,7 +198,7 @@ export default function WorkBTSDark() {
 
                   <div className="flex flex-col justify-between h-full">
                     <div>
-                      <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/10 px-3 py-1 text-xs font-bold text-amber-400 border border-amber-400/20">
+                      <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-400/10 px-3 py-1 text-xs font-bold text-amber-400 border border-amber-400/20">
                         <Layers className="h-3.5 w-3.5" />
                         <span>{selectedImg.category} Production</span>
                       </div>
