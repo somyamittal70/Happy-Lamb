@@ -19,7 +19,7 @@ export default function BlogFilterBar({ active, onChange, count }) {
         .filter-scroll { scrollbar-width: none; }
       `}</style>
 
-      <div className="max-w-7xl px-12 mx-auto flex items-center justify-between gap-4 border-t border-[#f3eee4]/10 pt-6">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 border-t border-[#f3eee4]/10 pt-6">
         <div className="filter-scroll flex gap-2.5 overflow-x-auto sm:flex-wrap">
           {CATEGORIES.map((cat) => {
             const isActive = active === cat;

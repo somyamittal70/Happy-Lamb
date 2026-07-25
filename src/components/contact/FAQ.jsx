@@ -140,7 +140,7 @@ export default function FAQSection() {
       className="relative w-full px-4 py-16 sm:py-24 sm:px-8 lg:px-16 font-sans overflow-hidden"
       style={{ backgroundColor: DARK_PALETTE.BG }}
     >
-      <div className="mx-auto max-w-7xl px-12">
+      <div className="mx-auto max-w-7xl">
         {/* Header Section */}
         <div className="max-w-2xl">
           <motion.div

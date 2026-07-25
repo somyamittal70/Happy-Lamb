@@ -82,9 +82,9 @@ export default function ContactSection() {
 
   return (
     <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans">
-      <div className="max-w-7xl mx-auto px-12">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          
+
           {/* ========================================================= */}
           {/* LEFT COLUMN: Main Pitch Form                              */}
           {/* ========================================================= */}
@@ -474,7 +474,7 @@ export default function ContactSection() {
             {/* Bottom Quote Banner */}
             <div className="mt-12 pt-6 border-t border-white/10">
               <p className="text-xs italic text-white/50 leading-relaxed">
-                “Every story deserves a frame that honors its spirit.”
+                "Every story deserves a frame that honors its spirit."
               </p>
               <p
                 className="mt-1 text-[11px] font-bold uppercase tracking-wider"
