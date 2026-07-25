@@ -84,12 +84,12 @@ export default function AboutHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="font-black uppercase leading-[0.98] tracking-tight text-white"
+              className="font-bold font-heading uppercase leading-[0.98] tracking-tight text-white"
               style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
             >
               Gentle name.
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
+              <span className="text-transparent  bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
                 Bold production
               </span>
               <br />
