@@ -13,7 +13,7 @@ export const POSTS = [
     author: "Sarvesh",
     date: "Feb 27, 2026",
     read: "5 min read",
-    img: "https://picsum.photos/seed/hl-grid2/500/380",
+    img: "https://i.pinimg.com/736x/43/96/0c/43960c76f1186a7fc96f4dc5b00f1b54.jpg",
   },
   {
     title: "Godrej Home Lockers: Directing Madhuri Dixit",
@@ -45,7 +45,7 @@ export const POSTS = [
     author: "Memon Shadap Razzak",
     date: "Jan 21, 2026",
     read: "5 min read",
-    img: "https://picsum.photos/seed/hl-grid6/500/380",
+    img: "https://i.pinimg.com/1200x/95/a1/85/95a18530daa78b61f1d64cecdc857742.jpg",
   },
 ];
 

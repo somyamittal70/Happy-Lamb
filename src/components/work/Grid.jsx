@@ -45,7 +45,7 @@ const ALL_PROJECTS = [
     views: "1.8M",
     duration: "04:15",
     year: "2026",
-    thumbnail: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1000&auto=format&fit=crop",
+    thumbnail: "https://images.unsplash.com/photo-1755308482556-9e8383a5be97?q=80&w=1000&auto=format&fit=crop",
     tags: ["Anamorphic", "8K RAW", "Street Night"],
   },
   {
@@ -57,7 +57,7 @@ const ALL_PROJECTS = [
     views: "950K",
     duration: "01:30",
     year: "2025",
-    thumbnail: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1000&auto=format&fit=crop",
+    thumbnail: "https://images.unsplash.com/photo-1626966368420-fa2079743ad2?q=80&w=1000&auto=format&fit=crop",
     tags: ["High Speed", "FPV Drone", "Track Day"],
   },
   {
@@ -69,7 +69,7 @@ const ALL_PROJECTS = [
     views: "3.4M",
     duration: "03:45",
     year: "2025",
-    thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop",
+    thumbnail: "https://images.unsplash.com/photo-1587777007563-5ee6afeede02?q=80&w=1000&auto=format&fit=crop",
     tags: ["Color Grade", "Sunset", "Performers"],
   },
   {
@@ -81,7 +81,7 @@ const ALL_PROJECTS = [
     views: "2.1M",
     duration: "02:10",
     year: "2024",
-    thumbnail: "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?q=80&w=1000&auto=format&fit=crop",
+    thumbnail: "https://images.unsplash.com/photo-1679381457571-ade79f46c61c?q=80&w=1000&auto=format&fit=crop",
     tags: ["Sub-Zero", "Aerials", "Wildlife"],
   },
   {
@@ -93,7 +93,7 @@ const ALL_PROJECTS = [
     views: "1.2M",
     duration: "02:00",
     year: "2025",
-    thumbnail: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=1000&auto=format&fit=crop",
+    thumbnail: "https://images.unsplash.com/photo-1753563822170-00bdbed3550c?q=80&w=1000&auto=format&fit=crop",
     tags: ["Cinelifter", "120fps", "Motorsport"],
   },
   {

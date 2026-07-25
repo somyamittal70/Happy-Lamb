@@ -56,14 +56,14 @@ const PROJECTS = [
     thumbnail: "https://images.pexels.com/photos/13098128/pexels-photo-13098128.jpeg",
     featured: false,
   },
-  {
+{
     id: 5,
     title: "Iss Diwali, Kuch Naya!",
     category: "Brand Films",
     client: "Upstox",
-    thumbnail: "https://images.pexels.com/photos/29611783/pexels-photo-29611783.jpeg",
+    thumbnail: "https://images.pexels.com/photos/34387791/pexels-photo-34387791.jpeg",
     featured: false,
-  },
+},
   {
     id: 6,
     title: "Rural Roads, Real Stories — Sabka Sathi",

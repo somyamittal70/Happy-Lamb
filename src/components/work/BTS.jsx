@@ -11,7 +11,7 @@ const BTS_GALLERY = [
     category: "Rigging",
     camera: "RED V-Raptor 8K",
     lens: "DZO 25mm T2.1",
-    img: "https://images.unsplash.com/photo-1512790182412-b19e6d61b397?q=80&w=1000&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1758390851386-79c99432120e?q=80&w=1000&auto=format&fit=crop",
     desc: "Suction-mounted dynamic pursuit rig capturing 120fps high-speed tracking shots at 160 mph.",
   },
   {
@@ -21,7 +21,7 @@ const BTS_GALLERY = [
     category: "Lighting",
     camera: "Sony FX6",
     lens: "Great Joy 1.8x Anamorphic",
-    img: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1000&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1757492166964-518d2c8b9f41?q=80&w=1000&auto=format&fit=crop",
     desc: "Dual LED tube ambient lighting paired with anamorphic glass for authentic cyberpunk lens flares.",
   },
   {
@@ -31,7 +31,7 @@ const BTS_GALLERY = [
     category: "Aerial",
     camera: "RED Komodo 6K",
     lens: "Laowa 9mm Zero-D",
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1580287925446-7ed8ce2709c3?q=80&w=1000&auto=format&fit=crop",
     desc: "Custom heavy-lift FPV drone configured for close-proximity mountain pass passes.",
   },
   {
@@ -41,7 +41,7 @@ const BTS_GALLERY = [
     category: "Direction",
     camera: "Sony FX3",
     lens: "G-Master 24-70mm",
-    img: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1576714645490-1ed8c9a14045?q=80&w=1000&auto=format&fit=crop",
     desc: "Low-latency wireless Teradek feed for agency team video review on glacier location.",
   },
 ];

@@ -114,7 +114,7 @@ export default function AboutLuxury() {
 
             <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full rounded-[2rem] overflow-hidden border border-neutral-200 bg-neutral-100 shadow-2xl group">
               <img
-                src="https://images.pexels.com/photos/24702547/pexels-photo-24702547.jpeg"
+                src="/dilip.webp"
                 alt="Happy Lamb Production on set"
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />

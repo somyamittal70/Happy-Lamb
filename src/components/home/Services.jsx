@@ -171,7 +171,7 @@ const SERVICES = [
     id: "03",
     title: "Color Grading & Post-Production",
     icon: SVGIcons.editTimeline,
-    image: "https://images.pexels.com/photos/5082567/pexels-photo-5082567.jpeg",
+    image: "https://i.pinimg.com/1200x/d5/db/d5/d5dbd52a32b16e7d7fcb01210080c740.jpg",
     desc: "Transforming flat LOG profiles into vibrant, mood-evoking cinematic looks with precise DaVinci Resolve color pipelines.",
     deliverables: [
       "DaVinci Resolve Look",
@@ -207,7 +207,7 @@ const SERVICES = [
     id: "06",
     title: "Social Media Content",
     icon: SVGIcons.reels,
-    image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg",
+    image: "https://i.pinimg.com/736x/65/d4/f4/65d4f4f0f8ddd6e1f12b80e86e85390e.jpg",
     desc: "Fast-turnaround reels, shorts, and campaign snippets engineered for retention and platform-native storytelling.",
     deliverables: [
       "Vertical Reels Pack",

@@ -14,7 +14,7 @@ const CAPABILITIES = [
       "We turn raw product concepts into unforgettable physical experiences. From tactile material selection to shelf-stopping aesthetics, we give your product a soul that customers feel compelled to own.",
     // Premium unsplash image for sleek packaging / product design
     image:
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/control1/1200x/c4/4d/be/c44dbeaa17b1f9a9490156a600f6423c.jpg",
     stats: "100% Custom Visual Design",
   },
   {

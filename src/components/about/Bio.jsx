@@ -53,7 +53,7 @@ export default function AboutBioLight() {
               {/* Main Image */}
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
+                  src="/dilip.webp"
                   alt="Director behind the scenes"
                   className="h-full w-full object-cover"
                 />
