@@ -30,14 +30,14 @@ const PROJECTS = [
     category: "Brand Films",
     client: "ICICI Bank",
     thumbnail: "https://images.pexels.com/photos/4622108/pexels-photo-4622108.jpeg",
-    featured: true,
+    featured: false,
   },
   {
     id: 2,
     title: "Home Lockers ft. Madhuri Dixit",
     category: "Brand Films",
     client: "Godrej",
-    thumbnail: "https://images.pexels.com/photos/39624/pexels-photo-39624.jpeg",
+    thumbnail: "https://i.pinimg.com/1200x/ac/28/23/ac282397dc1dddff1e0a19ba1a60cfff.jpg",
     featured: false,
   },
   {
@@ -64,8 +64,15 @@ const PROJECTS = [
     thumbnail: "https://images.pexels.com/photos/29611783/pexels-photo-29611783.jpeg",
     featured: false,
   },
+  {
+    id: 6,
+    title: "Rural Roads, Real Stories — Sabka Sathi",
+    category: "Real-Life Stories",
+    client: "Hero MotoCorp",
+    thumbnail: "https://images.pexels.com/photos/2519374/pexels-photo-2519374.jpeg",
+    featured: false,
+  },
 ];
-
 /* ---------- Magnetic tilt card ---------- */
 function TiltCard({ project, isHero }) {
   const ref = useRef(null);
@@ -175,7 +182,7 @@ function TiltCard({ project, isHero }) {
           </div>
 
           {/* content */}
-          <div className="relative p-6 sm:p-7 z-20" style={{ transform: "translateZ(30px)" }}>
+          <div className="relative p-6 sm:p-7 z-20">
             <div
               className="text-xs uppercase tracking-[0.2em] mb-2"
               style={{ fontFamily: FONT_MONO, color: GOLD }}
