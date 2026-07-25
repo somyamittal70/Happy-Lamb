@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 
 // Brand Tokens
@@ -32,6 +32,7 @@ function getActiveFromPath() {
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState(getActiveFromPath);
+  const [hovered, setHovered] = useState(null);
   const [scrolled, setScrolled] = useState(false);
 
   // Smoothed scroll-progress value, 0 -> 1 across the whole document
@@ -56,11 +57,17 @@ export default function Header() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  // Prevent background scrolling when mobile nav is open
+  // Prevent background scrolling when mobile nav is open, close on Escape
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
+    if (!isOpen) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
     };
   }, [isOpen]);
 
@@ -83,58 +90,69 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-8">
-          {/* Logo */}
+          {/* Logo — subtle "shutter" rotation on hover, film-reel nod */}
           <a href="/" className="group relative flex items-center shrink-0">
             <motion.img
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.04, rotate: -3 }}
               whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 300, damping: 18 }}
               src="/HL-logo.png"
               alt="Happy Lamb Production"
-              className="h-10 w-auto sm:h-12 transition-transform duration-200"
+              className="h-10 w-auto sm:h-12"
             />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav
+            className="hidden lg:flex items-center gap-1"
+            onMouseLeave={() => setHovered(null)}
+          >
             {NAV_LINKS.map((link) => {
               const isActive = active === link.label;
+              const isHovered = hovered === link.label;
+              const show = isActive || isHovered;
               return (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="relative px-4 py-2 text-[14px] font-medium tracking-wide transition-colors duration-200"
+                  onMouseEnter={() => setHovered(link.label)}
+                  className="relative px-4 py-2 text-[14px] font-medium tracking-wide"
                   style={{ color: isActive ? BRAND.ink : BRAND.slate }}
                 >
-                  <span className="relative z-10 transition-colors duration-200 hover:text-[#17181a]">
+                  <span
+                    className="relative z-10 transition-colors duration-200"
+                    style={{
+                      color: isHovered && !isActive ? BRAND.ink : undefined,
+                    }}
+                  >
                     {link.label}
                   </span>
 
-                  {/* Active Indicator Pill */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeIndicator"
-                      className="absolute inset-0 rounded-full bg-slate-100/80 -z-0"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-
-                  {/* Gold underline dot indicator on active */}
-                  {isActive && (
+                  {/* Film-sprocket indicator — two perforation dots flank a gold
+                      line that unspools from the center, like a filmstrip frame */}
+                  <div className="pointer-events-none absolute -bottom-0.5 left-1/2 flex -translate-x-1/2 items-center gap-1">
                     <motion.span
-                      layoutId="activeDot"
-                      className="absolute bottom-1 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full"
+                      className="h-[3px] w-[3px] rounded-[1px]"
                       style={{ backgroundColor: BRAND.gold }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 30,
-                      }}
+                      initial={false}
+                      animate={{ scale: show ? 1 : 0, opacity: show ? 1 : 0 }}
+                      transition={{ duration: 0.2, delay: show ? 0.1 : 0 }}
                     />
-                  )}
+                    <motion.span
+                      className="h-[2px] rounded-full"
+                      style={{ backgroundColor: BRAND.gold }}
+                      initial={false}
+                      animate={{ width: show ? 14 : 0, opacity: show ? 1 : 0 }}
+                      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    />
+                    <motion.span
+                      className="h-[3px] w-[3px] rounded-[1px]"
+                      style={{ backgroundColor: BRAND.gold }}
+                      initial={false}
+                      animate={{ scale: show ? 1 : 0, opacity: show ? 1 : 0 }}
+                      transition={{ duration: 0.2, delay: show ? 0.1 : 0 }}
+                    />
+                  </div>
                 </a>
               );
             })}
@@ -144,112 +162,122 @@ export default function Header() {
               href="/contact"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              className="group ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-[14px] font-semibold text-white transition-colors duration-300 shadow-sm hover:shadow-md"
+              className="group ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-[14px] font-semibold text-white shadow-sm hover:shadow-md"
               style={{ backgroundColor: BRAND.ink }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
             >
               <span>Let's Talk</span>
               <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </motion.a>
           </nav>
 
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile Menu Toggle — animated hamburger, flips to white once the
+              iris overlay opens behind it */}
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen((v) => !v)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
-            className="md:hidden relative z-50 rounded-full p-2 text-slate-800 hover:bg-slate-100 transition-colors"
+            className="lg:hidden relative z-[60] flex h-10 w-10 items-center justify-center rounded-full transition-colors"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <span className="relative flex h-4 w-5 flex-col justify-between">
+              <motion.span
+                className="block h-[2px] w-full rounded-full"
+                animate={{
+                  rotate: isOpen ? 45 : 0,
+                  y: isOpen ? 7 : 0,
+                  backgroundColor: isOpen ? BRAND.white : BRAND.ink,
+                }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              />
+              <motion.span
+                className="block h-[2px] w-full rounded-full"
+                animate={{
+                  opacity: isOpen ? 0 : 1,
+                  x: isOpen ? 8 : 0,
+                  backgroundColor: isOpen ? BRAND.white : BRAND.ink,
+                }}
+                transition={{ duration: 0.2 }}
+              />
+              <motion.span
+                className="block h-[2px] w-full rounded-full"
+                animate={{
+                  rotate: isOpen ? -45 : 0,
+                  y: isOpen ? -7 : 0,
+                  backgroundColor: isOpen ? BRAND.white : BRAND.ink,
+                }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              />
+            </span>
           </motion.button>
         </div>
       </div>
 
-      {/* Mobile Menu — slides in from the right, with a dimmed backdrop */}
+      {/* Mobile Menu — cinematic iris wipe, expanding from the toggle button
+          like a camera aperture opening, in place of a stock slide-in drawer */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              onClick={() => setIsOpen(false)}
-              className="md:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px]"
-            />
-
-            <motion.div
-              key="drawer"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="md:hidden fixed inset-y-0 right-0 z-50 flex h-full w-[82%] max-w-sm flex-col bg-white shadow-2xl"
-            >
-              <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100">
-                <span
-                  className="font-semibold text-[15px]"
-                  style={{ color: BRAND.ink }}
-                >
-                  Menu
-                </span>
-                <motion.button
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => setIsOpen(false)}
-                  aria-label="Close menu"
-                  className="rounded-full p-2 text-slate-800 hover:bg-slate-100 transition-colors"
-                >
-                  <X size={22} />
-                </motion.button>
-              </div>
-
-              <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 py-4">
-                {NAV_LINKS.map((link, idx) => {
-                  const isActive = active === link.label;
-                  return (
-                    <motion.a
-                      key={link.label}
-                      href={link.href}
-                      initial={{ opacity: 0, x: 24 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05 + 0.1, duration: 0.25 }}
-                      onClick={() => setIsOpen(false)}
-                      className={`flex items-center justify-between rounded-xl px-4 py-3 text-[16px] font-medium transition-all ${
-                        isActive
-                          ? "bg-slate-100/80 font-semibold"
-                          : "hover:bg-slate-50 text-slate-600"
-                      }`}
-                      style={{ color: isActive ? BRAND.ink : undefined }}
+          <motion.div
+            key="iris"
+            initial={{ clipPath: "circle(0% at calc(100% - 44px) 38px)" }}
+            animate={{ clipPath: "circle(150% at calc(100% - 44px) 38px)" }}
+            exit={{ clipPath: "circle(0% at calc(100% - 44px) 38px)" }}
+            transition={{ duration: 0.6, ease: [0.83, 0, 0.17, 1] }}
+            className="lg:hidden fixed inset-0 z-50 flex flex-col"
+            style={{ backgroundColor: BRAND.ink }}
+          >
+            <nav className="flex flex-1 flex-col items-center justify-center gap-2 px-8">
+              {NAV_LINKS.map((link, idx) => {
+                const isActive = active === link.label;
+                return (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: idx * 0.06 + 0.25,
+                      duration: 0.4,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    onClick={() => setIsOpen(false)}
+                    className="group flex items-center gap-2 py-2.5 text-[26px] font-medium"
+                    style={{ color: isActive ? BRAND.gold : BRAND.white }}
+                  >
+                    <span
+                      className="text-[13px] font-mono"
+                      style={{
+                        color: isActive ? BRAND.gold : "rgba(255,255,255,0.35)",
+                      }}
                     >
-                      <span>{link.label}</span>
-                      {isActive && (
-                        <span
-                          className="h-2 w-2 rounded-full"
-                          style={{ backgroundColor: BRAND.gold }}
-                        />
-                      )}
-                    </motion.a>
-                  );
-                })}
-              </nav>
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    {link.label}
+                  </motion.a>
+                );
+              })}
+            </nav>
 
-              <div className="px-6 pb-6 pt-2 border-t border-slate-100">
-                <motion.a
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: NAV_LINKS.length * 0.05 + 0.1 }}
-                  href="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl py-3.5 text-center text-[15px] font-semibold text-white shadow-md active:scale-[0.98] transition-transform"
-                  style={{ backgroundColor: BRAND.ink }}
-                >
-                  <span>Let's Talk</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </motion.a>
-              </div>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: NAV_LINKS.length * 0.06 + 0.3,
+                duration: 0.4,
+              }}
+              className="flex justify-center px-8 pb-10"
+            >
+              <a
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold"
+                style={{ backgroundColor: BRAND.gold, color: BRAND.ink }}
+              >
+                <span>Let's Talk</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
