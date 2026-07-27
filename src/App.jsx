@@ -12,6 +12,7 @@ import WorkPage from './pages/OurWork'
 import ContactPage from "./pages/Contact";
 import BlogsPage from './pages/Blogs';
 import TeamPage from './pages/OurTeam';
+import ScrollToTop from './components/layouts/Scroll';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
     <Header />
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<HomePage/>} />
         <Route path='/about' element={<AboutPage />} />
