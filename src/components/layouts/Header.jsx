@@ -153,7 +153,7 @@ export default function Header() {
             })}
 
             {/* Call to Action Button */}
-            <motion.a
+            <motion.Link
               href="/contact"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
@@ -163,7 +163,7 @@ export default function Header() {
             >
               <span>Let's Talk</span>
               <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </motion.a>
+            </motion.Link>
           </nav>
 
           {/* Mobile Menu Toggle — animated hamburger, flips to white once the
@@ -225,7 +225,7 @@ export default function Header() {
               {NAV_LINKS.map((link, idx) => {
                 const isActive = active === link.label;
                 return (
-                  <motion.a
+                  <motion.Link
                     key={link.label}
                     href={link.href}
                     initial={{ opacity: 0, y: 16 }}
@@ -248,7 +248,7 @@ export default function Header() {
                       {String(idx + 1).padStart(2, "0")}
                     </span>
                     {link.label}
-                  </motion.a>
+                  </motion.Link>
                 );
               })}
             </nav>

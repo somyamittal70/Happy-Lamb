@@ -387,7 +387,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2.5">
                 {SOCIALS.map(({ label, href, icon, bg }) => (
-                  <motion.a
+                  <motion.Link
                     key={label}
                     href={href}
                     aria-label={label}
@@ -400,7 +400,7 @@ export default function Footer() {
                     transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   >
                     {icon}
-                  </motion.a>
+                  </motion.Link>
                 ))}
               </div>
             </div>

@@ -316,7 +316,7 @@ export default function FeaturedWork() {
           transition={{ delay: 0.3 }}
           className="mt-20 flex justify-center"
         >
-          <motion.a
+          <motion.Link
             href="/work"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
@@ -325,7 +325,7 @@ export default function FeaturedWork() {
           >
             <span>Explore All Work</span>
             <ArrowUpRight className="h-4 w-4" style={{ color: GOLD }} />
-          </motion.a>
+          </motion.Link>
         </motion.div>
       </div>
     </section>
