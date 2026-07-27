@@ -76,7 +76,7 @@ export default function BlogSection() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 rounded-md border border-[#FFC72C]/60 bg-amber-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#FFC72C]"
+              className="inline-flex items-center gap-2 rounded-md border border-[#FFC72C]/60 bg-[amber-50] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#FFC72C]"
             >
               <Sparkles className="h-3.5 w-3.5 text-[#FFC72C]" />
               <span>Insights & Tutorials</span>
@@ -239,11 +239,11 @@ export default function BlogSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs text-slate-800 placeholder-slate-400 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 shadow-inner"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs text-slate-800 placeholder-slate-400 focus:border-[#FFC72C] focus:outline-none focus:ring-1 focus:ring-[#FFC72C] shadow-inner"
                 />
                 <button
                   type="submit"
-                  className="shrink-0 rounded-xl bg-slate-900 px-4 py-2 text-xs font-bold text-white hover:bg-amber-600 transition-colors flex items-center gap-1.5 shadow-sm"
+                  className="shrink-0 rounded-xl bg-slate-900 px-4 py-2 text-xs font-bold text-white hover:bg-[#FFC72C] transition-colors flex items-center gap-1.5 shadow-sm"
                 >
                   <span>Join</span>
                   <Send className="h-3 w-3" />

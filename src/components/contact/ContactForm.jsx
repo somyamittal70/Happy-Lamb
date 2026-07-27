@@ -359,7 +359,7 @@ export default function ContactSection() {
                     disabled={status === "submitting"}
                     whileHover={{ scale: 1.015 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] shadow-lg transition-all disabled:opacity-60 cursor-pointer overflow-hidden relative group"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] shadow-lg transition-all disabled:opacity-60 cursor-pointer overflow-hidden relative group"
                     style={{
                       backgroundColor: PALETTE.LAMB_GOLD,
                       color: PALETTE.INK,

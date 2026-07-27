@@ -4,7 +4,7 @@ import { ArrowUpRight, Play, Search } from "lucide-react";
 
 const INK = "#17140F";
 const GOLD = "#FFC72C";
-const DEEP_GOLD = "#B9860A"; // text-safe variant of GOLD for use on light backgrounds
+const DEEP_GOLD = "#ffba00"; // text-safe variant of GOLD for use on light backgrounds
 
 const YoutubeIcon = (
   <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

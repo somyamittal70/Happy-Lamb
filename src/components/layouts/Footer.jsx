@@ -329,12 +329,6 @@ export default function Footer() {
         <rect width="100%" height="100%" filter="url(#footerGrain)" />
       </svg>
 
-      {/* Soft ambient glow behind the brand column, echoing the header's spotlight */}
-      <div
-        className="pointer-events-none absolute -left-24 -top-24 h-[420px] w-[420px] rounded-full opacity-[0.08] blur-3xl"
-        style={{ backgroundColor: BRAND.gold }}
-      />
-
       <motion.div
         className="mx-auto max-w-7xl px-6 pt-16 pb-10 sm:px-8 relative z-10"
         variants={containerVariants}

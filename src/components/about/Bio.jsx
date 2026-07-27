@@ -66,7 +66,7 @@ export default function AboutBioLight() {
                     <Camera className="h-5 w-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold uppercase text-amber-600 tracking-wider block">
+                    <span className="text-xs font-bold uppercase text-[#ffba00] tracking-wider block">
                       Production Mindset
                     </span>
                     <p className="text-xs font-semibold text-slate-800">
@@ -85,7 +85,7 @@ export default function AboutBioLight() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-600"
+              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#ffba00]"
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span>My Journey</span>
@@ -98,7 +98,7 @@ export default function AboutBioLight() {
               transition={{ delay: 0.1 }}
               className="mt-3 text-3xl sm:text-5xl font-bold font-body tracking-tight text-slate-900"
             >
-              Bridging Commercial Rigor with <span className="text-amber-500">Artistic Vision.</span>
+              Bridging Commercial Rigor with <span className="text-[#ffba00]">Artistic Vision.</span>
             </motion.h2>
 
             <motion.div
@@ -138,7 +138,7 @@ export default function AboutBioLight() {
         {/* SECTION 2: CREATIVE PHILOSOPHY CARDS */}
         <div className="mt-28">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-bold font-heading uppercase tracking-widest text-amber-600">
+            <span className="text-xs font-bold font-heading uppercase tracking-widest text-[#ffba00]">
               Directing Pillars
             </span>
             <h3 className="mt-2 text-2xl sm:text-4xl font-bold font-heading text-slate-900">
@@ -156,7 +156,7 @@ export default function AboutBioLight() {
                 transition={{ delay: idx * 0.1 }}
                 className="rounded-md border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-amber-500/10 mb-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-[#ffba00]/10 mb-6">
                   {item.icon}
                 </div>
                 <h4 className="text-lg  font-body font-bold text-slate-900">{item.title}</h4>
@@ -172,7 +172,7 @@ export default function AboutBioLight() {
         <div className="mt-28 pt-16 border-t border-slate-200">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#ffba00]">
                 Career Progression
               </span>
               <h3 className="mt-2 text-2xl sm:text-4xl font-bold font-heading text-slate-900">
@@ -194,7 +194,7 @@ export default function AboutBioLight() {
                 transition={{ delay: idx * 0.1 }}
                 className="relative rounded-md border border-slate-200 bg-white p-6 shadow-sm"
               >
-                <span className="text-2xl font-black font-mono text-amber-500">{m.year}</span>
+                <span className="text-2xl font-black font-mono text-[#ffba00]">{m.year}</span>
                 <h4 className="mt-3 text-base font-bold text-slate-900">{m.title}</h4>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">{m.desc}</p>
               </motion.div>

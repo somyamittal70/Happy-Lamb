@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const PAPER = "#FFFFFF";
 const INK = "#17140F";
 const LAMB_GOLD = "#FFC72C";
-const LAMB_GOLD_DEEP = "#B9860A";
+const LAMB_GOLD_DEEP = "#FFC72C";
 
 const COLLABORATIONS = [
   {
@@ -100,7 +100,7 @@ export default function LightShowroomCollaborations() {
             <span className="font-mono text-xs uppercase tracking-widest text-[#17140F]/50">
               Interactive Case Index
             </span>
-            <div className="h-2 w-2 rounded-full bg-amber-600 animate-pulse" />
+            <div className="h-2 w-2 rounded-full bg-[#FFC72C] animate-pulse" />
           </div>
         </div>
 
@@ -164,7 +164,7 @@ export default function LightShowroomCollaborations() {
 
                 <div className="pt-4 flex items-center justify-between border-t border-[#17140F]/10">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#17140F]/60">
-                    <Award className="w-4 h-4 text-amber-600" />
+                    <Award className="w-4 h-4 text-[#FFC72C]" />
                     Happy Lamb Dossier File
                   </div>
 
@@ -192,14 +192,14 @@ export default function LightShowroomCollaborations() {
                 onClick={() => setActiveIndex(idx)}
                 className={`group text-left p-4 rounded-2xl transition-all duration-300 border flex flex-col justify-between relative overflow-hidden ${
                   isSelected
-                    ? "bg-white border-amber-600 shadow-lg scale-[1.02]"
+                    ? "bg-white border-[#FFC72C] shadow-lg scale-[1.02]"
                     : "bg-white/40 border-[#17140F]/10 hover:bg-white/80 hover:border-[#17140F]/20"
                 }`}
               >
                 {/* Active Indicator Bar */}
                 <div
                   className={`absolute top-0 left-0 right-0 h-1 transition-all duration-300 ${
-                    isSelected ? "bg-amber-500" : "bg-transparent"
+                    isSelected ? "bg-[#FFC72C]" : "bg-transparent"
                   }`}
                 />
 
@@ -207,7 +207,7 @@ export default function LightShowroomCollaborations() {
                   <div className="flex items-center justify-between">
                     <span
                       className={`text-xs font-mono font-bold ${
-                        isSelected ? "text-amber-700" : "text-[#17140F]/30"
+                        isSelected ? "text-[#FFC72C]" : "text-[#17140F]/30"
                       }`}
                     >
                       0{item.id}

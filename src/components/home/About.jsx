@@ -52,7 +52,7 @@ export default function AboutLuxury() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-md border border-amber-500/20 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em]"
+              className="inline-flex items-center gap-2 rounded-md border border-[#FFC72C]/20 bg-[#FFC72C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em]"
               style={{ color: LAMB_GOLD }}
             >
               <Film className="h-3.5 w-3.5" />
@@ -67,7 +67,7 @@ export default function AboutLuxury() {
               className="mt-4 font-bold font-heading uppercase text-2xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-neutral-900"
             >
               Storytelling that helps{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFC72C] via-[#FFC72C] to-[#FFC72C]">
                 brands connect.
               </span>
             </motion.h2>
@@ -81,7 +81,7 @@ export default function AboutLuxury() {
             className="flex items-center gap-6"
           >
             <div className="text-left">
-              <span className="block font-heading text-2xl text-amber-600">
+              <span className="block font-heading text-2xl text-[#FFC72C]">
                 2023
               </span>
               <span className="text-xs font-semibold font-heading text-neutral-500 uppercase tracking-wider">
@@ -90,7 +90,7 @@ export default function AboutLuxury() {
             </div>
             <div className="h-10 w-[1px] bg-neutral-300" />
             <div className="text-left">
-              <span className="block font-heading text-2xl text-amber-600">
+              <span className="block font-heading text-2xl text-[#FFC72C]">
                 Mumbai
               </span>
               <span className="text-xs font-semibold font-heading text-neutral-500 uppercase tracking-wider">
@@ -110,7 +110,7 @@ export default function AboutLuxury() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 relative"
           >
-            <div className="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-tr from-amber-300/20 via-transparent to-amber-200/20 blur-xl opacity-80 pointer-events-none" />
+            <div className="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-tr from-[#FFC72C]/20 via-transparent to-[#FFC72C]/20 blur-xl opacity-80 pointer-events-none" />
 
             <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full rounded-[2rem] overflow-hidden border border-neutral-200 bg-neutral-100 shadow-2xl group">
               <img
@@ -121,13 +121,13 @@ export default function AboutLuxury() {
               <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
 
               <div className="absolute top-6 left-6 flex items-center gap-2 rounded-md border border-neutral-200/80 bg-white/90 px-4 py-2 backdrop-blur-md text-xs font-semibold text-neutral-900 shadow-md">
-                <Film className="h-4 w-4 text-amber-600" />
+                <Film className="h-4 w-4 text-[#FFC72C]" />
                 <span>End-to-End Production</span>
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-md text-neutral-900 shadow-lg">
                 <p className="text-sm font-bold font-heading tracking-wide">Dilip Gupta</p>
-                <p className="text-[11px] uppercase tracking-widest font-heading font-semibold text-amber-600">
+                <p className="text-[11px] uppercase tracking-widest font-heading font-semibold text-[#FFC72C]">
                   Founder, Happy Lamb Production
                 </p>
               </div>
@@ -157,9 +157,9 @@ export default function AboutLuxury() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 * idx + 0.2 }}
-                  className="group flex items-start gap-4 rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-sm transition-all duration-300 hover:border-amber-400/60 hover:shadow-md" 
+                  className="group flex items-start gap-4 rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#FFC72C]/60 hover:shadow-md" 
                 >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700 transition-colors group-hover:bg-[#FFC72C] group-hover:text-white">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#FFC72C] text-[amber-700] transition-colors group-hover:bg-[#FFC72C] group-hover:text-white">
                     {item.icon}
                   </div>
                   <div>

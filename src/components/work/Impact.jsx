@@ -48,7 +48,7 @@ export default function WorkImpactLight() {
 
   return (
     <section className="relative w-full bg-[#f8f9fa] text-slate-900 py-24 overflow-hidden border-t border-b border-slate-200">
-      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 h-96 w-96 rounded-md bg-amber-500/10 blur-[170px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 h-96 w-96 rounded-md bg-[#ffba00]/10 blur-[170px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
         {/* Header Block */}
@@ -58,7 +58,7 @@ export default function WorkImpactLight() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-600"
+              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#ffba00]"
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span>Selected Collaborations</span>
@@ -71,7 +71,7 @@ export default function WorkImpactLight() {
               transition={{ delay: 0.1 }}
               className="mt-3 font-black uppercase text-3xl sm:text-5xl tracking-tight text-slate-900"
             >
-              Brands We've Told <span className="text-amber-500">Stories For</span>
+              Brands We've Told <span className="text-[#ffba00]">Stories For</span>
             </motion.h2>
           </div>
 
@@ -110,7 +110,7 @@ export default function WorkImpactLight() {
               <div className="flex items-center gap-4">
                 <div
                   className="h-12 w-12 rounded-md flex items-center justify-center font-black text-sm uppercase"
-                  style={{ background: "rgba(255,199,44,0.15)", color: "#B9860A" }}
+                  style={{ background: "rgba(255,199,44,0.15)", color: "#ffba00" }}
                 >
                   {current.client.slice(0, 2)}
                 </div>

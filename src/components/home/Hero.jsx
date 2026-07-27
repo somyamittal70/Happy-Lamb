@@ -101,7 +101,7 @@ export default function LuxuryHero() {
                 key={idx}
                 className="flex flex-col items-center border-b sm:border-b-0 sm:border-r border-white/10 last:border-0 pb-4 sm:pb-0"
               >
-                <span className="text-3xl font-extrabold text-amber-400">
+                <span className="text-3xl font-extrabold text-[amber-400]">
                   {stat.value}
                 </span>
                 <span className="text-xs uppercase tracking-wider text-zinc-400 font-medium mt-1">

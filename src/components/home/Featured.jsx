@@ -236,7 +236,7 @@ export default function FeaturedWork() {
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
       `}</style>
 
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[600px] w-[900px] bg-gradient-to-b from-amber-500/10 via-transparent to-transparent blur-[150px]" />
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[600px] w-[900px] bg-gradient-to-b from-[#FFC72C]/10 via-transparent to-transparent blur-[150px]" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-10 relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-10 border-b" style={{ borderColor: HAIR }}>
