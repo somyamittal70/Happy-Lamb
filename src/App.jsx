@@ -10,8 +10,8 @@ import HomePage from './pages/Home'
 import AboutPage from './pages/About'
 import WorkPage from './pages/OurWork'
 import ContactPage from "./pages/Contact";
-import TeamPage from './pages/OurTeam';
 import BlogsPage from './pages/Blogs';
+import TeamPage from './pages/OurTeam';
 
 
 function App() {
