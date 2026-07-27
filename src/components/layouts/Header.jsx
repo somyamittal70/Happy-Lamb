@@ -225,9 +225,9 @@ export default function Header() {
               {NAV_LINKS.map((link, idx) => {
                 const isActive = active === link.label;
                 return (
-                  <motion.Link
+                  <motion.a
                     key={link.label}
-                    to={link.href}
+                    href={link.href}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
@@ -248,7 +248,7 @@ export default function Header() {
                       {String(idx + 1).padStart(2, "0")}
                     </span>
                     {link.label}
-                  </motion.Link>
+                  </motion.a>
                 );
               })}
             </nav>
