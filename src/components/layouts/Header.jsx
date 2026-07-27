@@ -15,8 +15,8 @@ const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Our Work", href: "/work" },
   { label: "Our Team", href: "/team" },
-  { label: "Blogs", href: "/blogs" },
   { label: "Contact", href: "/contact" },
+  { label: "Blogs", href: "/blogs" },
 ];
 
 // Figure out which nav link matches the current URL, so the active
