@@ -153,17 +153,20 @@ export default function Header() {
             })}
 
             {/* Call to Action Button */}
-            <motion.a
-              href="/contact"
+            <motion.div
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              className="group ml-4 inline-flex items-center gap-1.5 rounded-md px-5 py-2 text-[14px] font-semibold text-white shadow-sm hover:shadow-md"
-              style={{ backgroundColor: BRAND.ink }}
               transition={{ type: "spring", stiffness: 400, damping: 22 }}
             >
-              <span>Let's Talk</span>
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </motion.a>
+              <Link
+                to="/contact"
+                className="group ml-4 inline-flex items-center gap-1.5 rounded-md px-5 py-2 text-[14px] font-semibold text-white shadow-sm hover:shadow-md"
+                style={{ backgroundColor: BRAND.ink }}
+              >
+                <span>Let's Talk</span>
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </motion.div>
           </nav>
 
           {/* Mobile Menu Toggle — animated hamburger, flips to white once the
