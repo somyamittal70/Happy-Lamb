@@ -86,7 +86,7 @@ export default function Header() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-8">
           {/* Logo — subtle "shutter" rotation on hover, film-reel nod */}
-          <a href="/" className="group relative flex items-center shrink-0">
+          <Link to="/" className="group relative flex items-center shrink-0">
             <motion.img
               whileHover={{ scale: 1.04, rotate: -3 }}
               whileTap={{ scale: 0.97 }}
@@ -95,7 +95,7 @@ export default function Header() {
               alt="Happy Lamb Production"
               className="h-10 w-auto sm:h-12"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav
