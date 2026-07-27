@@ -29,7 +29,7 @@ const PROJECTS = [
     title: "Mr. India Revival — #FundYourOwnWorth",
     category: "Brand Films",
     client: "ICICI Bank",
-    thumbnail: "https://images.pexels.com/photos/4622108/pexels-photo-4622108.jpeg",
+    thumbnail: "/anil.png",
     featured: false,
   },
   {
@@ -37,7 +37,7 @@ const PROJECTS = [
     title: "Home Lockers ft. Madhuri Dixit",
     category: "Brand Films",
     client: "Godrej",
-    thumbnail: "https://i.pinimg.com/1200x/ac/28/23/ac282397dc1dddff1e0a19ba1a60cfff.jpg",
+    thumbnail: "/godrej.png",
     featured: false,
   },
   {
@@ -45,7 +45,7 @@ const PROJECTS = [
     title: "Invincible Indians — Medicine Baba",
     category: "Real-Life Stories",
     client: "Bajaj V",
-    thumbnail: "https://images.pexels.com/photos/19597973/pexels-photo-19597973.jpeg",
+    thumbnail: "/bjaj1.png",
     featured: false,
   },
   {
@@ -53,7 +53,7 @@ const PROJECTS = [
     title: "The Excavator Village Story — Unbreakable Trust",
     category: "Brand Films",
     client: "JCB India",
-    thumbnail: "https://images.pexels.com/photos/13098128/pexels-photo-13098128.jpeg",
+    thumbnail: "/jcb1.png",
     featured: false,
   },
 {
@@ -61,7 +61,7 @@ const PROJECTS = [
     title: "Iss Diwali, Kuch Naya!",
     category: "Brand Films",
     client: "Upstox",
-    thumbnail: "https://images.pexels.com/photos/34387791/pexels-photo-34387791.jpeg",
+    thumbnail: "/diwali2.png",
     featured: false,
 },
   {
@@ -69,7 +69,7 @@ const PROJECTS = [
     title: "Rural Roads, Real Stories — Sabka Sathi",
     category: "Real-Life Stories",
     client: "Hero MotoCorp",
-    thumbnail: "https://images.pexels.com/photos/2519374/pexels-photo-2519374.jpeg",
+    thumbnail: "/jcb2.png",
     featured: false,
   },
 ];
@@ -201,6 +201,7 @@ function TiltCard({ project, isHero }) {
               style={{ borderTop: `1px solid ${HAIR}`, color: MUTED }}
             >
               <span>Watch the story</span>
+                <a href="/blogs">
               <motion.span
                 className="inline-flex items-center gap-1.5 font-semibold"
                 style={{ color: GOLD }}
@@ -208,6 +209,7 @@ function TiltCard({ project, isHero }) {
               >
                 View Reel <ArrowUpRight className="h-4 w-4" />
               </motion.span>
+              </a>
             </div>
           </div>
         </div>

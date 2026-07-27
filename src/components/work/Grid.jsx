@@ -1,112 +1,118 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Eye, Play, Sparkles, Filter, Search, SlidersHorizontal } from "lucide-react";
+import { ArrowUpRight, Play, Search } from "lucide-react";
 
 const INK = "#17140F";
 const GOLD = "#FFC72C";
 const DEEP_GOLD = "#B9860A"; // text-safe variant of GOLD for use on light backgrounds
 
-// Platform SVGs
-const SVGIcons = {
-  youtube: (
-    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2.5" y="6" width="19" height="12" rx="3.5" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M10.3 9.5L14.8 12L10.3 14.5V9.5Z" fill="currentColor" />
-    </svg>
-  ),
-  vimeo: (
-    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M22 7.5c-.1 2.3-1.7 5.4-4.8 9.4-3.2 4.1-5.9 6.1-8.1 6.1-1.4 0-2.5-.5-3.3-1.6-.8-1.1-1.6-3.3-2.4-6.6-.8-3.4-1.6-5.1-2.4-5.1-.2 0-.8.4-1.8 1.2L0 9.6c1.1-1 2.3-2 3.6-3 1.8-1.5 3.1-2.3 4-2.3 1.4 0 2.3.9 2.7 2.7.5 2.4.9 4.8 1.2 7.2.4 2.1.9 3.1 1.5 3.1.5 0 1.2-.7 2.1-2.1.9-1.4 1.4-2.6 1.4-3.5 0-1.2-.5-1.8-1.5-1.8-.5 0-1 .1-1.6.3 1.1-3.4 3.1-5 6.1-4.8 2.2.1 3.2 1.5 2.9 4.1z"
-        fill="currentColor"
-      />
-    </svg>
-  ),
-  instagram: (
-    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" />
-    </svg>
-  )
-};
+const YoutubeIcon = (
+  <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2.5" y="6" width="19" height="12" rx="3.5" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M10.3 9.5L14.8 12L10.3 14.5V9.5Z" fill="currentColor" />
+  </svg>
+);
 
-// Portfolio Categories
-const CATEGORIES = ["All Projects", "Commercial", "Automotive", "Travel & Doc", "Music Video"];
+// Categories mirror how the dossier itself groups the work
+const CATEGORIES = ["All Projects", "Brand Films", "Real-Life Stories", "Short Films"];
 
-// Expanded Work List
+// Real projects, pulled from the Happy Lamb Production company dossier
 const ALL_PROJECTS = [
   {
     id: 1,
-    title: "Tokyo Cyberpunk After Dark",
-    category: "Travel & Doc",
-    client: "Sony Alpha Films",
-    platform: "youtube",
-    views: "1.8M",
-    duration: "04:15",
-    year: "2026",
-    thumbnail: "https://images.unsplash.com/photo-1755308482556-9e8383a5be97?q=80&w=1000&auto=format&fit=crop",
-    tags: ["Anamorphic", "8K RAW", "Street Night"],
+    title: "Mr. India Revival ft. Anil Kapoor",
+    category: "Brand Films",
+    client: "ICICI Bank",
+    thumbnail: "/anil.png",
+    tags: ["Celebrity Led", "Banking", "Nostalgia"],
   },
   {
     id: 2,
-    title: "Porsche GT3 RS: Precision in Motion",
-    category: "Automotive",
-    client: "Porsche Global",
-    platform: "vimeo",
-    views: "950K",
-    duration: "01:30",
-    year: "2025",
-    thumbnail: "https://images.unsplash.com/photo-1626966368420-fa2079743ad2?q=80&w=1000&auto=format&fit=crop",
-    tags: ["High Speed", "FPV Drone", "Track Day"],
+    title: "#FundYourOwnWorth ft. Konkona Sen Sharma",
+    category: "Brand Films",
+    client: "ICICI Bank",
+    thumbnail: "/knoon.png",
+    tags: ["Women Empowerment", "Banking"],
   },
   {
     id: 3,
-    title: "Echoes in the Desert",
-    category: "Music Video",
-    client: "Universal Music",
-    platform: "youtube",
-    views: "3.4M",
-    duration: "03:45",
-    year: "2025",
-    thumbnail: "https://images.unsplash.com/photo-1587777007563-5ee6afeede02?q=80&w=1000&auto=format&fit=crop",
-    tags: ["Color Grade", "Sunset", "Performers"],
+    title: "Campus Power: The Student Journey",
+    category: "Brand Films",
+    client: "ICICI Bank",
+    thumbnail: "/icici.png",
+    tags: ["Education Loans", "Overseas Banking"],
   },
   {
     id: 4,
-    title: "Nordic Winter Expedition",
-    category: "Travel & Doc",
-    client: "National Geographic",
-    platform: "instagram",
-    views: "2.1M",
-    duration: "02:10",
-    year: "2024",
-    thumbnail: "https://images.unsplash.com/photo-1679381457571-ade79f46c61c?q=80&w=1000&auto=format&fit=crop",
-    tags: ["Sub-Zero", "Aerials", "Wildlife"],
+    title: "Home Lockers ft. Madhuri Dixit",
+    category: "Brand Films",
+    client: "Godrej",
+    thumbnail: "/godrej.png",
+    tags: ["Security", "Legacy"],
   },
   {
     id: 5,
-    title: "Apex Speed Demon: Superbike Spec",
-    category: "Automotive",
-    client: "Red Bull Media",
-    platform: "youtube",
-    views: "1.2M",
-    duration: "02:00",
-    year: "2025",
-    thumbnail: "https://images.unsplash.com/photo-1753563822170-00bdbed3550c?q=80&w=1000&auto=format&fit=crop",
-    tags: ["Cinelifter", "120fps", "Motorsport"],
+    title: "Matrix Home Lockers — Dual-Lock Precision",
+    category: "Brand Films",
+    client: "Godrej",
+    thumbnail: "/godrej2.jpeg",
+    tags: ["Dual-Lock", "Product Film"],
   },
   {
     id: 6,
-    title: "Aura Apparel Autumn Launch",
-    category: "Commercial",
-    client: "Aura Luxury",
-    platform: "vimeo",
-    views: "640K",
-    duration: "00:45",
-    year: "2026",
-    thumbnail: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1000&auto=format&fit=crop",
-    tags: ["Studio Lighting", "Fashion", "10-bit LOG"],
+    title: "Invincible Indians — Medicine Baba",
+    category: "Real-Life Stories",
+    client: "Bajaj V",
+    thumbnail: "/bjaj1.png",
+    tags: ["NCR", "Healthcare Access"],
+  },
+  {
+    id: 7,
+    title: "Invincible Indians — Aagun Pakhi",
+    category: "Real-Life Stories",
+    client: "Bajaj V",
+    thumbnail: "/bjaj2.png",
+    tags: ["Kolkata", "Firefighting"],
+  },
+  {
+    id: 9,
+    title: "The Excavator Village Story",
+    category: "Brand Films",
+    client: "JCB India",
+    thumbnail: "/jcb1.png",
+    tags: ["Charholi Village", "Unbreakable Trust"],
+  },
+  {
+    id: 10,
+    title: "Customer Success Story — R.V. Balaji",
+    category: "Brand Films",
+    client: "JCB India",
+    thumbnail: "/jcb2.png",
+    tags: ["Tamil Nadu", "Entrepreneur Journey"],
+  },
+  {
+    id: 11,
+    title: "Iss Diwali, Kuch Naya!",
+    category: "Brand Films",
+    client: "Upstox",
+    thumbnail: "/diwali.png",
+    tags: ["Festive Campaign", "Muhurat Trading"],
+  },
+  {
+    id: 12,
+    title: "Budget 2024 ft. Monika Halan",
+    category: "Brand Films",
+    client: "Upstox",
+    thumbnail: "/upstock.jpeg",
+    tags: ["Union Budget", "Financial Foresight"],
+  },
+  {
+    id: 13,
+    title: "अपार चुनौती (Opportunity)",
+    category: "Short Films",
+    client: "Happy Lamb Production",
+    thumbnail: "/apar.jpeg",
+    tags: ["Fiction", "Hindi Short Film"],
   },
 ];
 
@@ -114,10 +120,8 @@ export default function WorkGridLight() {
   const [activeCategory, setActiveCategory] = useState("All Projects");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Filtering Logic
   const filteredProjects = ALL_PROJECTS.filter((project) => {
-    const matchesCategory =
-      activeCategory === "All Projects" || project.category === activeCategory;
+    const matchesCategory = activeCategory === "All Projects" || project.category === activeCategory;
     const matchesSearch =
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -128,16 +132,11 @@ export default function WorkGridLight() {
 
   return (
     <section id="featured-grid" className="relative w-full bg-neutral-50 text-[#17140F] py-24 overflow-hidden border-t border-b border-neutral-200">
-
-      {/* Background Accent */}
       <div className="absolute top-1/4 right-0 h-96 w-96 rounded-md bg-[#FFC72C]/10 blur-[160px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
-
-        {/* Controls Bar: Filter Pills + Search Input */}
+        {/* Controls Bar */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-neutral-200 pb-8">
-
-          {/* Category Pills */}
           <div className="flex flex-wrap items-center gap-2">
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat;
@@ -146,9 +145,7 @@ export default function WorkGridLight() {
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   className={`rounded-md px-5 py-2.5 text-xs font-bold transition-all ${
-                    isActive
-                      ? "shadow-md"
-                      : "bg-white text-neutral-600 hover:bg-neutral-100 hover:text-[#17140F] border border-neutral-200"
+                    isActive ? "shadow-md" : "bg-white text-neutral-600 hover:bg-neutral-100 hover:text-[#17140F] border border-neutral-200"
                   }`}
                   style={isActive ? { backgroundColor: INK, color: GOLD } : undefined}
                 >
@@ -158,7 +155,6 @@ export default function WorkGridLight() {
             })}
           </div>
 
-          {/* Search Box */}
           <div className="relative w-full lg:w-72">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
             <input
@@ -167,7 +163,6 @@ export default function WorkGridLight() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full rounded-md border border-neutral-200 bg-white pl-10 pr-4 py-2.5 text-xs font-medium text-[#17140F] placeholder-neutral-400 focus:outline-none shadow-xs"
-              style={{ borderColor: undefined }}
               onFocus={(e) => (e.target.style.borderColor = GOLD)}
               onBlur={(e) => (e.target.style.borderColor = "")}
             />
@@ -186,7 +181,6 @@ export default function WorkGridLight() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 className="group relative rounded-md border border-neutral-200 bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
-                style={{ "--hover-border": `${GOLD}80` }}
                 onMouseEnter={(e) => (e.currentTarget.style.borderColor = `${GOLD}80`)}
                 onMouseLeave={(e) => (e.currentTarget.style.borderColor = "")}
               >
@@ -199,60 +193,31 @@ export default function WorkGridLight() {
                   />
                   <div
                     className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(to top, rgba(23,20,15,0.8) 0%, transparent 55%, rgba(23,20,15,0.3) 100%)`,
-                    }}
+                    style={{ background: `linear-gradient(to top, rgba(23,20,15,0.8) 0%, transparent 55%, rgba(23,20,15,0.3) 100%)` }}
                   />
 
-                  {/* Top Badges */}
                   <div className="absolute top-4 inset-x-4 flex items-center justify-between">
-                    <span
-                      className="rounded-md px-3 py-1 text-[11px] font-semibold text-neutral-200 backdrop-blur-md"
-                      style={{ backgroundColor: `${INK}CC` }}
-                    >
+                    <span className="rounded-md px-3 py-1 text-[11px] font-semibold text-neutral-200 backdrop-blur-md" style={{ backgroundColor: `${INK}CC` }}>
                       {project.client}
                     </span>
-                    <span
-                      className="flex items-center gap-1 rounded-md px-2.5 py-1 text-[11px] font-semibold backdrop-blur-md"
-                      style={{ backgroundColor: `${INK}CC`, color: GOLD }}
-                    >
-                      {SVGIcons[project.platform]}
-                      <span className="capitalize">{project.platform}</span>
+                    <span className="flex items-center gap-1 rounded-md px-2.5 py-1 text-[11px] font-semibold backdrop-blur-md" style={{ backgroundColor: `${INK}CC`, color: GOLD }}>
+                      {YoutubeIcon}
+                      <span>YouTube</span>
                     </span>
                   </div>
 
-                  {/* Play Hover Trigger */}
-                  <div
-                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-xs"
-                    style={{ backgroundColor: `${INK}66` }}
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="flex h-12 w-12 items-center justify-center rounded-md shadow-lg"
-                      style={{ backgroundColor: GOLD }}
-                    >
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-xs" style={{ backgroundColor: `${INK}66` }}>
+                    <motion.div whileHover={{ scale: 1.1 }} className="flex h-12 w-12 items-center justify-center rounded-md shadow-lg" style={{ backgroundColor: GOLD }}>
                       <Play className="h-5 w-5 translate-x-0.5" style={{ fill: INK, color: INK }} />
                     </motion.div>
-                  </div>
-
-                  {/* Duration Badge */}
-                  <div
-                    className="absolute bottom-3 right-3 text-[11px] font-mono font-semibold text-white/90 px-2 py-0.5 rounded-md  backdrop-blur-md"
-                    style={{ backgroundColor: `${INK}CC` }}
-                  >
-                    {project.duration}
                   </div>
                 </div>
 
                 {/* Content Body */}
                 <div className="p-6 flex flex-col justify-between flex-1">
                   <div>
-                    <div
-                      className="flex items-center justify-between text-[11px] font-bold font-heading uppercase tracking-wider"
-                      style={{ color: DEEP_GOLD }}
-                    >
+                    <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider" style={{ color: DEEP_GOLD }}>
                       <span>{project.category}</span>
-                      <span className="text-neutral-400 font-mono">{project.year}</span>
                     </div>
 
                     <h3
@@ -263,26 +228,17 @@ export default function WorkGridLight() {
                       {project.title}
                     </h3>
 
-                    {/* Tag Pills */}
                     <div className="mt-4 flex flex-wrap gap-1.5">
                       {project.tags.map((tag, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="rounded-md bg-neutral-100 px-2.5 py-1 text-[10px] font-semibold text-neutral-600"
-                        >
+                        <span key={tIdx} className="rounded-md bg-neutral-100 px-2.5 py-1 text-[10px] font-semibold text-neutral-600">
                           #{tag}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  {/* Footer Row */}
                   <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-semibold text-neutral-500">
-                    <span className="flex items-center gap-1.5">
-                      <Eye className="h-3.5 w-3.5 text-neutral-400" />
-                      {project.views}
-                    </span>
-
+                    <span>For: {project.client}</span>
                     <span
                       className="inline-flex items-center gap-1 transition-colors"
                       style={{ color: INK }}
@@ -293,7 +249,6 @@ export default function WorkGridLight() {
                     </span>
                   </div>
                 </div>
-
               </motion.div>
             ))}
           </AnimatePresence>
@@ -316,7 +271,6 @@ export default function WorkGridLight() {
             </button>
           </div>
         )}
-
       </div>
     </section>
   );

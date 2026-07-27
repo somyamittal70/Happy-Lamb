@@ -1,9 +1,9 @@
 import { ArrowLeft, Share2,  Link2 } from "lucide-react";
 
 const RELATED = [
-  { title: "Behind the Mr. India Revival", category: "Client Work", img: "https://picsum.photos/seed/hl-related1/500/340" },
-  { title: "Shooting on Location: JCB Village Stories", category: "Behind the Scenes", img: "https://picsum.photos/seed/hl-related2/500/340" },
-  { title: "How We Cast Real Stories for Bajaj V", category: "Studio Notes", img: "https://picsum.photos/seed/hl-related3/500/340" },
+  { title: "Behind the Mr. India Revival", category: "Client Work", img: "/icici.png" },
+  { title: "Shooting on Location: JCB Village Stories", category: "Behind the Scenes", img: "/jcb1.png" },
+  { title: "How We Cast Real Stories for Bajaj V", category: "Studio Notes", img: "/bjaj1.png" },
 ];
 
 export default function BlogArticle() {

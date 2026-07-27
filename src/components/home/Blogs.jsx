@@ -18,7 +18,6 @@ const BLOG_POSTS = [
       "A complete guide to transforming flat LOG video profiles into cinematic, film-like looks using node trees and LUTs.",
     category: "Tutorials",
     readTime: "6 min read",
-    date: "Jul 18, 2026",
     image:
       "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1000&auto=format&fit=crop",
     slug: "mastering-davinci-resolve-color-grading",
@@ -31,7 +30,6 @@ const BLOG_POSTS = [
       "Comparing cinema camera setups, wireless video transmitters, and FPV drone pairings for fast-paced commercial sets.",
     category: "Gear Review",
     readTime: "4 min read",
-    date: "Jun 28, 2026",
     image:
       "https://i.pinimg.com/1200x/2a/7b/b4/2a7bb4336df2eca8439b231a620e4bcf.jpg",
     slug: "top-5-camera-rigs-commercial-shoots",
@@ -44,7 +42,6 @@ const BLOG_POSTS = [
       "Why foley effects, ambient soundscapes, and subtle bass drops impact the emotional tone of a video more than visuals.",
     category: "Filmmaking",
     readTime: "8 min read",
-    date: "May 14, 2026",
     image:
       "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop",
     slug: "art-of-pacing-sound-design",
@@ -57,7 +54,6 @@ const BLOG_POSTS = [
       "Discover how seamless motion design, animated typography, and visual effects help brands create engaging digital experiences.",
     category: "Design",
     readTime: "5 min read",
-    date: "Jul 15, 2026",
     image:
       "https://i.pinimg.com/736x/70/75/db/7075dba3796c57367858d32188aa99ff.jpg",
     slug: "motion-graphics-brand-storytelling",
@@ -103,7 +99,7 @@ export default function BlogSection() {
             transition={{ delay: 0.2 }}
           >
             <a
-              href="/blog"
+              href="/blogs"
               className="group inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-[#FFC72C] hover:border-[#FFC72C] hover:shadow-md transition-all duration-300"
             >
               <span>View All Articles</span>
@@ -141,7 +137,7 @@ export default function BlogSection() {
             <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
               <div>
                 <div className="flex items-center gap-3 text-xs text-slate-500 font-medium">
-                  <span>{featuredPost.date}</span>
+                  {/* <span>{featuredPost.date}</span> */}
                   <span className="text-slate-300">•</span>
                   <span className="flex items-center gap-1 text-slate-500">
                     <Clock className="h-3.5 w-3.5 text-[#FFC72C]" />
@@ -162,7 +158,7 @@ export default function BlogSection() {
 
               <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
                 <a
-                  href={`/blog/${featuredPost.slug}`}
+                  href="/blogs"
                   className="inline-flex items-center gap-2 text-xs font-bold text-[#FFC72C] hover:text-[#FFC72C]transition-colors"
                 >
                   <span>Read Full Article</span>
@@ -207,7 +203,7 @@ export default function BlogSection() {
                   </div>
 
                   <a
-                    href={`/blog/${post.slug}`}
+                    href="/blogs"
                     className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 group-hover:text-[#FFC72C]transition-colors"
                   >
                     <span>Read Article</span>

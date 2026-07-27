@@ -18,7 +18,7 @@ const COLLABORATIONS = [
     quote:
       "We bring iconic storytelling to life — from Anil Kapoor reviving his legendary Mr. India persona to make banking feel nostalgic yet smart, to Konkona Sen Sharma inspiring women with the #FundYourOwnWorth spirit.",
     tag: "Celebrity-Led",
-    thumbnail: "https://images.pexels.com/photos/4622108/pexels-photo-4622108.jpeg",
+    thumbnail: "/anil.png",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const COLLABORATIONS = [
     quote:
       "We exhibited Godrej's legacy of trust and innovation — from Madhuri Dixit championing Home Lockers to Matrix Home Lockers with dual-lock precision, built on protection, strength, and adaptability.",
     tag: "Brand Film",
-    thumbnail: "https://images.pexels.com/photos/39624/pexels-photo-39624.jpeg",
+    thumbnail: "godrej.png",
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const COLLABORATIONS = [
     quote:
       "Bajaj V presents Invincible Indians — stories of ordinary people whose selfless service to society evokes pride every day, from a medicine collector in NCR to a 40-year veteran of the Kolkata Fire Department.",
     tag: "Real Stories",
-    thumbnail: "https://images.pexels.com/photos/19597973/pexels-photo-19597973.jpeg",
+    thumbnail: "bjaj2.png",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const COLLABORATIONS = [
     quote:
       "We tell stories of transformation — from reshaping landscapes in Charholi Village to fueling the dreams of Tamil entrepreneurs, where JCB machines stand for progress powered by unbreakable trust.",
     tag: "Docu-Style",
-    thumbnail: "https://images.pexels.com/photos/13098128/pexels-photo-13098128.jpeg",
+    thumbnail: "/jcb1.png",
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ const COLLABORATIONS = [
     quote:
       "We brought festive tradition and financial foresight together for Upstox — from 'Iss Diwali, Kuch Naya!' spotlighting Muhurat Trading to sharp, expert takes on the Union Budget.",
     tag: "Seasonal Campaign",
-    thumbnail: "https://images.pexels.com/photos/29611783/pexels-photo-29611783.jpeg",
+    thumbnail: "/upstock.jpeg",
   },
 ];
 

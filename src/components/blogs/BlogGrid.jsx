@@ -5,7 +5,7 @@ export const POSTS = [
     author: "Prince Mishra",
     date: "Mar 8, 2026",
     read: "4 min read",
-    img: "https://picsum.photos/seed/hl-grid1/500/380",
+    img: "/jcb1.png",
   },
   {
     title: "How We Cast Real Stories for Bajaj V",
@@ -13,7 +13,7 @@ export const POSTS = [
     author: "Sarvesh",
     date: "Feb 27, 2026",
     read: "5 min read",
-    img: "https://i.pinimg.com/736x/43/96/0c/43960c76f1186a7fc96f4dc5b00f1b54.jpg",
+    img: "/bjaj1.png",
   },
   {
     title: "Godrej Home Lockers: Directing Madhuri Dixit",
@@ -21,7 +21,7 @@ export const POSTS = [
     author: "Kapil Rawat",
     date: "Feb 19, 2026",
     read: "7 min read",
-    img: "https://picsum.photos/seed/hl-grid3/500/380",
+    img: "/godrej.png",
   },
   {
     title: "Medicine Baba: Finding Omkarnath Sharma",
@@ -29,7 +29,7 @@ export const POSTS = [
     author: "Ratnesh Yadav",
     date: "Feb 10, 2026",
     read: "6 min read",
-    img: "https://picsum.photos/seed/hl-grid4/500/380",
+    img: "/bjaj2.png",
   },
   {
     title: "Inside the Upstox Diwali Shoot",
@@ -37,7 +37,7 @@ export const POSTS = [
     author: "Dilip Gupta",
     date: "Jan 30, 2026",
     read: "3 min read",
-    img: "https://picsum.photos/seed/hl-grid5/500/380",
+    img: "/upstock.jpeg",
   },
   {
     title: "Editing Rhythm: Cutting Bipin Ganatra's Story",

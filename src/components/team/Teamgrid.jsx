@@ -128,7 +128,7 @@ export default function TeamCards() {
       `}</style>
 
       {/* Container capped at max-w-7xl, centered */}
-      <div className="w-full max-w-7xl mx-auto">
+      <div className="w-full max-w-7xl px-12 mx-auto">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
           <div>

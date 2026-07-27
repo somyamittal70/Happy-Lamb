@@ -17,7 +17,7 @@ export default function FeaturedPost() {
           {/* image */}
           <div className="relative h-[220px] sm:h-[300px] md:h-[380px] overflow-hidden">
             <img
-              src="https://picsum.photos/seed/hl-featured/900/700"
+              src="/anil.png"
               alt="Featured post cover"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
             />

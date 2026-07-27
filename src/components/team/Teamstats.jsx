@@ -103,7 +103,7 @@ function StatCard({ stat, index }) {
 export default function TeamStats() {
   return (
     <section className="w-full bg-white py-10 sm:py-24 px-4 sm:px-6 lg:px-8 font-sans overflow-hidden">
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-7xl mx-auto px-12">
         
         {/* Header Section */}
         <div className="max-w-2xl">
