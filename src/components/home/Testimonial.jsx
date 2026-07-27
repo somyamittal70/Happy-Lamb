@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Film, ArrowUpRight, Sparkles, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Paper-dossier palette
 const PAPER = "#FFFFFF";
@@ -167,14 +168,14 @@ export default function LightShowroomCollaborations() {
                     Happy Lamb Dossier File
                   </div>
 
-                  <a
-                    href="/work"
+                  <Link
+                    to="/work"
                     className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-transform hover:-translate-y-0.5 shadow-md"
                     style={{ background: INK, color: PAPER }}
                   >
                     View Project
                     <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>

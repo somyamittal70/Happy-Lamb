@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowUpRight, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // Brand Tokens
 const BRAND = {
   gold: "#ffba00",
@@ -19,21 +19,17 @@ const NAV_LINKS = [
   { label: "Blogs", href: "/blogs" },
 ];
 
-// Figure out which nav link matches the current URL, so the active
-// state is correct on first load / after a real page navigation —
-// not just while clicking around client-side.
-function getActiveFromPath() {
-  if (typeof window === "undefined") return "Home";
-  const path = window.location.pathname;
-  const match = NAV_LINKS.find((l) => l.href === path);
-  return match ? match.label : "Home";
-}
-
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState(getActiveFromPath);
   const [hovered, setHovered] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+
+  // useLocation() re-renders on every route change — client-side Link
+  // navigation, back/forward, or a hard reload — so `active` is always
+  // in sync with the URL without any manual popstate wiring.
+  const location = useLocation();
+  const active =
+    NAV_LINKS.find((l) => l.href === location.pathname)?.label || "Home";
 
   // Smoothed scroll-progress value, 0 -> 1 across the whole document
   const { scrollYProgress } = useScroll();
@@ -50,13 +46,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Re-check on browser back/forward navigation
-  useEffect(() => {
-    const onPopState = () => setActive(getActiveFromPath());
-    window.addEventListener("popstate", onPopState);
-    return () => window.removeEventListener("popstate", onPopState);
-  }, []);
-
   // Prevent background scrolling when mobile nav is open, close on Escape
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -70,6 +59,12 @@ export default function Header() {
       window.removeEventListener("keydown", onKey);
     };
   }, [isOpen]);
+
+  // Close the mobile menu automatically whenever the route changes
+  // (e.g. user taps a link) so it doesn't stay open on the new page.
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">

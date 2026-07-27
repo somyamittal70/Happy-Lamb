@@ -57,10 +57,10 @@ export default function TeamCTA() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-10 flex flex-col items-center gap-8"
         >
-          <motion.a
+          <motion.Link
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            href="/contact"
+            to="/contact"
             className="group inline-flex items-center gap-3 rounded-md px-10 py-5 text-sm font-bold font-heading tracking-[0.15em] uppercase transition-shadow shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/15"
             style={{ backgroundColor: GOLD, color: INK }}
           >
@@ -69,25 +69,25 @@ export default function TeamCTA() {
               size={18}
               className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
             />
-          </motion.a>
+          </motion.Link>
 
           {/* Contact Details */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/70 font-medium">
-            <a
-              href="mailto:info@happylamb.in"
+            <Link
+              to="mailto:info@happylamb.in"
               className="inline-flex items-center gap-2 hover:text-black transition-colors"
             >
               <Mail size={15} style={{ color: "#FFFFFF" }} />
               info@happylamb.in
-            </a>
+            </Link>
             <span className="hidden sm:inline text-black/20">•</span>
-            <a
-              href="tel:+919820778491"
+            <Link
+              to="tel:+919820778491"
               className="inline-flex items-center gap-2 hover:text-black transition-colors"
             >
               <Phone size={15} style={{ color: "#FFFFFF" }} />
               +91 9820778491
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

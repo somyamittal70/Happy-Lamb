@@ -8,6 +8,7 @@ import {
   useMotionTemplate,
 } from "framer-motion";
 import { ArrowUpRight, Play, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /* ---------- Design tokens ---------- */
 const GOLD = "#FFC72C";
@@ -201,7 +202,7 @@ function TiltCard({ project, isHero }) {
               style={{ borderTop: `1px solid ${HAIR}`, color: MUTED }}
             >
               <span>Watch the story</span>
-                <a href="/blogs">
+                <Link to="/blogs">
               <motion.span
                 className="inline-flex items-center gap-1.5 font-semibold"
                 style={{ color: GOLD }}
@@ -209,7 +210,7 @@ function TiltCard({ project, isHero }) {
               >
                 View Reel <ArrowUpRight className="h-4 w-4" />
               </motion.span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

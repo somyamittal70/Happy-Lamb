@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // Brand tokens
 const BRAND = {
@@ -411,15 +412,15 @@ export default function Footer() {
             <ul className="space-y-3.5">
               {NAV_LINKS.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="group inline-flex items-center gap-2 text-[15px] font-medium text-gray-600 hover:text-black transition-colors"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-transparent group-hover:bg-[#ffba00] transition-colors" />
                     <span className="transition-transform duration-200 group-hover:translate-x-1">
                       {link.label}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -515,8 +516,8 @@ export default function Footer() {
             © {new Date().getFullYear()} Happy Lamb Production. All rights
             reserved.
           </p>
-          <a
-            href="https://deboxtechnology.com"
+          <Link
+            to="https://deboxtechnology.com"
             target="_blank"
             rel="noreferrer"
             className="group inline-flex items-center gap-1.5 hover:text-black transition-colors"
@@ -528,7 +529,7 @@ export default function Footer() {
             <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
               {ICONS.arrowUpRight}
             </span>
-          </a>
+          </Link>
         </motion.div>
       </motion.div>
     </footer>

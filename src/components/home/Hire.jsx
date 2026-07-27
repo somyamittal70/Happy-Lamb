@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ArrowUpRight, CheckCircle2, Film, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const LAMB_GOLD = "#FFC72C";
 
@@ -260,7 +261,7 @@ export default function HireSection() {
               Let's build your brand legacy together.
             </h3>
           </div>
-          <a href="/contact">
+          <Link to="/contact">
           <motion.button
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
@@ -270,7 +271,7 @@ export default function HireSection() {
             Start A Project
             <ArrowUpRight className="w-4 h-4" />
           </motion.button>
-          </a>
+          </Link>
         </div>
 
       </div>

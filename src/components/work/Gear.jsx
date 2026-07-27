@@ -175,13 +175,13 @@ export default function WorkGearDark() {
             </p>
           </div>
 
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-black hover:bg-amber-400 transition-colors shrink-0"
           >
             <span>Request Tech Deck</span>
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
       </div>

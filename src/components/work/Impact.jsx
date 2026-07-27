@@ -164,14 +164,14 @@ export default function WorkImpactLight() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="w-full inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-xs font-bold uppercase tracking-wider transition-colors"
                 style={{ background: GOLD, color: INK }}
               >
                 <span>Start Your Project</span>
                 <ArrowUpRight className="h-4 w-4" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

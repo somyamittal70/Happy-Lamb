@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
   Clock,
@@ -98,13 +99,13 @@ export default function BlogSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <a
-              href="/blogs"
+            <Link
+              to="/blogs"
               className="group inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-[#FFC72C] hover:border-[#FFC72C] hover:shadow-md transition-all duration-300"
             >
               <span>View All Articles</span>
               <ArrowUpRight className="h-4 w-4 text-slate-500 group-hover:text-amber-600 transition-colors" />
-            </a>
+            </Link>
           </motion.div>
         </div>
 
@@ -146,9 +147,9 @@ export default function BlogSection() {
                 </div>
 
                 <h3 className="mt-3 text-2xl sm:text-3xl font-body font-bold text-slate-900 group-hover:text-[#FFC72C] transition-colors leading-snug">
-                  <a href={`/blog/${featuredPost.slug}`}>
+                  <Link to="/blogs">
                     {featuredPost.title}
-                  </a>
+                  </Link>
                 </h3>
 
                 <p className="mt-3 text-sm text-slate-600 leading-relaxed line-clamp-2">
@@ -157,13 +158,13 @@ export default function BlogSection() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
-                <a
-                  href="/blogs"
+                <Link
+                  to="/blogs"
                   className="inline-flex items-center gap-2 text-xs font-bold text-[#FFC72C] hover:text-[#FFC72C]transition-colors"
                 >
                   <span>Read Full Article</span>
                   <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+                </Link>
               </div>
             </div>
           </motion.article>
@@ -198,17 +199,17 @@ export default function BlogSection() {
                     </div>
 
                     <h4 className="mt-2 text-base font-bold text-slate-900 group-hover:text-[#FFC72C] transition-colors leading-snug">
-                      <a href={`/blog/${post.slug}`}>{post.title}</a>
+                      <Link to="/blogs">{post.title}</Link>
                     </h4>
                   </div>
 
-                  <a
-                    href="/blogs"
+                  <Link
+                    to="/blogs"
                     className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 group-hover:text-[#FFC72C]transition-colors"
                   >
                     <span>Read Article</span>
                     <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
               </motion.article>
             ))}

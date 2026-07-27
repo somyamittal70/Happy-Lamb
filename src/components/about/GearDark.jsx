@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Sparkles, Film, Palette, Smartphone, Layers, CheckCircle2, ArrowUpRight } from "lucide-react";
 
 const INK = "#17140F";
@@ -178,14 +179,14 @@ export default function AboutGearDark() {
             </p>
           </div>
 
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="shrink-0 inline-flex items-center gap-2 rounded-md px-6 py-3 text-xs font-bold uppercase tracking-wider transition-all"
             style={{ background: GOLD, color: INK }}
           >
             Start a Project
             <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
