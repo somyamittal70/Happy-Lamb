@@ -202,7 +202,7 @@ function TiltCard({ project, isHero }) {
               style={{ borderTop: `1px solid ${HAIR}`, color: MUTED }}
             >
               <span>Watch the story</span>
-                <Link to="/blogs">
+                <a href="/blogs">
               <motion.span
                 className="inline-flex items-center gap-1.5 font-semibold"
                 style={{ color: GOLD }}
@@ -210,7 +210,7 @@ function TiltCard({ project, isHero }) {
               >
                 View Reel <ArrowUpRight className="h-4 w-4" />
               </motion.span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -316,7 +316,7 @@ export default function FeaturedWork() {
           transition={{ delay: 0.3 }}
           className="mt-20 flex justify-center"
         >
-          <motion.Link
+          <motion.a
             href="/work"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
@@ -325,7 +325,7 @@ export default function FeaturedWork() {
           >
             <span>Explore All Work</span>
             <ArrowUpRight className="h-4 w-4" style={{ color: GOLD }} />
-          </motion.Link>
+          </motion.a>
         </motion.div>
       </div>
     </section>

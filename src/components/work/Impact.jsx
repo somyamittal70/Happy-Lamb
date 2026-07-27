@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Quote, ArrowUpRight, CheckCircle2, ChevronLeft, ChevronRight, Film, Palette, Smartphone } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const INK = "#17140F";
 const GOLD = "#FFC72C";
 

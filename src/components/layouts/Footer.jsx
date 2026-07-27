@@ -389,7 +389,7 @@ export default function Footer() {
                 {SOCIALS.map(({ label, href, icon, bg }) => (
                   <motion.Link
                     key={label}
-                    href={href}
+                    to={href}
                     aria-label={label}
                     target="_blank"
                     rel="noreferrer"

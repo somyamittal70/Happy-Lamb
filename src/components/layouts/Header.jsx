@@ -153,7 +153,7 @@ export default function Header() {
             })}
 
             {/* Call to Action Button */}
-            <motion.Link
+            <motion.a
               href="/contact"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
@@ -163,7 +163,7 @@ export default function Header() {
             >
               <span>Let's Talk</span>
               <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </motion.Link>
+            </motion.a>
           </nav>
 
           {/* Mobile Menu Toggle — animated hamburger, flips to white once the
@@ -227,7 +227,7 @@ export default function Header() {
                 return (
                   <motion.Link
                     key={link.label}
-                    href={link.href}
+                    to={link.href}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
@@ -262,15 +262,15 @@ export default function Header() {
               }}
               className="flex justify-center px-8 pb-10"
             >
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold"
                 style={{ backgroundColor: BRAND.gold, color: BRAND.ink }}
               >
                 <span>Let's Talk</span>
                 <ArrowUpRight className="h-4 w-4" />
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         )}

@@ -171,16 +171,16 @@ export default function AboutLuxury() {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-4 w-full sm:w-auto">
-              <motion.Link
+              <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                to="/about"
+                href="/about"
                 className="inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 text-xs font-bold uppercase tracking-widest text-neutral-950 shadow-md hover:shadow-lg transition-all"
                 style={{ background: LAMB_GOLD_BG }}
               >
                 <span>Explore more</span>
                 <ArrowUpRight className="h-4 w-4" />
-              </motion.Link>
+              </motion.a>
             </div>
           </motion.div>
         </div>

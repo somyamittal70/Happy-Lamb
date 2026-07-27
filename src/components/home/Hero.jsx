@@ -65,7 +65,7 @@ export default function LuxuryHero() {
 
             {/* ACTION BUTTONS */}
             <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-              <motion.Link
+              <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="/blogs"
@@ -74,16 +74,16 @@ export default function LuxuryHero() {
               >
                 <Play className="h-4 w-4 fill-black transition-transform group-hover:scale-110" />
                 <span>Watch Showreel</span>
-              </motion.Link>
+              </motion.a>
 
-              <motion.Link
+              <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="/work"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white/10"
               >
                 <span>View Our Work</span>
-              </motion.Link>
+              </motion.a>
             </div>
           </motion.div>
         </div>

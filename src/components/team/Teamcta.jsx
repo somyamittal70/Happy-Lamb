@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Phone, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const INK = "#000000";
 const GOLD = "#FFC72C";
@@ -57,10 +58,10 @@ export default function TeamCTA() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-10 flex flex-col items-center gap-8"
         >
-          <motion.Link
+          <motion.a
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            to="/contact"
+            href="/contact"
             className="group inline-flex items-center gap-3 rounded-md px-10 py-5 text-sm font-bold font-heading tracking-[0.15em] uppercase transition-shadow shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/15"
             style={{ backgroundColor: GOLD, color: INK }}
           >
@@ -69,7 +70,7 @@ export default function TeamCTA() {
               size={18}
               className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
             />
-          </motion.Link>
+          </motion.a>
 
           {/* Contact Details */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/70 font-medium">

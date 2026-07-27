@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Play, Sparkles, Film, Filter, Clapperboard } from "lucide-react";
-
+import { Link } from "react-router-dom";
 /**
  * Design tokens — grounded in the Happy Lamb Production identity
  */
