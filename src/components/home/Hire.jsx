@@ -65,7 +65,7 @@ export default function HireSection() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-amber-500/10 blur-[180px] rounded-full pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-amber-600/10 blur-[200px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl px-12 mx-auto relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8 border-b border-white/10 pb-10">
@@ -260,7 +260,7 @@ export default function HireSection() {
               Let's build your brand legacy together.
             </h3>
           </div>
-
+          <a href="/contact">
           <motion.button
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
@@ -270,6 +270,7 @@ export default function HireSection() {
             Start A Project
             <ArrowUpRight className="w-4 h-4" />
           </motion.button>
+          </a>
         </div>
 
       </div>

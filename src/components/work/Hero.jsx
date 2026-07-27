@@ -114,7 +114,7 @@ export default function WorkHero() {
               className="pt-4 flex flex-wrap items-center gap-4"
             >
               <a
-                href="#featured-grid"
+                href="/team"
                 className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-[#17140F] shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-transform"
                 style={{ background: LAMB_GOLD }}
               >
@@ -123,7 +123,7 @@ export default function WorkHero() {
               </a>
 
               <a
-                href="#showreel"
+                href="/blogs"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/10 hover:border-amber-400/40 transition-all"
               >
                 <Play className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />

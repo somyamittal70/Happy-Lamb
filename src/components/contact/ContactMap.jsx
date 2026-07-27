@@ -43,7 +43,7 @@ export default function ContactMap() {
       className="relative w-full px-4 py-16 sm:py-24 sm:px-8 lg:px-16 overflow-hidden font-sans"
       style={{ backgroundColor: PALETTE.PAPER }}
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl px-12">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>

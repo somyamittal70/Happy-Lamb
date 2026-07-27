@@ -12,7 +12,7 @@ export default function FeaturedPost() {
         .font-mono { font-family: 'Space Mono', monospace; }
       `}</style>
 
-      <a href="#" className="group block max-w-7xl mx-auto">
+      <a href="#" className="group block max-w-7xl px-12 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center rounded-md overflow-hidden bg-[#1a1715] border border-[#f3eee4]/10">
           {/* image */}
           <div className="relative h-[220px] sm:h-[300px] md:h-[380px] overflow-hidden">

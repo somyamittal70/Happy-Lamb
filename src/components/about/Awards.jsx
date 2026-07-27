@@ -1,82 +1,69 @@
 import { motion } from "framer-motion";
-import { Sparkles, Trophy, Award, ExternalLink, Globe } from "lucide-react";
+import { Sparkles, Film } from "lucide-react";
 
-// Inline SVG Laurels
+// Inline SVG Laurels — kept as a decorative flourish, no longer tied to a fabricated award
 const SVGLaurelLeft = () => (
   <svg className="h-6 w-6 text-amber-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 21C12 21 8 18 5 12C3 8 4 4 4 4C4 4 8 5 12 9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-    <path d="M10 17C10 17 7 14.5 5 10C3.5 7 4 4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M12 21C12 21 8 18 5 12C3 8 4 4 4 4C4 4 8 5 12 9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M10 17C10 17 7 14.5 5 10C3.5 7 4 4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
 const SVGLaurelRight = () => (
   <svg className="h-6 w-6 text-amber-500 scale-x-[-1]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 21C12 21 8 18 5 12C3 8 4 4 4 4C4 4 8 5 12 9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-    <path d="M10 17C10 17 7 14.5 5 10C3.5 7 4 4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M12 21C12 21 8 18 5 12C3 8 4 4 4 4C4 4 8 5 12 9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M10 17C10 17 7 14.5 5 10C3.5 7 4 4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
-// Awards & Honors Data
-const AWARDS = [
+// Real flagship campaigns, pulled from the dossier — no fabricated awards or festivals
+const CAMPAIGN_HIGHLIGHTS = [
   {
-    year: "2025",
-    title: "Best Commercial Cinematography",
-    festival: "Cannes Corporate Media & TV Awards",
-    project: "Porsche GT3 RS: Precision in Motion",
-    category: "Automotive / Spot",
+    client: "ICICI Bank",
+    title: "Mr. India Revival ft. Anil Kapoor",
+    category: "Banking & Culture",
+    note: "Reviving a nostalgic icon to make banking feel modern and trustworthy.",
   },
   {
-    year: "2024",
-    title: "Official Selection & Best Short Documentary",
-    festival: "European Independent Film Festival",
-    project: "Tokyo Cyberpunk After Dark",
-    category: "Documentary Short",
+    client: "Godrej",
+    title: "Home Lockers ft. Madhuri Dixit",
+    category: "Security & Legacy",
+    note: "Exhibiting decades of trust through a dual-lock precision showcase.",
   },
   {
-    year: "2023",
-    title: "Vimeo Staff Pick",
-    festival: "Vimeo Premieres",
-    project: "Echoes in the Desert",
-    category: "Music Video",
+    client: "Bajaj V",
+    title: "Invincible Indians — Real-Life Stories",
+    category: "Documentary Series",
+    note: "Honoring everyday heroes across the country, from Kolkata to rural India.",
   },
   {
-    year: "2022",
-    title: "Best Visual Effects & Color Grading",
-    festival: "International Color Awards",
-    project: "Nordic Expedition Series",
-    category: "Post-Production",
+    client: "JCB India",
+    title: "The Excavator Village Story",
+    category: "Industrial & Growth",
+    note: "A decades-long relationship with Charholi Village, told through real operators.",
   },
 ];
 
-// High Profile Brands
-const BRANDS = [
-  { name: "Sony Alpha Films", logo: "SONY" },
-  { name: "Porsche Global", logo: "PORSCHE" },
-  { name: "National Geographic", logo: "NAT GEO" },
-  { name: "Universal Music", logo: "UNIVERSAL" },
-  { name: "Red Bull Media House", logo: "RED BULL" },
-];
+// Real client roster from the dossier — plain text marks, no logos or images
+const BRANDS = ["ICICI BANK", "GODREJ", "BAJAJ V", "JCB INDIA", "UPSTOX"];
 
 export default function AboutAwardsLight() {
   return (
     <section className="relative w-full bg-[#f8f9fa] text-slate-900 py-24 overflow-hidden border-t border-b border-slate-200">
-      
-      {/* Background Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-md bg-amber-500/10 blur-[180px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 relative z-10">
-        
-        {/* SECTION 1: AWARDS HEADER */}
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-8">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-xs font-bold font-heading uppercase tracking-widest text-amber-600"
+              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-600"
             >
               <Sparkles className="h-3.5 w-3.5" />
-              <span>Industry Recognition</span>
+              <span>Campaign Highlights</span>
             </motion.div>
 
             <motion.h2
@@ -84,9 +71,12 @@ export default function AboutAwardsLight() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-3 text-3xl sm:text-5xl font-bold font-heading  uppercase tracking-tight text-slate-900"
+              className="mt-3 font-black uppercase text-3xl sm:text-5xl tracking-tight text-slate-900"
             >
-              Awards <span>&</span> <span className="text-amber-500">Accolades</span>
+              Work That{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-500 to-amber-600">
+                Speaks For Itself
+              </span>
             </motion.h2>
           </div>
 
@@ -95,15 +85,16 @@ export default function AboutAwardsLight() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-slate-600 max-w-md font-body text-xs sm:text-sm leading-relaxed"
+            className="text-slate-600 max-w-md text-xs sm:text-sm leading-relaxed"
           >
-            Recognized by international film festivals, agency panels, and commercial media boards for cinematography, directing, and post-production color pipelines.
+            A few of the campaigns we're proudest of — spanning banking, security,
+            documentary storytelling, and industrial growth.
           </motion.p>
         </div>
 
-        {/* AWARDS GRID */}
+        {/* Highlights Grid */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {AWARDS.map((award, idx) => (
+          {CAMPAIGN_HIGHLIGHTS.map((item, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
@@ -116,38 +107,36 @@ export default function AboutAwardsLight() {
                 <div className="flex items-center gap-2">
                   <SVGLaurelLeft />
                   <span className="text-xs font-extrabold uppercase tracking-widest text-slate-900">
-                    {award.festival}
+                    {item.client}
                   </span>
                   <SVGLaurelRight />
                 </div>
-                <span className="text-xs font-mono font-bold text-amber-600 bg-amber-500/10 px-3 py-1 rounded-md">
-                  {award.year}
+                <span className="flex items-center gap-1.5 text-xs font-bold text-amber-600 bg-amber-500/10 px-3 py-1 rounded-md">
+                  <Film className="h-3 w-3" />
+                  {item.category}
                 </span>
               </div>
 
               <div className="mt-6">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
-                  {award.category}
-                </span>
-                <h3 className="mt-1 text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
-                  {award.title}
+                <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+                  {item.title}
                 </h3>
-                <p className="mt-2 text-xs font-semibold text-slate-600">
-                  Project: <span className="text-slate-800">{award.project}</span>
+                <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {item.note}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* SECTION 2: CLIENT BRANDS BANNER */}
+        {/* Client Roster */}
         <div className="mt-28 pt-16 border-t border-slate-200">
           <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase  font-heading tracking-widest text-amber-600">
-              Trusted Network
+            <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
+              Trusted By
             </span>
-            <h3 className="mt-2 text-2xl font-bold font-body text-slate-900">
-              Brands & Media Houses
+            <h3 className="mt-2 font-black uppercase text-2xl text-slate-900">
+              Brands We've Worked With
             </h3>
           </div>
 
@@ -155,20 +144,19 @@ export default function AboutAwardsLight() {
             {BRANDS.map((brand, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, opacity: 1 }}
+                initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 className="flex items-center justify-center rounded-md border border-slate-200 bg-white p-6 shadow-xs hover:border-amber-400 transition-colors"
               >
-                <span className="text-sm font-black font-mono tracking-widest text-slate-400 hover:text-slate-900 transition-colors">
-                  {brand.logo}
+                <span className="text-sm font-black tracking-widest text-slate-400 hover:text-slate-900 transition-colors">
+                  {brand}
                 </span>
               </motion.div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
