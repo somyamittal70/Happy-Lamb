@@ -10,7 +10,7 @@ import TestimonialsLight from "../components/home/Testimonial";
 export default function HomePage() {
     return (
         <>
-            <h1>Testing Git</h1>
+            {/* <h1>Testing Git</h1> */}
             <Hero />
             <About />
             <FeaturedWork />
