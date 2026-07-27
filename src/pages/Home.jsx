@@ -8,16 +8,17 @@ import ServicesLight from "../components/home/Services";
 import TestimonialsLight from "../components/home/Testimonial";
 
 export default function HomePage() {
-    return(
+    return (
         <>
-        <Hero />
-        <About />
-        <FeaturedWork />
-        <BlogSection />
-        <ServicesLight />
-        <OurClients />
-        <TestimonialsLight />
-        <HireSection />
+            <h1>Testing Git</h1>
+            <Hero />
+            <About />
+            <FeaturedWork />
+            <BlogSection />
+            <ServicesLight />
+            <OurClients />
+            <TestimonialsLight />
+            <HireSection />
         </>
-    )
+    );
 }
