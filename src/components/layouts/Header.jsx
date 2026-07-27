@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowUpRight, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-
+import { Link } from "react-router-dom";
 // Brand Tokens
 const BRAND = {
   gold: "#ffba00",
@@ -112,9 +112,9 @@ export default function Header() {
               const isHovered = hovered === link.label;
               const show = isActive || isHovered;
               return (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   onMouseEnter={() => setHovered(link.label)}
                   className="relative px-4 py-2 text-[14px] font-medium tracking-wide"
                   style={{ color: isActive ? BRAND.ink : BRAND.slate }}
@@ -153,7 +153,7 @@ export default function Header() {
                       transition={{ duration: 0.2, delay: show ? 0.1 : 0 }}
                     />
                   </div>
-                </a>
+                </Link>
               );
             })}
 
